@@ -1,0 +1,31 @@
+:root{
+    --primary-brend: #9BB537;
+    --primary-bg-color: #F8F8F8;
+    --primary-cards-overlay: linear-gradient(1deg, rgba(5, 5, 5, 0.60) 0%, rgba(5, 5, 5, 0.00) 100%);
+    --primary-title-color: #050505;
+    --primary-text-color: rgba(5, 5, 5, 0.80);
+    --primary-input-title-color: rgba(5, 5, 5, 0.50);
+    --primary-input-text-color: rgba(5, 5, 5, 0.30);
+    --primary-input-border: rgba(5, 5, 5, 0.20);
+    --primary-scroll-bar: rgba(5, 5, 5, 0.18);
+    --rating-stars-active: #EEA10C;
+    --rating-stars-unactive: #D9D9D9;
+    --rating-stars-unactive-cards: rgba(248, 248, 248, 0.10);
+    --rating-stars-unactive-modal: rgba(5, 5, 5, 0.10);
+    --unactive-btn-arrow: rgba(248, 248, 248, 0.50);
+    --primary-switch-btn: #CECDCD;
+ 
+    --dark-bg-color: #161616;
+    --dark-modal-bg: #050505;
+    --dark-cards-overlay: linear-gradient(1deg, #050505 0%, rgba(5, 5, 5, 0.00) 100%);
+    --dark-title-color: #FFFFFF;
+    --dark-text-color: rgba(255, 255, 255, 0.80);
+    --dark-input-title-color: rgba(255, 255, 255, 0.50);
+    --dark-input-text-color: rgba(255, 255, 255, 0.30);
+    --dark-input-border: rgba(255, 255, 255, 0.20);
+    --dark-scroll-bar: rgba(255, 255, 255, 0.18);
+    --dark-rating-stars-unactive: #3C3B3B;
+    --dark-rating-stars-unactive-cards: rgba(255, 255, 255, 0.10);
+    --dark-switch-btn: linear-gradient(91deg, #9BB537 0%, rgba(155, 181, 55, 0.69) 100%);
+    
+ }
