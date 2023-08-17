@@ -1,0 +1,22 @@
+{
+  "name": "tasty-treats",
+  "version": "1.0.0",
+  "description": "project structure: /     docs/         git-convention.md         dev-convention.md     src/         index.html         styles/             index.css <-- для імпортів             root.css             general.css             header.css             main.css             popup-common.css         js/             index.js             popup.js",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnastasiiaPavlovska/tasty-treats-group-11.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnastasiiaPavlovska/tasty-treats-group-11/issues"
+  },
+  "homepage": "https://github.com/AnastasiiaPavlovska/tasty-treats-group-11#readme"
+}
