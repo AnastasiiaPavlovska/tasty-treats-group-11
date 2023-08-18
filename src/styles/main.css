@@ -1,6 +1,21 @@
 @import "./root.css";
+@import "./popular.css";
 
+/* Placing of main */
+main {
+    display: flex;
+    flex-direction: row;
+}
 
+#side-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+}
 
 /* CSS для Category***************************************************** */
 .card-img {
@@ -21,8 +36,6 @@
     height: 198px;
     overflow-y: scroll;
 }
-
-/* ************************************************************************* */
 
 /* CSS для Filter***************************************************** */
 .filter-input {
