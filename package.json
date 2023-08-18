@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.7",
-    "buffer": "^5.7.1"
+    "buffer": "^5.7.1",
+    "parcel-reporter-clean-dist": "^1.0.4"
   }
 }
