@@ -13,26 +13,30 @@
 <body>
     <header></header>
     <main>
-        <section class="main-container">
-            <div class="main-top-filters">
-                <div class="all-categories"></div>
-                <div class="filtes">
-                    <input type="text" class="filter-input">
+        <section class="main-container-filter">
+            <div class="main-categories">
+                <button type="button">All categories</button>
+                <div class="categories-box">
+                    <ul class="category-list"></ul>
+                </div>
+            </div>
+            <div class="main-filters">
+                <div class="filters">
+                    <label for="input">Search</label>
+                    <input type="text" class="filter-input" id="input">
+                    <label for="select-time">Time</label>
+                    <select class="time" id="select-time"></select>
+                    <label for="select-area">Area</label>
+                    <select class="area" id="select-area"></select>
+                    <label for="select-ingredients">Ingredients</label>
+                    <select class="ingrediends" id="select-ingredients"></select>
                 </div>
                 <div class="reset-filters"></div>
             </div>
-            <div class="main-block">
-                <div class="left-side">
-                    <div class="categories-box">
-                        <ul class="category-list"></ul>
-                    </div>
-                    <div class="populars"></div>
+            <div class="content">
+                <div class="cards">
                 </div>
-                <div class="content">
-                    <div class="cards">
-                    </div>
-                    <div class="pagination"></div>
-                </div>
+                <div class="pagination"></div>
             </div>
         </section>
     </main>
