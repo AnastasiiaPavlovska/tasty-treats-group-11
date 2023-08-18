@@ -81,21 +81,6 @@
 }
 
 
-/* .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    overflow-y: hidden;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 200px;
-    height: 100%;
-    background-color: var(--brand-green);
-    transition: opacity 300ms, ;
-    z-index: 11;
-} */
 
 
 /* ------------------------- */
