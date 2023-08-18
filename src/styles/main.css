@@ -1,1 +1,25 @@
 @import "./root.css";
+
+
+
+/* CSS для Category***************************************************** */
+.card-img {
+    max-width: 335px;
+}
+
+.category-btn {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.category-list {
+    padding-left: 0px;
+}
+
+.categories-box {
+    max-width: 326px;
+    height: 198px;
+    overflow-y: scroll;
+}
+
+/* ************************************************************************* */
