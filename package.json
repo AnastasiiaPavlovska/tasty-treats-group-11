@@ -1,8 +1,6 @@
 {
   "name": "tasty-treats",
   "version": "1.0.0",
-  "description": "project structure: /     docs/         git-convention.md         dev-convention.md     src/         index.html         styles/             index.css <-- для імпортів             root.css             general.css             header.css             main.css             popup-common.css         js/             index.js             popup.js",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
@@ -35,6 +33,7 @@
     "vite-plugin-html-info-inject": "^2.0.0"
   },
   "devDependencies": {
-    "@types/lodash.debounce": "^4.0.7"
+    "@types/lodash.debounce": "^4.0.7",
+    "buffer": "^5.7.1"
   }
 }
