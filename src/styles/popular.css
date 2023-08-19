@@ -13,9 +13,7 @@ img{
     height: 100%;
     width: 100%;
 }
-li{
-    list-style: none;
-}
+
 button{
     cursor: pointer;
 }
@@ -23,7 +21,9 @@ button{
     text-decoration: none;
     cursor: pointer;
 }
-
+.populars{
+    width: 235px;
+}
 .popular-recepies-title{
     color: var(--primary-title-color);
     font-family: Inter;
@@ -36,6 +36,9 @@ button{
 }
 .main-popular-recepies{
     width: 235px;
+}
+.popular-recepies-item{
+    list-style: none;
 }
 .popular-recepies-item:not(:last-child){
     margin-bottom: 32px;
