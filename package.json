@@ -5,8 +5,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url ./"
+    "start": "parcel src/*.html src/html/*.html",
+    "build": "parcel build src/*.html src/html/*.html --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "@glidejs/glide": "^3.6.0",
     "axios": "^1.3.4",
     "glob": "^9.3.2",
+    "jquery": "^3.7.0",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
