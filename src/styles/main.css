@@ -1,47 +1,47 @@
-@import "./root.css";
-@import "./popular.css";
+@import './root.css';
+@import './popular.css';
 
 /* Placing of main */
 main {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #side-bar {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /* CSS для Category***************************************************** */
 .card-img {
-    max-width: 335px;
+  max-width: 335px;
 }
 
 .category-btn {
-    background-color: transparent;
-    border-color: transparent;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .category-list {
-    padding-left: 0px;
+  padding-left: 0px;
 }
 
 .categories-box {
-    max-width: 326px;
-    height: 198px;
-    overflow-y: scroll;
+  max-width: 326px;
+  height: 198px;
+  overflow-y: scroll;
 }
 
 /* CSS для Filter***************************************************** */
 .filter-input {
-    max-width: 335px;
+  max-width: 335px;
 }
 
 .filters {
-    display: block;
+  display: block;
 }
