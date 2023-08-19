@@ -10,6 +10,7 @@ export default class TestyApiService {
         this.params.title = '';
         this.params.ingredient = '';
         this.params.area = '';
+        this.params.time = '';
     }
 
     async getCategories() {
@@ -30,7 +31,7 @@ export default class TestyApiService {
     setSearchText(text) {
         this.params.title = text;
     }
-    // 18/08/23*********************
+
     setSearchIngredient(ingredient) {
         this.params.ingredient = ingredient;
     }
@@ -47,7 +48,7 @@ export default class TestyApiService {
         );
         return response.data;
     }
-    // 18/08/23****************************8
+
     async getAreas() {
         const response = await axios.get(
             `${BASE_URL}/areas`
@@ -64,9 +65,8 @@ export default class TestyApiService {
         return response.data;
     }
 
-
+    setSearchTime(time) {
+        this.params.time = time;
+    }
 
 }
-
-
-
