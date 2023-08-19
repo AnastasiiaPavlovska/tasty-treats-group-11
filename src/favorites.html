@@ -3,13 +3,56 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+
     <title>Document</title>
 </head>
 
 <body>
-    <header></header>
-    <main></main>
+    <section id="header-section">
+        <include src="./html/header.html"></include>
+    </section>
+    <section id="hero-section">
+        <include src="./html/hero.html"></include>
+    </section>
+    <section class="favorites-zero">
+        <div class="container">
+            <svg class="favorites-icon">
+                <use href="./img/sprite.svg#fav-icon"></use>
+            </svg>
+
+            <p class="favorites-text">
+                It appears that you haven't added any recipes to your favorites yet.
+                To get started, you can add recipes that you like to your favorites
+                for easier access in the future.
+            </p>
+        </div>
+    </section>
+    <section class="tags">
+        <div class="container tags-container">
+            <ul class="favor-tags-list">
+                <li class="tags-item">
+                    <button class="favorites-tags all-tags active" type="button">
+                        All categories
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="favorites-gallery">
+        <div class="container favorites-gallery-container">
+            <ul class="favorites-list"></ul>
+        </div>
+
+        <div class="container">
+            <div class="pagination-wrapper favor-pagination">
+                <div class="tui-pagination" id="pagination"></div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="./favorites.js"></script>
 </body>
 
 </html>

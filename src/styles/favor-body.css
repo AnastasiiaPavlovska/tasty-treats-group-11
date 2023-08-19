@@ -1,0 +1,41 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--primary-bg-color);
+  transition: 250ms;
+  overflow-x: hidden;
+  transition: 250ms;
+}
+
+.favorites-zero {
+  display: none;
+}
+
+.favorites-zero.active {
+  width: 375px;
+  display: flex;
+  margin: 0 auto;
+  padding: 256px 20px 0;
+}
+
+.container {
+  width: 335px;
+  background: var(--primary-bg-color);
+  transition: 250ms;
+}
+
+.favorites-icon {
+  display: flex;
+  width: 68px;
+  height: 58px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.favorites-text {
+  display: flex;
+  text-align: center;
+  width: 335px;
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 18px;
+}
