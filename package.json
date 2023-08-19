@@ -28,14 +28,13 @@
     "notiflix": "^3.2.6",
     "parcel": "^2.8.3",
     "swiper": "^9.1.1",
-    "tui-pagination": "^3.4.1",
-    "vite": "^4.2.1",
-    "vite-plugin-full-reload": "^1.0.5",
-    "vite-plugin-html-info-inject": "^2.0.0"
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.7",
     "buffer": "^5.7.1",
-    "parcel-reporter-clean-dist": "^1.0.4"
+    "parcel": "^2.6.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4"
   }
 }

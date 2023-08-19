@@ -5,31 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/index.css" />
+    <base href="/">
 
-    <!-- Import jQuery -->
-    <script src="./../node_modules/jquery/dist/jquery.js"></script>
-
-    <!-- Import html document, and place it's content into the given id. -->
-
-    <!-- Import ./html/header.html into "#header-section". -->
-    <script>$(() => { $("#header-section").load("./html/header.html"); });</script>
-
-    <!-- Import ./html/header.html into "#header-section". -->
-    <script>$(() => { $("#hero-section").load("./html/hero.html"); });</script>
-
-    <script type="module" src="./js/index.js" defer></script>
-    <script type="module" src="./js/popup.js" defer></script>
     <title>Document</title>
 </head>
 
 <body>
     <section id="header-section">
-        <!-- loaded from ./html/header.html by jquery-->
+        <include src="./html/header.html"></include>
+    </section>
+    <section id="hero-section">
+        <include src="./html/hero.html"></include>
     </section>
     <main>
-        <section id="hero-section">
-            <!-- loaded from ./html/hero.html by jquery-->
-        </section>
         <section id="side-bar">
             <div id="categories">
                 <button class="all-category-btn" type="button">All categories</button>
@@ -49,29 +37,15 @@
                 </div>
         </section>
         <section id="content">
-            <div id="content-filters">
-                <div class="filters">
-                    <label for="input">Search</label>
-                    <input type="text" class="filter-input" id="input">
-                    <label for="select-time">Time</label>
-                    <select class="time" id="select-time"></select>
-                    <label for="select-area">Area</label>
-                    <select class="area" id="select-area"></select>
-                    <label for="select-ingredients">Ingredients</label>
-                    <select class="ingrediends" id="select-ingredients"></select>
-                </div>
-                <div class="reset-filters"></div>
-            </div>
-            <div id="content-data">
-                <div class="cards">
-                </div>
-                <div class="pagination"></div>
-            </div>
+            <include src="./html/filters-and-content.html"></include>
         </section>
     </main>
-    <script type="module" src="./js/popular.js"></script>
-    <script type="module" src="./js/testyApiService.js"></script>
-    <script type="module" src="./js/main-category.js"></script>
+
+    <script type="module" src="./js/header.js" defer></script>
+    <script type="module" src="./js/popup.js" defer></script>
+    <script type="module" src="./js/popular.js" defer></script>
+    <script type="module" src="./js/testyApiService.js" defer></script>
+    <script type="module" src="./js/main-category.js" defer></script>
 </body>
 
 </html>
