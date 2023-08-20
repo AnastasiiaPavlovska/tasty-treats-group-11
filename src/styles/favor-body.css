@@ -39,3 +39,122 @@ body {
   font-size: 14px;
   line-height: 18px;
 }
+
+.category-list-favourites {
+  display: flex;
+  gap: 18px;
+  
+}
+
+.tags-container {
+  display: flex;
+  gap: 18px;
+}
+
+.favorites-tags {
+    font-weight: 500;
+    font-size: 14px;
+    width: 132px;
+    height: 46px;
+    border-radius: 15px;
+    border-color: rgba(5, 5, 5, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(5, 5, 5, 0.2);
+    background-color: #ffffff;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+.category-btn {
+  font-weight: 500;
+  font-size: 14px;
+  min-width: 91px;
+  height: 46px;
+  border-radius: 15px;
+  border-color: rgba(5, 5, 5, 0.2);
+  display: flex;
+  align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgba(5, 5, 5, 0.2);
+    background-color: #ffffff;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.favourites-list-btn .category-btn:hover {
+  border: none;
+    color: #F8F8F8;
+    background-color: #9BB537;
+}
+.favorites-tags:hover {
+  border: none;
+    color: #F8F8F8;
+    background-color: #9BB537;
+}
+.favourites-list-btn .category-btn:focus {
+  border: none;
+  color: #F8F8F8;
+  background-color: #9BB537;
+}
+.favorites-tags:focus {
+  border: none;
+  color: #F8F8F8;
+  background-color: #9BB537;
+}
+.page-change-favourite {
+}
+.btn-page-change:hover {
+  background-color: #9BB537;
+}
+.btn-page-change {
+  font-weight: 600;
+  font-size: 18px;
+  width: 40px;
+  cursor: pointer;
+    height: 40px;
+    border-radius: 50%;
+    border-color: rgba(5, 5, 5, 0.3);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+.page-change-favourite-list {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  position: fixed;
+    bottom: 5%;
+    left: 50%;
+}
+.btn-num-favourites {
+  display: flex;
+  gap: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.green-btn-favourites {
+  background-color: #9BB537;
+  border: none;
+}
+.dark-btn-favourites {
+background-color: #050505;
+border: none;
+}
+.dark-btn-favourites:hover {
+  background-color: #050505;
+}
+.btn-number-favourite {
+  display: flex;
+}
+
+
