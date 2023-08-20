@@ -1,0 +1,39 @@
+<div class="backdrop is-hidden" data-modal-order>
+    <div class="modal-order">
+      <button type="button" class="modal-close-btn" data-modal-order-close>
+        <svg class="icon-close" width="20" height="20">
+          <use href="/src/img/modal-recipe/modal-recipe.svg#icon-close"></use>
+        </svg>
+      </button>
+      <p class="modal-title">ORDER NOW</p>
+      <form class="modal-form">
+        <div class="modal-field">
+          <label for="user-name" class="label-text">Name</label>
+          <input type="text" name="user-name" class="modal-input" />
+        </div>
+        <div class="modal-field">
+          <label for="user-tel" class="label-text">Phone</label>
+          <input type="tel" name="user-tel" class="modal-input" id="user-tel" />
+        </div>
+        <div class="modal-field">
+          <label for="user-email" class="label-text">Email</label>
+          <input
+            type="email"
+            name="user-email"
+            class="modal-input"
+            id="user-email"
+          />
+        </div>
+        <div class="modal-field-com">
+          <label for="user-comment" class="label-text">Comment</label>
+          <textarea
+            name="user-comment"
+            id="user-comment"
+            class="modal-textarea"
+          ></textarea>
+        </div>
+        <button type="submit" class="modal-button">Send</button>
+      </form>
+    </div>
+  </div>
+</html>
