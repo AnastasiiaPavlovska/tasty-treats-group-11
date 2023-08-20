@@ -4,7 +4,7 @@ var throttle = require('lodash.throttle');
 
 const testyApiService = new TestyApiService();
 const categoryList = document.querySelector('.category-list');
-const content = document.querySelector('.cards');
+const content = document.querySelector('.list-item');
 const inputFilter = document.querySelector('.filter-input');
 const areaFilter = document.querySelector('.area');
 const ingredientsFilter = document.querySelector('.ingrediends');
@@ -12,10 +12,10 @@ const timeFilter = document.querySelector('.time');
 const allCategoryBtn = document.querySelector('.all-category-btn');
 
 for (let i = 5; i <= 120; i += 5) {
-    const opt = document.createElement('option');
-    opt.value = i;
-    opt.innerHTML = i;
-    timeFilter.appendChild(opt);
+  const opt = document.createElement('option');
+  opt.value = i;
+  opt.innerHTML = i + " min";
+  timeFilter.appendChild(opt);
 }
 
 // triggers
@@ -58,9 +58,9 @@ allCategoryBtn.addEventListener('click', function () {
 
 //ОТРИМУЄМО СПИСОК КАТЕГОРІЙ ПРИ ЗАВАНТАЖЕНІ СТОРІНКИ
 testyApiService.getCategories().then(data => {
-    data.forEach(category => {
-        categoryList.innerHTML += `<li><button class="category-btn" data-recipe-category="${category.name}">${category.name}</button></li>`;
-    });
+  data.forEach(category => {
+    categoryList.innerHTML += `<li class="category-item-list"><button class="category-btn" data-recipe-category="${category.name}">${category.name}</button></li>`;
+  });
 });
 
 //ОТРИМУЄМО СПИСОК КРАЇН
@@ -90,9 +90,9 @@ window.onresize = throttle(function () {
 }, 500);
 
 function perPage() {
-    if (window.innerWidth < 768) testyApiService.setPerPage(6);
-    else if (window.innerWidth >= 1280) testyApiService.setPerPage(9);
-    else testyApiService.setPerPage(8);
+  if (window.innerWidth < 768) testyApiService.setPerPage(6);
+  else if (window.innerWidth < 1280) testyApiService.setPerPage(8);
+  else testyApiService.setPerPage(9);
 }
 perPage();
 
