@@ -2,7 +2,7 @@
 @import './popular.css';
 
 /* Placing of main */
-main {
+.main-div {
   display: flex;
   flex-direction: row;
 }
@@ -19,20 +19,20 @@ main {
 
 /* Мобілка**************************************************************** */
 .all-category-btn {
-    width: 176px;
-    height: 50px;
-    padding: 14px 29px;
-    border-radius: 15px;
-    border: 1px, #050505;
-    background-color: transparent;
-    margin-bottom: 24px;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.21;
+  width: 176px;
+  height: 50px;
+  padding: 14px 29px;
+  border-radius: 15px;
+  border: 1px, #050505;
+  background-color: transparent;
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.21;
 }
 
 .item-cards {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 .card-img {
@@ -59,34 +59,34 @@ main {
 }
 
 .filters {
-    display: block;
+  display: block;
 }
 
 /* MIN 768******************************************************* */
 @media screen and (min-width: 768px) {
-    .cards {
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: 16px;
-        column-gap: 16px;
-    }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 16px;
+    column-gap: 16px;
+  }
 
-    .item-cards {
-        margin-bottom: 0px;
-    }
+  .item-cards {
+    margin-bottom: 0px;
+  }
 
-    .card-img {
-        max-width: 240px;
-    }
+  .card-img {
+    max-width: 240px;
+  }
 }
 
 /* MIN 1280******************************************************/
 @media screen and (min-width: 1280px) {
-    .card-img {
-        max-width: 250px;
-    }
+  .card-img {
+    max-width: 250px;
+  }
 
-    .cards {
-        row-gap: 32px;
-    }
+  .cards {
+    row-gap: 32px;
+  }
 }
