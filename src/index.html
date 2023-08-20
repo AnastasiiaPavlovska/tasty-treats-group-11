@@ -1,39 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles/index.css" />
     <base href="/" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
-    <section id="header-section">
-      <include src="./html/header.html"></include>
-    </section>
+<body>
+    <include src="./html/header.html"></include>
     <main>
-      <section id="hero-section">
         <include src="./html/hero.html"></include>
-      </section>
-      <div class="main-div">
-        <section id="side-bar">
-          <div id="categories">
-            <include src="./html/categories.html"></include>
-          </div>
-          <div id="popular">
-            <include src="./html/popular.html"></include>
-          </div>
-        </section>
-        <section id="content">
-          <include src="./html/filters-and-content.html"></include>
-        </section>
-      </div>
+        <div class="main-div">
+            <section id="side-bar">
+                <include src="./html/categories.html"></include>
+                <include src="./html/popular.html"></include>
+            </section>
+            <include src="./html/filters-and-content.html"></include>
+        </div>
     </main>
 
     <script type="module" src="./js/header.js" defer></script>
@@ -45,5 +33,6 @@
     <script type="module" src="./js/modal-give-rating.js" defer></script>
     <script type="module" src="./js/modal-recipe.js" defer></script>
     <script type="module" src="./js/hero-slider.js" defer></script>
-  </body>
+</body>
+
 </html>
