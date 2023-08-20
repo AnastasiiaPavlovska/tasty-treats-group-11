@@ -1,4 +1,7 @@
 import TestyApiService from './testyApiService';
+var debounce = require('lodash.debounce');
+var throttle = require('lodash.throttle');
+
 const testyApiService = new TestyApiService();
 const categoryList = document.querySelector('.category-list');
 const content = document.querySelector('.cards');
@@ -16,11 +19,14 @@ for (let i = 5; i <= 120; i += 5) {
 }
 
 // triggers
-inputFilter.addEventListener('change', function (e) {
-  console.log(e.target.value.trim());
-  testyApiService.setSearchText(e.target.value.trim());
-  renewRecipes();
-});
+inputFilter.addEventListener(
+  'input',
+  debounce(function (e) {
+    console.log(e.target.value.trim());
+    testyApiService.setSearchText(e.target.value.trim());
+    renewRecipes();
+  }, 300)
+);
 
 ingredientsFilter.addEventListener('change', function (e) {
   console.log(e.target.value);
@@ -78,16 +84,30 @@ testyApiService.getIngredients().then(data => {
   });
 });
 
+window.onresize = throttle(function () {
+  perPage();
+  renewRecipes();
+}, 500);
+
+function perPage() {
+  if (window.innerWidth < 768) testyApiService.setPerPage(6);
+  else if (window.innerWidth >= 1280) testyApiService.setPerPage(9);
+  else testyApiService.setPerPage(8);
+}
+perPage();
+
 //ОТРИМУЄМО СПИСОК РЕЦЕПТІВ ПРИ ЗАВАНТАЖЕНІ СТОРІНКИ
 renewRecipes();
 
 // functions
 function renewRecipes() {
-  content.innerHTML = '';
   testyApiService.getRecipes().then(data => {
+    let tmpContent = '';
     data.results.forEach(recipe => {
-      content.innerHTML += `<div><img class="card-img" src="${recipe.preview}"/></div>`;
+      tmpContent += `<li class="item-cards"><img class="card-img" src="${recipe.preview}"/></li>`;
     });
+    content.innerHTML = tmpContent;
     console.log(data);
   });
+  console.log(data);
 }
