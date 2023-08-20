@@ -11,6 +11,6 @@ categoryListFavourite.addEventListener('click', function (e) {
 });
 testyApiService.getCategories().then(data => {
   data.forEach(category => {
-    categoryListFavourite.innerHTML += `<li><button class="category-btn" data-recipe-category="${category.name}">${category.name}</button></li>`;
+    categoryListFavourite.innerHTML += `<li class="favourites-list-btn"><button class="category-btn" data-recipe-category="${category.name}">${category.name}</button></li>`;
   });
 });
