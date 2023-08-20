@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="styles/index.css" />
-    <base href="/">
-
+    <base href="/" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <section id="header-section">
-        <include src="./html/header.html"></include>
+      <include src="./html/header.html"></include>
     </section>
     <section id="hero-section">
-        <include src="./html/hero.html"></include>
+      <include src="./html/hero.html"></include>
     </section>
     <section id="hero-section">
-        <!-- loaded from ./html/hero.html by jquery-->
+      <!-- loaded from ./html/hero.html by jquery-->
     </section>
     <section id="hero-section">
-        <!-- loaded from ./html/hero.html by jquery-->
+      <!-- loaded from ./html/hero.html by jquery-->
     </section>
     <main>
-        <section id="side-bar">
-            <div id="categories">
-                <include src="./html/categories.html"></include>
-            </div>
-            <div id="popular">
-                <include src="./html/popular.html"></include>
-            </div>
-        </section>
-        <section id="content">
-            <include src="./html/filters-and-content.html"></include>
-        </section>
+      <section id="side-bar">
+        <div id="categories">
+          <include src="./html/categories.html"></include>
+        </div>
+        <div id="popular">
+          <include src="./html/popular.html"></include>
+        </div>
+      </section>
+      <section id="content">
+        <include src="./html/filters-and-content.html"></include>
+      </section>
     </main>
 
     <script type="module" src="./js/header.js" defer></script>
@@ -42,6 +45,6 @@
     <script type="module" src="./js/popular.js" defer></script>
     <script type="module" src="./js/testyApiService.js" defer></script>
     <script type="module" src="./js/main-category.js" defer></script>
-</body>
-
+    <script type="module" src="./js/hero-slider.js" defer></script>
+  </body>
 </html>
