@@ -1,38 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+        />
+        <link rel="stylesheet" href="styles/index.css" />
+        <base href="/" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="styles/index.css" />
-    <base href="/" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <title>Document</title>
-</head>
+    <body>
+        <include src="./html/header.html"></include>
+        <main>
+            <include src="./html/hero.html"></include>
+            <div class="main-div">
+                <section id="side-bar">
+                    <include src="./html/categories.html"></include>
+                    <include src="./html/popular.html"></include>
+                </section>
+                <include src="./html/filters-and-content.html"></include>
+            </div>
+        </main>
 
-<body>
-    <include src="./html/header.html"></include>
-    <main>
-        <include src="./html/hero.html"></include>
-        <div class="main-div">
-            <section id="side-bar">
-                <include src="./html/categories.html"></include>
-                <include src="./html/popular.html"></include>
-            </section>
-            <include src="./html/filters-and-content.html"></include>
-        </div>
-    </main>
-
-    <script type="module" src="./js/header.js" defer></script>
-    <script type="module" src="./js/popup.js" defer></script>
-    <script type="module" src="./js/popular.js" defer></script>
-    <script type="module" src="./js/testyApiService.js" defer></script>
-    <script type="module" src="./js/main-category.js" defer></script>
-    <script type="module" src="./js/modal-order-now.js" defer></script>
-    <script type="module" src="./js/modal-give-rating.js" defer></script>
-    <script type="module" src="./js/modal-recipe.js" defer></script>
-    <script type="module" src="./js/hero-slider.js" defer></script>
-</body>
-
+        <script type="module" src="./js/header.js" defer></script>
+        <script type="module" src="./js/popup.js" defer></script>
+        <script type="module" src="./js/popular.js" defer></script>
+        <script type="module" src="./js/testyApiService.js" defer></script>
+        <script type="module" src="./js/main-category.js" defer></script>
+        <script type="module" src="./js/modal-order-now.js" defer></script>
+        <script type="module" src="./js/modal-give-rating.js" defer></script>
+        <script type="module" src="./js/modal-recipe.js" defer></script>
+        <script type="module" src="./js/hero-slider.js" defer></script>
+    </body>
 </html>

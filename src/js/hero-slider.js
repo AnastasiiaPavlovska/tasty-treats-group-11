@@ -4,46 +4,46 @@ import Notiflix from 'notiflix';
 
 import { Report } from 'notiflix/build/notiflix-report-aio';
 const tastyTreats = axios.create({
-  baseURL: 'https://tasty-treats-backend.p.goit.global/api',
+    baseURL: 'https://tasty-treats-backend.p.goit.global/api',
 });
 const images = document.querySelector('.images');
 
 async function getAllEvents() {
-  const response = await tastyTreats.get('/events');
-  return response;
+    const response = await tastyTreats.get('/events');
+    return response;
 }
 
 getAllEvents()
-  .then(({ data }) => {
-    console.log(data);
-    const markup = createMarkup(data);
-    images.insertAdjacentHTML('beforeend', markup);
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      autoplay: {
-        delay: 2400,
-        disableOnInteraction: false,
-      },
-      mousewheel: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  })
-  .catch(onError);
+    .then(({ data }) => {
+        console.log(data);
+        const markup = createMarkup(data);
+        images.insertAdjacentHTML('beforeend', markup);
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: {
+                delay: 2400,
+                disableOnInteraction: false,
+            },
+            mousewheel: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    })
+    .catch(onError);
 
 function onError() {
-  Notiflix.Report.warning('ERROR', 'Oops, something went wrong', 'CLOSE', {
-    width: '360px',
-    svgSize: '120px',
-  });
+    Notiflix.Report.warning('ERROR', 'Oops, something went wrong', 'CLOSE', {
+        width: '360px',
+        svgSize: '120px',
+    });
 }
 
 function createMarkup(events) {
-  return events
-    .map(({ cook, topic: { name, area, imgUrl, previewUrl } }) => {
-      const markup = `
+    return events
+        .map(({ cook, topic: { name, area, imgUrl, previewUrl } }) => {
+            const markup = `
 <div class="swiper-container swiper-slide">
   <div class="image cook">
    <img  src="${cook.imgUrl}" alt="${cook.name}">
@@ -60,7 +60,7 @@ function createMarkup(events) {
     </div>
 </div>
   `;
-      return markup;
-    })
-    .join('');
+            return markup;
+        })
+        .join('');
 }

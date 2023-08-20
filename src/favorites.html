@@ -1,73 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="/" />
+        <link rel="stylesheet" href="../src/styles/favor-body.css" />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/">
-    <link rel="stylesheet" href="../src/styles/favor-body.css" />
-    <title>Document</title>
-</head>
+    <body>
+        <section id="header-section">
+            <include src="./html/header.html"></include>
+        </section>
+        <section id="hero-section">
+            <include src="./html/hero.html"></include>
+        </section>
+        <section class="favorites-zero">
+            <div class="container">
+                <svg class="favorites-icon">
+                    <use href="./img/sprite.svg#fav-icon"></use>
+                </svg>
 
-<body>
-    <section id="header-section">
-        <include src="./html/header.html"></include>
-    </section>
-    <section id="hero-section">
-        <include src="./html/hero.html"></include>
-    </section>
-    <section class="favorites-zero">
-        <div class="container">
-            <svg class="favorites-icon">
-                <use href="./img/sprite.svg#fav-icon"></use>
-            </svg>
-
-
-            
-            <!-- <p class="favorites-text">
+                <!-- <p class="favorites-text">
                 It appears that you haven't added any recipes to your favorites yet.
                 To get started, you can add recipes that you like to your favorites
                 for easier access in the future.
             </p> -->
-        </div>
-    </section>
-    <section class="tags">
-        <div class="container tags-container">
-            <ul class="favor-tags-list">
-                <li class="tags-item">
-                    <button class="favorites-tags all-tags active" type="button">
-                        All categories
-                    </button>
+            </div>
+        </section>
+        <section class="tags">
+            <div class="container tags-container">
+                <ul class="favor-tags-list">
+                    <li class="tags-item">
+                        <button
+                            class="favorites-tags all-tags active"
+                            type="button"
+                        >
+                            All categories
+                        </button>
+                    </li>
+                </ul>
+                <div class="categories-box-favourites">
+                    <ul class="category-list-favourites"></ul>
+                </div>
+            </div>
+        </section>
+        <section class="favorites-gallery">
+            <div class="container favorites-gallery-container">
+                <ul class="favorites-list"></ul>
+            </div>
+
+            <div class="container">
+                <div class="pagination-wrapper favor-pagination">
+                    <div class="tui-pagination" id="pagination"></div>
+                </div>
+            </div>
+            <ul class="page-change-favourite-list">
+                <li class="page-change-favourite">
+                    <button
+                        class="btn-page-change dark-btn-favourites"
+                    ></button>
+                </li>
+                <li class="page-change-favourite">
+                    <button
+                        class="btn-page-change dark-btn-favourites"
+                    ></button>
+                </li>
+                <div class="btn-num-favourites">
+                    <li class="page-change-favourite">
+                        <button class="btn-page-change">1</button>
+                    </li>
+                    <li class="page-change-favourite">
+                        <button class="btn-page-change">2</button>
+                    </li>
+                    <li class="page-change-favourite">
+                        <button class="btn-page-change">...</button>
+                    </li>
+                </div>
+                <li class="page-change-favourite">
+                    <button
+                        class="btn-page-change green-btn-favourites"
+                    ></button>
+                </li>
+                <li class="page-change-favourite">
+                    <button
+                        class="btn-page-change green-btn-favourites"
+                    ></button>
                 </li>
             </ul>
-            <div class="categories-box-favourites">
-                <ul class="category-list-favourites"></ul>
-            </div>
-        </div>
-    </section>
-    <section class="favorites-gallery">
-        <div class="container favorites-gallery-container">
-            <ul class="favorites-list"></ul>
-        </div>
-
-        <div class="container">
-            <div class="pagination-wrapper favor-pagination">
-                <div class="tui-pagination" id="pagination"></div>
-            </div>
-        </div>
-        <ul class="page-change-favourite-list">
-            <li class="page-change-favourite"> <button class="btn-page-change dark-btn-favourites"></button></li>
-            <li class="page-change-favourite"> <button class="btn-page-change dark-btn-favourites"></button></li>
-<div class="btn-num-favourites">
-            <li class="page-change-favourite"> <button class="btn-page-change">1</button></li>
-            <li class="page-change-favourite"> <button class="btn-page-change">2</button></li>
-            <li class="page-change-favourite"> <button class="btn-page-change">...</button></li>
-</div>
-            <li class="page-change-favourite"> <button class="btn-page-change green-btn-favourites"></button></li>
-            <li class="page-change-favourite"> <button class="btn-page-change green-btn-favourites"></button></li>
-        </ul>
-    </section>
-    <script type="module" src="./favorites.js"></script>
-</body>
+        </section>
+        <script type="module" src="./favorites.js"></script>
+    </body>
 </html>

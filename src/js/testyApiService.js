@@ -14,9 +14,7 @@ export default class TestyApiService {
     }
 
     async getCategories() {
-        const response = await axios.get(
-            `${BASE_URL}/categories`
-        );
+        const response = await axios.get(`${BASE_URL}/categories`);
         return response.data;
     }
 
@@ -40,33 +38,25 @@ export default class TestyApiService {
     }
 
     async getRecipes() {
-        const response = await axios.get(
-            `${BASE_URL}/recipes`
-            , {
-                params: this.params
-            }
-        );
+        const response = await axios.get(`${BASE_URL}/recipes`, {
+            params: this.params,
+        });
         return response.data;
     }
 
     async getAreas() {
-        const response = await axios.get(
-            `${BASE_URL}/areas`
-        );
-        console.log(response.data)
+        const response = await axios.get(`${BASE_URL}/areas`);
+        console.log(response.data);
         return response.data;
     }
 
     async getIngredients() {
-        const response = await axios.get(
-            `${BASE_URL}/ingredients`
-        );
-        console.log(response.data)
+        const response = await axios.get(`${BASE_URL}/ingredients`);
+        console.log(response.data);
         return response.data;
     }
 
     setSearchTime(time) {
         this.params.time = time;
     }
-
 }

@@ -5,27 +5,27 @@ const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 const popularRecepies = document.querySelector('.js-popular-recepies');
 
 async function getPopularRecipes() {
-  try {
-    const response = await axios.get(`${BASE_URL}/recipes/popular`);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
+    try {
+        const response = await axios.get(`${BASE_URL}/recipes/popular`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }
 
 getPopularRecipes()
-  .then(data => {
-    popularRecepies.innerHTML = createMarkupPopularRecepies(data);
-    console.log(data);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+    .then(data => {
+        popularRecepies.innerHTML = createMarkupPopularRecepies(data);
+        console.log(data);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 function createMarkupPopularRecepies(arr) {
-  return arr
-    .map(
-      ({ preview, title, description, popularity, _id }) => `
+    return arr
+        .map(
+            ({ preview, title, description, popularity, _id }) => `
       <li class="popular-recepies-item">
         <a href="" class="popular-recepies-link link">
           <div class="thomb-popular-wrap">
@@ -42,6 +42,6 @@ function createMarkupPopularRecepies(arr) {
       </li>
        
   `
-    )
-    .join('');
+        )
+        .join('');
 }
