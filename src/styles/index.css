@@ -1,8 +1,9 @@
+@import './general.css';
 @import './header.css';
+@import './hero.css';
 @import './main.css';
 @import './popup-common.css';
 @import './popular.css';
 @import './modal-give-rating.css';
 @import './modal-order-now.css';
 @import './modal-recipe.css';
-@import './hero.css';
