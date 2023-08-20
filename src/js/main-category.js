@@ -109,5 +109,4 @@ function renewRecipes() {
     content.innerHTML = tmpContent;
     console.log(data);
   });
-  console.log(data);
 }
