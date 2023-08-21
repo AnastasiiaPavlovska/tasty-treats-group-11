@@ -27,6 +27,7 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
+/* ----MAIN STYLES POPULAR RECEPIES */
 .populars {
     width: 235px;
 }
@@ -44,6 +45,7 @@ button {
     width: 235px;
 }
 .popular-recepies-item {
+    cursor: pointer;
     list-style: none;
 }
 .popular-recepies-item:not(:last-child) {
@@ -87,5 +89,107 @@ button {
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
-    line-height: 14px; /* 140% */
+    line-height: 1.4; /* 140% */
 }
+
+/* ----------STYLES FOR MODAL-BACDROPE POPULAR REEPIES */
+body.no-scroll{
+    overflow: hidden;  
+}
+.js-modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .2s;
+    pointer-events: none;
+ }
+ .js-modal.is-active{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+ }
+.modal-bg {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    padding: 10px;
+    background-color: var(--primary-input-title-color);
+}
+.modal-body {
+    position: relative;
+    width: 531px;
+    margin: auto;
+    border-radius: 15px;
+    background-color: var(--dark-title-color);
+    padding: 32px;
+    position: relative;
+    z-index: 20;
+}
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+.modal-close-btn{
+    border: none;
+    cursor: pointer;
+}
+.modal-content {
+}
+.modal-recepi-title {
+    margin-bottom: 16px;
+}
+.recepi-video-wrap {
+    margin-bottom: 16px;
+}
+.recepi-tags-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.recepi-tags-list {
+    display: flex;
+}
+.recepi-tags-item {
+}
+.recepi-tags-btn {
+}
+.recepi-rating-wrap {
+    display: flex;
+}
+.recepi-rating-value {
+}
+.rating-stars-wrap {
+}
+.rating-start-item {
+}
+.recepi-time-cook {
+}
+.recepi-ingredients-list {
+    margin-bottom: 32px;
+}
+.recepi-ingredients-item {
+    display: flex;
+    justify-content: space-between;
+}
+.ingredient-name {
+}
+.ingredient-mesure {
+}
+.modal-recepi-description {
+    margin-bottom: 32px;
+}
+.modal-recepi-buttons {
+}
+.add-favorit {
+}
+.give-rating {
+}
+
+
