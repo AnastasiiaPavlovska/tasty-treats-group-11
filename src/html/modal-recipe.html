@@ -9,40 +9,104 @@
                 <use
                     href="/src/img/modal-recipe/modal-recipe.svg#icon-close"
                 ></use>
-                <!-- <use href="./img/sprite.svg#icon-x"></use> -->
+                <!-- <use href="/src/img/sprite.svg#icon-x"></use> -->
             </svg>
         </button>
         <div class="modal-wrap-recipe">
-            <div class="recipe-video-wrap">
-                <img
-                    class="recipe-image"
-                    src="/src/img/modal-recipe/default-image.jpg"
-                    alt="Recipe video"
-                    width="295"
-                    height="295"
-                />
-            </div>
-            <h3 class="selected-recipe-name">RECIPE NAME</h3>
-            <div class="rating-wrap-recipe">
-                <div class="rating-recipe" id="rating-container">
-                    <span class="rating-number-recipe">4.5</span>
-                    <span class="star" data-rating="1">
-                        <use href="/src/img/sprite.svg#icon-Star-1"></use>
-                    </span>
-                    <span class="star" data-rating="2">
-                        <use href="/src/img/sprite.svg#icon-Star-1"></use>
-                    </span>
-                    <span class="star" data-rating="3">
-                        <use href="/src/img/sprite.svg#icon-Star-1"></use>
-                    </span>
-                    <span class="star" data-rating="4">
-                        <use href="/src/img/sprite.svg#icon-Star-1"></use>
-                    </span>
-                    <span class="star" data-rating="5">
-                        <use href="/src/img/sprite.svg#icon-Star-1"></use>
-                    </span>
+            <div class="block1-wrap">
+                <div class="recipe-video-wrap">
+                    <img
+                        class="recipe-image"
+                        src="/src/img/modal-recipe/default-image.jpg"
+                        alt="Recipe video"
+                        width="295"
+                        height="295"
+                    />
                 </div>
-                <span class="cooking-time">40 min</span>
+                <h3 class="selected-recipe-name">RECIPE NAME</h3>
+            </div>
+            <div class="block2-wrap">
+                <ul class="tags-1">
+                    <li class="tag-item">
+                        <button class="btn-tag" type="button">
+                            #Breakfast
+                        </button>
+                    </li>
+                    <li class="tag-item">
+                        <button class="btn-tag" type="button">#Desert</button>
+                    </li>
+                    <li class="tag-item">
+                        <button class="btn-tag" type="button">#Sweet</button>
+                    </li>
+                </ul>
+                <div class="rating-wrap-recipe">
+                    <!-- <div class="rating-recipe" id="rating-container"> -->
+                    <span class="rating-number-recipe">4.5</span>
+                    <ul class="stars">
+                        <li>
+                            <svg
+                                class="star"
+                                data-rating="1"
+                                width="16"
+                                height="16"
+                            >
+                                <use
+                                    href="/src/img/sprite.svg#icon-Star-1"
+                                ></use>
+                            </svg>
+                        </li>
+                        <li>
+                            <svg
+                                class="star"
+                                data-rating="2"
+                                width="16"
+                                height="16"
+                            >
+                                <use
+                                    href="/src/img/sprite.svg#icon-Star-1"
+                                ></use>
+                            </svg>
+                        </li>
+                        <li>
+                            <svg
+                                class="star"
+                                data-rating="3"
+                                width="16"
+                                height="16"
+                            >
+                                <use
+                                    href="/src/img/sprite.svg#icon-Star-1"
+                                ></use>
+                            </svg>
+                        </li>
+                        <li>
+                            <svg
+                                class="star"
+                                data-rating="4"
+                                width="16"
+                                height="16"
+                            >
+                                <use
+                                    href="/src/img/sprite.svg#icon-Star-1"
+                                ></use>
+                            </svg>
+                        </li>
+                        <li>
+                            <svg
+                                class="star"
+                                data-rating="5"
+                                width="16"
+                                height="16"
+                            >
+                                <use
+                                    href="/src/img/sprite.svg#icon-Star-1"
+                                ></use>
+                            </svg>
+                        </li>
+                    </ul>
+                    <!-- </div> -->
+                    <span class="cooking-time">40 min</span>
+                </div>
             </div>
             <ul class="ingredients">
                 <li class="ingredient-item">
@@ -64,7 +128,7 @@
                     Raspberries<span class="ingredient-amount">1 large</span>
                 </li>
             </ul>
-            <ul class="tags">
+            <ul class="tags-2">
                 <li class="tag-item">
                     <button class="btn-tag" type="button">#Breakfast</button>
                 </li>
