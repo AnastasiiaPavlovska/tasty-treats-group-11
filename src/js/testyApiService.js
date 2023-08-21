@@ -11,6 +11,7 @@ export default class TestyApiService {
         this.params.ingredient = '';
         this.params.area = '';
         this.params.time = '';
+        this.params.page = 1;
     }
 
     async getCategories() {
@@ -58,5 +59,9 @@ export default class TestyApiService {
 
     setSearchTime(time) {
         this.params.time = time;
+    }
+
+    setPage(number) {
+        this.params.page = Number(number);
     }
 }

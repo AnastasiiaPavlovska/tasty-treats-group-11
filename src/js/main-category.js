@@ -33,6 +33,7 @@ ingredientsFilter.addEventListener('change', function (e) {
     testyApiService.setSearchIngredient(e.target.value);
     renewRecipes();
 });
+
 areaFilter.addEventListener('change', function (e) {
     console.log(e.target.selectedOptions[0].dataset.param);
     testyApiService.setSearchArea(e.target.selectedOptions[0].dataset.param);
@@ -104,45 +105,63 @@ function renewRecipes() {
     testyApiService.getRecipes().then(data => {
         let tmpContent = '';
         data.results.forEach(recipe => {
-            tmpContent += `<li class="item-cards"><img class="card-img" src="${recipe.preview}"/></li>`;
+            tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/></li>`;
         });
         content.innerHTML = tmpContent;
+        const container = document.querySelector('.pagination');
+        pagination(data.page, data.totalPages, container, renewRecipes);
         console.log(data);
     });
 }
 
-function pagination(page, total) {
-    const paginButtons = document.querySelector('.pagination');
+function pagination(page, total, container, callback) {
+    page = Number(page);
+    total = Number(total);
+    let btns = window.innerWidth < 768 ? 2 : 3;
+    console.log(page, total);
+
     if (total > 1) {
+        container.innerHTML = '';
         if (page === 1) {
             // inactive prev b
-            // pagination.innerHTML += `<button class="main-pag-btn"><<</button>`;
-            //pagination.innerHTML += `<button class="main-pag-btn"><</button>`;
+            container.innerHTML += `<button class="main-pag-btn" disabled><<</button>`;
+            container.innerHTML += `<button class="main-pag-btn" disabled><</button>`;
         } else {
             // active prev b
-            paginButtons.innerHTML += `<button class="main-pag-btn"><<</button>`;
-            paginButtons.innerHTML += `<button class="main-pag-btn"><</button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="1"><<</button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page - 1}"><</button>`;
         }
-        for (let i = page - 3; i < page + 3; i++) {
+        for (let i = page - btns; i <= page + btns; i++) {
             if (i > 0 && i <= total) {
                 if (i === page) {
                     //current page b
-                    paginButtons.innerHTML += `<button class="main-pag-btn">_${i}_</button>`;
+                    container.innerHTML += `<button class="main-pag-btn main-pag-btn-green active"  data-topage="${i}">_${i}_</button>`;
+                } else if (i === page + btns || i === page - btns) {
+                    //other pages b
+                    container.innerHTML += `<button class="main-pag-btn" data-topage="${i}">...</button>`;
                 } else {
                     //other pages b
-                    paginButtons.innerHTML += `<button class="main-pag-btn">${i}</button>`;
+                    container.innerHTML += `<button class="main-pag-btn" data-topage="${i}">${i}</button>`;
                 }
             }
         }
         if (page === total) {
             // inactive forward b
-            pagination.innerHTML += `<button class="main-pag-btn">></button>`;
-            //   pagination.innerHTML += `<button class="main-pag-btn">>></button>`;
+            container.innerHTML += `<button class="main-pag-btn" disabled>></button>`;
+            container.innerHTML += `<button class="main-pag-btn" disabled>>></button>`;
         } else {
             // active forward b
-            pagination.innerHTML += `<button class="main-pag-btn">></button>`;
-            pagination.innerHTML += `<button class="main-pag-btn">>></button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page + 1}">></button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${total}">>></button>`;
         }
+        container.querySelectorAll("[data-topage]").forEach(btn => {
+          /* console.log(btn.dataset.topage) */;
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                testyApiService.setPage(Number(e.target.dataset.topage));
+                callback();
+            });
+        });
     }
 }
 // const buttonPag = document.querySelectorAll('.main-pag-btn');
