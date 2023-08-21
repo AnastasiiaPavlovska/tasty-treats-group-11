@@ -3,224 +3,222 @@
 
 /* Placing of main */
 .main-div {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 #side-bar {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 #content {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* START********************************************************************************* */
 /* Категорії */
 .all-category-btn {
-  width: 176px;
-  height: 50px;
-  padding: 14px 29px;
-  border-radius: 15px;
-  border: 1px, #050505;
-  background-color: transparent;
-  margin-bottom: 24px !important;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.21;
-  text-wrap: nowrap;
+    width: 176px;
+    height: 50px;
+    padding: 14px 29px;
+    border-radius: 15px;
+    border: 1px, #050505;
+    background-color: transparent;
+    margin-bottom: 24px !important;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.21;
+    text-wrap: nowrap;
 }
 
 .categories-box {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .category-item-list:not(:last-child) {
-  margin-bottom: 18px;
+    margin-bottom: 18px;
 }
 
 .category-btn {
-  background-color: transparent;
-  border-color: transparent;
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .category-list {
-  padding-left: 0px;
+    padding-left: 0px;
 }
 
 .categories-box {
-  max-width: 326px;
-  height: 198px;
-  overflow-y: scroll;
+    max-width: 326px;
+    height: 198px;
+    overflow-y: scroll;
 }
 
 .filter-item {
-  color: #050505;
-  border: 1px solid #05050533;
-  border-radius: 15px;
-  gap: 40px;
-  padding: 14px 18px;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  display: inline-flex;
+    color: #050505;
+    border: 1px solid #05050533;
+    border-radius: 15px;
+    gap: 40px;
+    padding: 14px 18px;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: inline-flex;
 }
 
 /* Фото рецептів */
 .list-item {
-  margin: 0 auto !important;
+    margin: 0 auto !important;
 }
 
 .item-cards:not(:last-child) {
-  margin-bottom: 18px;
+    margin-bottom: 18px;
 }
 
 .card-img {
-  max-width: 335px;
+    max-width: 335px;
 }
 
 /* Фільтри */
 .filters {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .filter-area {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .filter-input {
-  max-width: 335px;
+    max-width: 335px;
 }
 
 .time {
-  width: 159px;
+    width: 159px;
 }
 
 .area {
-  width: 160px;
+    width: 160px;
 }
 
 .ingrediends {
-  width: 188px;
+    width: 188px;
 }
 
 .ingrediends-box {
-  margin-bottom: 14px;
+    margin-bottom: 14px;
 }
 
 .label {
-  margin-bottom: 8px;
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.17;
+    margin-bottom: 8px;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
 }
 
 /* MIN 375**************************************************************** */
 @media screen and (min-width: 375px) {
-  #content {
-    width: 335px;
-  }
+    #content {
+        width: 335px;
+    }
 
-  .filter-input {
-    width: 335px;
-  }
+    .filter-input {
+        width: 335px;
+    }
 
-  .list-item {
-    margin: 0 auto !important;
-    width: 335px;
-  }
+    .list-item {
+        margin: 0 auto !important;
+        width: 335px;
+    }
 }
 
 /* MIN 768******************************************************* */
 @media screen and (min-width: 768px) {
+    /* Категорії */
+    #content {
+        width: 496px;
+    }
 
-  /* Категорії */
-  #content {
-    width: 496px;
-  }
+    #categories {
+        margin-right: 32px;
+    }
 
-  #categories {
-    margin-right: 32px;
-  }
+    .all-category-btn {
+        margin-bottom: 30px;
+    }
 
-  .all-category-btn {
-    margin-bottom: 30px;
-  }
+    .categories-box {
+        margin-bottom: 64px;
+    }
 
-  .categories-box {
-    margin-bottom: 64px;
-  }
+    .category-item-list:not(:last-child) {
+        margin-bottom: 24px;
+    }
 
-  .category-item-list:not(:last-child) {
-    margin-bottom: 24px;
-  }
+    /* Фото рецептів */
+    .list-item {
+        display: flex;
+        flex-wrap: wrap;
+        width: 496px;
+        row-gap: 16px;
+        column-gap: 16px;
+    }
 
-  /* Фото рецептів */
-  .list-item {
-    display: flex;
-    flex-wrap: wrap;
-    width: 496px;
-    row-gap: 16px;
-    column-gap: 16px;
-  }
+    .item-cards:not(:last-child) {
+        margin-bottom: 0px;
+    }
 
-  .item-cards:not(:last-child) {
-    margin-bottom: 0px;
-  }
+    .card-img {
+        max-width: 240px;
+    }
 
-  .card-img {
-    max-width: 240px;
-  }
+    /* Фільтри */
+    .filter-input {
+        width: 278px;
+    }
 
-  /* Фільтри */
-  .filter-input {
-    width: 278px;
-  }
+    .time {
+        width: 125px;
+    }
 
-  .time {
-    width: 125px;
-  }
-
-  .area {
-    width: 141px;
-  }
+    .area {
+        width: 141px;
+    }
 }
 
 .filters {
-  gap: 16px;
+    gap: 16px;
 }
 
 .label {
-  font-size: 14px;
-  line-height: 1.29;
+    font-size: 14px;
+    line-height: 1.29;
 }
 
 /* MIN 1280******************************************************/
 @media screen and (min-width: 1280px) {
+    /* Категорії */
+    #content {
+        width: 782px;
+    }
 
-  /* Категорії */
-  #content {
-    width: 782px;
-  }
+    .all-category-btn {
+        margin-bottom: 42px;
+    }
 
-  .all-category-btn {
-    margin-bottom: 42px;
-  }
+    /* Фото рецептів */
+    .card-img {
+        max-width: 250px;
+    }
 
-  /* Фото рецептів */
-  .card-img {
-    max-width: 250px;
-  }
-
-  .list-item {
-    row-gap: 32px;
-    width: 782px;
-  }
+    .list-item {
+        row-gap: 32px;
+        width: 782px;
+    }
 }

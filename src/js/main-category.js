@@ -14,7 +14,7 @@ const allCategoryBtn = document.querySelector('.all-category-btn');
 for (let i = 5; i <= 120; i += 5) {
     const opt = document.createElement('option');
     opt.value = i;
-    opt.innerHTML = i + " min";
+    opt.innerHTML = i + ' min';
     timeFilter.appendChild(opt);
 }
 
@@ -110,8 +110,6 @@ function renewRecipes() {
         console.log(data);
     });
 }
-
-
 
 function pagination(page, total) {
     const paginButtons = document.querySelector('.pagination');
