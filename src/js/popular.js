@@ -1,34 +1,35 @@
-import axios from "axios";
+import axios from 'axios';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
 const popularRecepies = document.querySelector('.js-popular-recepies');
 const body = document.body;
 
-
 // Функція отримання популярних рецептів з бекенду
 async function getRecipes() {
-  try{
-      const response = await axios.get(`${BASE_URL}/recipes/popular`);
-      // console.log(response);
-      return response.data;
-      
-
-  } catch (error) {
-      console.log(error);
-            throw error;
-  }
-} 
-getRecipes().then(data => {
-  popularRecepies.innerHTML = createMarkupPopularRecepies(data);
-    console.log(data);
-}).catch(err => {
-    console.log(err)
-})
+    try {
+        const response = await axios.get(`${BASE_URL}/recipes/popular`);
+        // console.log(response);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+getRecipes()
+    .then(data => {
+        popularRecepies.innerHTML = createMarkupPopularRecepies(data);
+        console.log(data);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
 // Функція відмалювання популярних рецептів за данних отриманних з беку
 function createMarkupPopularRecepies(arr) {
-  return arr.map(({ preview, title, description, _id }) => `
+    return arr
+        .map(
+            ({ preview, title, description, _id }) => `
       <li class="popular-recepies-item" data-id="${_id}">
           <div class="thomb-popular-wrap">
             <div class="thomb-popular-img">
@@ -41,8 +42,9 @@ function createMarkupPopularRecepies(arr) {
           </div>
       </li>
        
-  `).join('');
-  
+  `
+        )
+        .join('');
 }
 
 // Вішаемо слухач подій на список популярних рецептів
@@ -51,33 +53,55 @@ popularRecepies.addEventListener('click', openModalOnClick);
 // Функція відкриття модалки по кліку на обраний популярний рецепт
 function openModalOnClick(evt) {
     evt.preventDefault();
-    
+
     const resepieID = evt.target.closest('.popular-recepies-item').dataset.id;
-    openModal(resepieID);   
+    openModal(resepieID);
 }
 function openModal(id) {
-  fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${id}`)
-    .then(response => response.json())
-    .then(recipe => {
-      // Отримуемо з бекенду рецепт за обраним ID
-      const { title, description, area, category, preview, rating, time, youtube, ingredients: { desc, id, measure, name }, tags } = recipe;
-      console.log(recipe);
-      console.log(description);
-     
-      createModalRecepieById(recipe);
-      body.classList.add('no-scroll');
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${id}`)
+        .then(response => response.json())
+        .then(recipe => {
+            // Отримуемо з бекенду рецепт за обраним ID
+            const {
+                title,
+                description,
+                area,
+                category,
+                preview,
+                rating,
+                time,
+                youtube,
+                ingredients: { desc, id, measure, name },
+                tags,
+            } = recipe;
+            console.log(recipe);
+            console.log(description);
+
+            createModalRecepieById(recipe);
+            body.classList.add('no-scroll');
+        })
+        .catch(error => {
+            console.log(error);
+        });
 }
 
 // Функція відмальовки модального вікна обриного рецепту
-function createModalRecepieById({ title, description, area, category, preview, rating, time, youtube, ingredients: { desc, id, measure, name }, tags }) {
-     const divModalBackdrop = document.createElement('div');
-      divModalBackdrop.classList.add('js-modal');
-      divModalBackdrop.classList.add('is-active');
-      divModalBackdrop.innerHTML = `
+function createModalRecepieById({
+    title,
+    description,
+    area,
+    category,
+    preview,
+    rating,
+    time,
+    youtube,
+    ingredients: { desc, id, measure, name },
+    tags,
+}) {
+    const divModalBackdrop = document.createElement('div');
+    divModalBackdrop.classList.add('js-modal');
+    divModalBackdrop.classList.add('is-active');
+    divModalBackdrop.innerHTML = `
       <div class="modal-bg">
         <div class="modal-body">
             <div class="modal-close">
@@ -143,30 +167,31 @@ function createModalRecepieById({ title, description, area, category, preview, r
         </div>
     </div>
       `;
-      document.body.appendChild(divModalBackdrop);
+    document.body.appendChild(divModalBackdrop);
     //    Створюємо змінну кнопки для модалки і віщаємо обробку події закриття модалки
-      const modalCloseBtn = divModalBackdrop.querySelector('.modal-close-btn');
-      modalCloseBtn.addEventListener('click', closeModal);
+    const modalCloseBtn = divModalBackdrop.querySelector('.modal-close-btn');
+    modalCloseBtn.addEventListener('click', closeModal);
 }
 // Функція закриття модалки
 function closeModal() {
     const modal = document.querySelector('.js-modal.is-active');
     if (modal) {
-      modal.remove();
-      body.classList.remove('no-scroll');
+        modal.remove();
+        body.classList.remove('no-scroll');
     }
-  }
+}
 //   Закриття модалки по кнопкі Escape
-  window.addEventListener('keydown', (event) => {
+window.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
-      closeModal();
-    }
-  });
-// Закриття модалки по кліку на область за модалкою
-  window.addEventListener('click', (event) => {
-    if (event.target.classList.contains('modal-close-btn') || event.target.classList.contains('modal-bg')) {
         closeModal();
     }
 });
- 
-
+// Закриття модалки по кліку на область за модалкою
+window.addEventListener('click', event => {
+    if (
+        event.target.classList.contains('modal-close-btn') ||
+        event.target.classList.contains('modal-bg')
+    ) {
+        closeModal();
+    }
+});

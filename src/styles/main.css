@@ -123,77 +123,81 @@
 }
 
 .cards {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 /* Пагінація****************************************************************** */
 .pagination {
-  display: flex;
-  margin: 0 auto;
+    display: flex;
+    margin: 0 auto;
 }
 
 .main-pag-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  margin-right: 8px;
-  font-family: inter;
-  border-color: #0505054D;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    margin-right: 8px;
+    font-family: inter;
+    border-color: #0505054d;
+    transition:
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-pag-btn[disabled] {
-  color: #ffffff33;
-  background-color: #050505;
+    color: #ffffff33;
+    background-color: #050505;
 }
 
 .main-pag-btn.main-pag-btn-green {
-  border: 1px solid #9BB537;
-  border-radius: 50%;
-  background-color: #9BB537;
+    border: 1px solid #9bb537;
+    border-radius: 50%;
+    background-color: #9bb537;
 }
 
 .main-pag-btn:hover:not([disabled]) {
-  border-color: #ff00004d;
-  border-radius: 50%;
-  background-color: rgb(245, 130, 89);
-  color: yellowgreen;
-  width: 44px;
-  height: 44px;
-  margin-right: 8px;
-  transition: border-color .25s cubic-bezier(.4, 0, .2, 1),
-    color .25s cubic-bezier(.4, 0, .2, 1),
-    background-color .25s cubic-bezier(.4, 0, .2, 1),
-    box-shadow .25s cubic-bezier(.4, 0, .2, 1);
+    border-color: #ff00004d;
+    border-radius: 50%;
+    background-color: rgb(245, 130, 89);
+    color: yellowgreen;
+    width: 44px;
+    height: 44px;
+    margin-right: 8px;
+    transition:
+        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-pag-btn.active:hover {
-  border-radius: 50%;
-  background-color: red;
-  color: rgb(0, 0, 0);
-  width: 44px;
-  height: 44px;
-  margin-right: 8px;
-  transition: border-color .25s cubic-bezier(.4, 0, .2, 1),
-    color .25s cubic-bezier(.4, 0, .2, 1),
-    background-color .25s cubic-bezier(.4, 0, .2, 1),
-    box-shadow .25s cubic-bezier(.4, 0, .2, 1);
+    border-radius: 50%;
+    background-color: red;
+    color: rgb(0, 0, 0);
+    width: 44px;
+    height: 44px;
+    margin-right: 8px;
+    transition:
+        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-pag-btn.active {
-  border-radius: 50%;
-  background-color: #9BB537;
-  color: rgb(253, 253, 253);
-  width: 44px;
-  height: 44px;
-  margin-right: 8px;
-  transition: border-color .25s cubic-bezier(.4, 0, .2, 1),
-    color .25s cubic-bezier(.4, 0, .2, 1),
-    background-color .25s cubic-bezier(.4, 0, .2, 1),
-    box-shadow .25s cubic-bezier(.4, 0, .2, 1);
+    border-radius: 50%;
+    background-color: #9bb537;
+    color: rgb(253, 253, 253);
+    width: 44px;
+    height: 44px;
+    margin-right: 8px;
+    transition:
+        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* MIN 375**************************************************************** */
@@ -276,7 +280,7 @@
 }
 
 .cards {
-  margin-bottom: 64px;
+    margin-bottom: 64px;
 }
 
 /* Пагінація******************************************************** */

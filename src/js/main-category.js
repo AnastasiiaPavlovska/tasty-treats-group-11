@@ -129,7 +129,9 @@ function pagination(page, total, container, callback) {
         } else {
             // active prev b
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="1"><<</button>`;
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page - 1}"><</button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
+                page - 1
+            }"><</button>`;
         }
         for (let i = page - btns; i <= page + btns; i++) {
             if (i > 0 && i <= total) {
@@ -151,16 +153,20 @@ function pagination(page, total, container, callback) {
             container.innerHTML += `<button class="main-pag-btn" disabled>>></button>`;
         } else {
             // active forward b
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page + 1}">></button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
+                page + 1
+            }">></button>`;
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${total}">>></button>`;
         }
-        container.querySelectorAll("[data-topage]").forEach(btn => {
-          /* console.log(btn.dataset.topage) */;
-            btn.addEventListener("click", function (e) {
-                e.preventDefault();
-                testyApiService.setPage(Number(e.target.dataset.topage));
-                callback();
-            });
+        container.querySelectorAll('[data-topage]').forEach(btn => {
+            /* console.log(btn.dataset.topage) */ btn.addEventListener(
+                'click',
+                function (e) {
+                    e.preventDefault();
+                    testyApiService.setPage(Number(e.target.dataset.topage));
+                    callback();
+                }
+            );
         });
     }
 }

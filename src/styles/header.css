@@ -243,7 +243,9 @@
     background-color: var(--primary-brend);
     z-index: 11;
     transform: translateX(100%);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
     opacity: 0;
 }
 
