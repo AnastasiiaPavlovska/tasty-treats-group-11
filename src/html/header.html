@@ -37,16 +37,32 @@
                 </svg>
             </a>
             <button
+                id="headerOpenModalBtn"
                 class="header-burger-btn"
                 type="button"
-                data-header-menu-open
             >
                 <svg class="header-burger">
-                    <use href="/src/img/sprite.svg#icon-hamburger"></use>
+                    <use href="./img/sprite.svg#icon-hamburger"></use>
                 </svg>
             </button>
         </div>
     </nav>
+    <!-- _______MODAL__________ -->
+    <div class="headerModal" id="headerModal">
+        <div class="header-modal-content">
+            <span class="header-close" id="headerCloseModalBtn">&times;</span>
+            <nav class="header-mobile-nav">
+                <a class="header-mobile-link" href="index.html">Home</a>
+                <a class="header-mobile-link" href="favorites.html"
+                    >Favorites</a
+                >
+            </nav>
+            <label class="header-switch-mob">
+                <input type="checkbox" class="header-input-mob" />
+                <span class="header-slider round"></span>
+            </label>
+        </div>
+    </div>
 </header>
 <!-- HEADER FOR MOBILE -->
 <!-- <header class="header" id="header-section">
