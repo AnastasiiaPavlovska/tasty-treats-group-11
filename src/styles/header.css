@@ -42,6 +42,7 @@
 .header-buttons {
     display: flex;
     gap: 14px;
+    align-items: center;
 }
 .header-cart-btn {
     width: 32px;
@@ -76,6 +77,54 @@
 .header-cart:hover,
 .header-cart:focus {
     fill: var(--primary-brend);
+}
+.header-switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 20px;
+}
+.header-switch .header-input {
+    display: none;
+}
+.header-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+.header-slider:before {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+.header-input:checked + .header-slider {
+    background-color: var(--primary-brend);
+}
+
+.header-input:focus + .header-slider {
+    box-shadow: 0 0 1px var(--primary-brend);
+}
+
+.header-input:checked + .header-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+.header-slider.round {
+    border-radius: 34px;
+}
+.header-slider.round:before {
+    border-radius: 50%;
 }
 @media screen and (min-width: 768px) {
     .header {
