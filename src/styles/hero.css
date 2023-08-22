@@ -47,6 +47,11 @@
     gap: 10px;
     margin-bottom: 48px;
 }
+.hero-btn:hover,
+.hero-btn:focus {
+    background: #9bb537;
+    color: var(--primary-bg-color);
+}
 .hero-text {
     width: 335px;
     margin-bottom: 28px;
