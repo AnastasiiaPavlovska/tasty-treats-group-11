@@ -75,7 +75,7 @@
     margin: 0 auto !important;
 }
 
-.item-cards:not(:last-child) {
+.item-cards{
     margin-bottom: 18px;
     position: relative;
 }
@@ -248,46 +248,104 @@
         box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.add-fav-btn {
+.add-fav-btn{
     position: absolute;
     z-index: 1000;
-    background-color: red;
-    width: 50px;
-    height: 20px;
+    /* background-color: red; */
+    color: white;
+    width: 22px;
+    height: 22px;
     top: 16px;
     right: 16px;
+    background-color: transparent;
+        border: none;
+        padding: 0;
+        z-index: 2;
+}
+.icon-heart1 {
+width: 22px;
+height: 22px;
+z-index: 2;
 }
 
 .span-title {
     position: absolute;
-    top: 214px;
+    bottom: 103px;
     left: 16px;
     color: #f8f8f8;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.29;
+    /* height: 18px; */
+    z-index: 2;
 }
 
 .span-descr {
     position: absolute;
-    top: 240px;
+    bottom: 63px;
     left: 16px;
-    color: #f8f8f8;
-    width: 303px;
-    height: 32px;
+    color: #F8F8F8;
+    width: 218px;
+    max-height: 32px;
     overflow: hidden;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.33;
+    z-index: 2;
 }
 
 .main-see-recipe {
     position: absolute;
-    right: 16px;
-    top: 288px;
-    width: 89px;
+    
+    left: 132px;
+    /* top: 288px;
+    width: 89px; */
+    background-color: #9BB537;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    width: 93px;
+
+    position: absolute;
+        z-index: 1000;
+        bottom: 16px;
+        right: 16px;
+
+    font-weight: 500;
+    font-size: 12px;
+    color: #f8f8f8;
 }
 
+.shadow-on-img {
+    position: relative;
+}
+
+.shadow-on-img::before {
+    content: "";
+    position: absolute;
+    inset: -9px;
+    transform: translate(10px, 8px);
+    z-index: 1;
+    background-image: linear-gradient(to top, #050505, transparent);
+    filter: blur(0px);
+    opacity: 60%;
+    width: 250px;
+    height: 288px;
+    border-radius: 8px;
+}
+.item-cards .card-img {
+width: 250px;
+    height: 287px;
+    border-radius: 8px;
+}
+
+
+.reset-filters {
+   font-weight: 500;
+   font-size: 12px;
+   line-height: 16px; 
+   color: rgba(5, 5, 5, 0.5);
+}
 /* MIN 375**************************************************************** */
 @media screen and (min-width: 375px) {
     #content {
@@ -301,6 +359,9 @@
     .list-item {
         margin: 0 auto !important;
         width: 335px;
+    }
+    .main-see-recipe  {
+        left: 132px;
     }
 }
 
@@ -377,6 +438,21 @@
     }
 }
 
+.shadow-on-img::before {
+    width: 240px;
+    height: 264px;
+}
+.item-cards .card-img {
+    width: 240px;
+    height: 264px;
+}
+
+.reset-filters {
+    display: flex;
+        justify-content: flex-end;
+        margin-right: 145px;
+        position: inherit;
+}
 /* Пагінація******************************************************** */
 
 /* MIN 1280******************************************************/
@@ -411,4 +487,12 @@
         row-gap: 32px;
         width: 782px;
     }
+
+    .main-see-recipe {
+        right: 16px;
+    }
+
+        .reset-filters {
+            margin-right: 30px;
+        }
 }

@@ -111,8 +111,7 @@ function renewRecipes() {
     testyApiService.getRecipes().then(data => {
         let tmpContent = '';
         data.results.forEach(recipe => {
-        	let favClass = (recipe._id in favObj) ? 'favorite' : 'unfavorite';
-            tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/><button class="add-fav-btn ${favClass}" data-recipe-id="${recipe._id}">love</button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
+            tmpContent += `<li class="item-cards"><div class="shadow-on-img"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/></div><button class="add-fav-btn" data-recipe-id="${recipe._id}"><svg class="icon icon-heart1"><use href="/spite.e70822e0.svg#icon-heart1"></use></svg></button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
         });
         content.innerHTML = tmpContent;
         content.querySelectorAll('.add-fav-btn').forEach(button => {
