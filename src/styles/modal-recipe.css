@@ -4,6 +4,8 @@
 .tags-1 {
     display: none;
 }
+.tag-item {
+}
 .modal-recipe {
     max-height: 100%;
     background-color: var(--dark-title-color);
@@ -26,12 +28,9 @@
     right: 7px;
     padding: 0;
 }
-
 .recipe-video-wrap {
     display: flex;
     justify-content: center;
-    width: 295px;
-    height: 250px;
 }
 .recipe-image {
     width: 250px;
@@ -46,7 +45,7 @@
     line-height: 1.33;
     letter-spacing: 0;
     color: var(--primary-title-color);
-    margin-top: 10px;
+    /* margin-top: 315px; */
     margin-bottom: 10px;
 }
 
@@ -74,6 +73,9 @@
     fill: var(--rating-stars-unactive-modal);
     vertical-align: text-top;
 }
+.star-filled {
+    fill: var(--rating-stars-active);
+}
 .cooking-time {
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -85,7 +87,6 @@
 }
 
 .ingredients {
-    margin-bottom: 40px;
 }
 .ingredient-item {
     position: relative;
@@ -115,8 +116,6 @@
     margin: 0 0 24px 0;
     flex-wrap: wrap;
 }
-.tag-item {
-}
 .btn-tag {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
@@ -131,8 +130,14 @@
     border: 1px solid transparent; /* Transparent border */
     box-shadow: inset 0 0 0 1px var(--primary-input-border);
 }
+.instruction-wrap {
+    width: 320px;
+    max-height: 288px;
+    resize: none;
+    margin-top: 24px;
+    overflow-y: auto;
+}
 .recipe-instruction {
-    margin-bottom: 15px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -140,10 +145,13 @@
     line-height: 1.28;
     letter-spacing: 0;
     color: var(--primary-title-color);
+    white-space: normal;
+    word-wrap: break-word;
 }
 .button-wrap {
     display: flex;
     gap: 10px;
+    margin-top: 40px;
 }
 .btn-favorite {
     font-family: 'Inter', sans-serif;
@@ -200,6 +208,7 @@ ul.ingredients li:last-child {
     }
     .recipe-image {
         height: 295px;
+        width: 295px;
     }
     .modal-close-btn-recipe {
         top: 17px;
@@ -214,6 +223,8 @@ ul.ingredients li:last-child {
     }
     .button-wrap {
         gap: 14px;
+    }
+    .instruction-wrap {
     }
     .recipe-instruction {
         margin-bottom: 40px;
@@ -249,6 +260,17 @@ ul.ingredients li:last-child {
         justify-content: flex-start;
         margin: 0 0 24px 0;
         flex-wrap: wrap;
+
+        /* justify-content: left;
+gap: 4px;
+margin-bottom: 32px; */
+    }
+    .instruction-wrap {
+        width: 467px;
+        max-height: 162px;
+        resize: none;
+        margin-top: 24px;
+        overflow-y: auto;
     }
     .tags-2 {
         display: none;
@@ -267,12 +289,6 @@ ul.ingredients li:last-child {
         margin-bottom: 16px;
         width: 467px;
         height: 250px;
-    }
-
-    .tags {
-        justify-content: left;
-        gap: 4px;
-        margin-bottom: 32px;
     }
 
     .ingredients {

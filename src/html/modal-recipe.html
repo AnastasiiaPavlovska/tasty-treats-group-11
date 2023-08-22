@@ -1,9 +1,9 @@
-<div class="backdrop recipe-backdrop is-hidden" data-modal-recipe>
+<div class="backdrop is-hidden" data-modal-recipe>
     <div class="modal-recipe" id="modal-recipe">
         <button
             type="button"
             class="modal-close-btn-recipe"
-            data-action="close-modal"
+            data-modal-recipe-close
         >
             <svg class="icon-close-recipe" width="20" height="20">
                 <use
@@ -26,7 +26,7 @@
                 <h3 class="selected-recipe-name">RECIPE NAME</h3>
             </div>
             <div class="block2-wrap">
-                <ul class="tags-1">
+                <ul class="tags-1 tags">
                     <li class="tag-item">
                         <button class="btn-tag" type="button">
                             #Breakfast
@@ -128,7 +128,7 @@
                     Raspberries<span class="ingredient-amount">1 large</span>
                 </li>
             </ul>
-            <ul class="tags-2">
+            <ul class="tags-2 tags">
                 <li class="tag-item">
                     <button class="btn-tag" type="button">#Breakfast</button>
                 </li>
@@ -139,17 +139,20 @@
                     <button class="btn-tag" type="button">#Breakfast</button>
                 </li>
             </ul>
-            <p class="recipe-instruction">
-                Mash the ripe banana in a medium mixing bowl. Add the egg and
-                whisk together until well combined. Add the flour, baking
-                powder, cinnamon (if using), and salt, and stir until just
-                combined. Heat a non-stick skillet or griddle over medium heat
-                and add the vegetable oil or melted butter. Scoop the batter
-                onto the skillet or griddle using a 1/4 cup measure, and cook
-                for 2-3 minutes on each side, or until the pancakes are golden
-                brown and cooked through. Serve warm with your favorite toppings
-                such as maple syrup, sliced bananas, or whipped cream.
-            </p>
+            <div class="instruction-wrap">
+                <p class="recipe-instruction">
+                    Mash the ripe banana in a medium mixing bowl. Add the egg
+                    and whisk together until well combined. Add the flour,
+                    baking powder, cinnamon (if using), and salt, and stir until
+                    just combined. Heat a non-stick skillet or griddle over
+                    medium heat and add the vegetable oil or melted butter.
+                    Scoop the batter onto the skillet or griddle using a 1/4 cup
+                    measure, and cook for 2-3 minutes on each side, or until the
+                    pancakes are golden brown and cooked through. Serve warm
+                    with your favorite toppings such as maple syrup, sliced
+                    bananas, or whipped cream.
+                </p>
+            </div>
             <div class="button-wrap">
                 <button class="btn-favorite" type="button">
                     Add to favorite
