@@ -1,4 +1,6 @@
 import TestyApiService from './testyApiService';
+import favApi from './favorites-api';
+
 var debounce = require('lodash.debounce');
 var throttle = require('lodash.throttle');
 
@@ -10,6 +12,9 @@ const areaFilter = document.querySelector('.area');
 const ingredientsFilter = document.querySelector('.ingrediends');
 const timeFilter = document.querySelector('.time');
 const allCategoryBtn = document.querySelector('.all-category-btn');
+const resetFilter = document.querySelector('.reset-filters');
+
+resetFilter.addEventListener('click', testyApiService.setResetFilters);
 
 for (let i = 5; i <= 120; i += 5) {
     const opt = document.createElement('option');
@@ -105,9 +110,18 @@ function renewRecipes() {
     testyApiService.getRecipes().then(data => {
         let tmpContent = '';
         data.results.forEach(recipe => {
-            tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/></li>`;
+            tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/><button class="add-fav-btn" data-recipe-id="${recipe._id}">love</button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
         });
         content.innerHTML = tmpContent;
+        content.querySelectorAll('.add-fav-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                favApi.togleFav(e.target.dataset.recipeId);
+            });
+        });
+        content.querySelectorAll('.main-see-recipe').forEach(button => {
+            button.addEventListener('click', addToLocalStor);
+        });
+
         const container = document.querySelector('.pagination');
         pagination(data.page, data.totalPages, container, renewRecipes);
         console.log(data);
@@ -172,3 +186,11 @@ function pagination(page, total, container, callback) {
 }
 // const buttonPag = document.querySelectorAll('.main-pag-btn');
 // buttonPag.addEventListener('click',)
+
+
+// 22 /08 / 
+
+function addToLocalStor(e) {
+    console.log(e.target.dataset.recipeId);
+    // localStorage.setItem(JSON.stringify(a))
+};

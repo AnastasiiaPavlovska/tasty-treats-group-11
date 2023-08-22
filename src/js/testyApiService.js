@@ -64,4 +64,21 @@ export default class TestyApiService {
     setPage(number) {
         this.params.page = Number(number);
     }
+
+    async getRecipeById(id) {
+        const response = await axios.get(`${BASE_URL}/recipes/${id}`);
+        return response.data;
+    }
+
+    setResetFilters() {
+        this.params = {};
+        this.params.category = '';
+        this.params.limit = '';
+        this.params.title = '';
+        this.params.ingredient = '';
+        this.params.area = '';
+        this.params.time = '';
+        this.params.page = 1;
+        console.log(this.params);
+    }
 }
