@@ -1,13 +1,62 @@
+   <header class="header">
+      <div class="container header-container">
+        <nav class="header-nav-container">
+          <div class="header-nav">
+            <a class="header-nav-link" href="index.html">Home</a>
+            <a class="header-nav-link" href="favorites.html">Favorites</a>
+          </div>
+        </nav>
+          <div class="header-logo">
+          <a class="header-logo-link" href="index.html"><span class="header-span">tasty</span>treats.</a>
+        </div>
+        <div class="header-buttons">
+                    <a
+          href="tel:+380730000000"
+            target="_blank"
+            class="header-cart-btn"
+          >
+            <svg class="header-cart">
+              <use href="./img/sprite.svg#icon-shopping-cart"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <!--______________ MOBILE ______________-->
+      <nav class="mob-container container">
+          <div class="header-logo">
+          <a class="header-logo-link" href="index.html"><span class="header-span">tasty</span>treats.</a>
+        </div>
+        <div class="header-buttons">
+                    <a
+          href="tel:+380730000000"
+            target="_blank"
+            class="header-cart-btn"
+          >
+            <svg class="header-cart">
+              <use href="./img/sprite.svg#icon-shopping-cart"></use>
+            </svg>
+          </a>
+            <button class="header-burger-btn"
+            type="button"
+            data-header-menu-open>
+            <svg class="header-burger">
+                <use href="/src/img/sprite.svg#icon-hamburger"></use>
+            </svg>
+            </button>
+      </nav>
+    </header>
 <!-- HEADER FOR MOBILE -->
-<header class="header" id="header-section">
+<!-- <header class="header" id="header-section">
     <div class="block-for-mobile container">
-        <nav class="nav">
-            <div class="logo-block">
-                <a class="logo-first-color" href="/src/index.html"
-                    >tasty<span class="logo-second-color">treats.</span></a
+        <nav class="header-nav">
+            <div class="header-logo-block">
+                <a class="header-logo-first-color" href="/src/index.html"
+                    >tasty<span class="header-logo-second-color"
+                        >treats.</span
+                    ></a
                 >
             </div>
-            <div class="cart-menu-block">
+            <div class="header-menu-block">
                 <svg
                     id="header-cart-icon"
                     class="header-cart-icon icon"
@@ -27,11 +76,11 @@
             </div>
         </nav>
     </div>
-    <!-- END OF HEADER FOR MOBILE -->
+     END OF HEADER FOR MOBILE -->
 
-    <!-- TABLET AND DESKTOP MARKUP -->
-    <div class="tablet-desktop container">
-        <nav class="tablet-desktop-nav">
+<!-- TABLET AND DESKTOP MARKUP -->
+<!-- <div class="header-desktop container">
+        <nav class="header-desktop-nav">
             <div class="navigations">
                 <a
                     id="home-link"
@@ -188,10 +237,10 @@
             </div>
         </nav>
     </div>
-</header>
+</header> -->
 <!-- END  OF  TABLET   AND   DESKTOP   MARKUP-->
 <!-- MOBILE MENU MODAL -->
-<div class="mobile-menu">
+<!-- <div class="mobile-menu">
     <svg class="close-menu-icon icon" id="js-close-menu" width="32" height="32">
         <use href="/src/img/sprite.svg#icon-x"></use>
     </svg>
@@ -326,5 +375,6 @@
             />
         </svg>
     </div>
-</div>
+</div> -->
+
 <!-- END  OF  MOBILE  MENU  MODAL -->

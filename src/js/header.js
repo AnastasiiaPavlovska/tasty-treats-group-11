@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const currentPage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.header-nav-link');
+
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+
+        if (linkHref === currentPage) {
+            link.classList.add('is-active-link');
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
     const mobileMenu = document.querySelector('.mobile-menu');
     const hamburger = document.getElementById('hamburger');
     const closeMenuBtn = document.getElementById('js-close-menu');
