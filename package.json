@@ -6,7 +6,7 @@
     },
     "scripts": {
         "start": "parcel src/*.html",
-        "build": "parcel build src/*.html --public-url ./"
+        "build": "parcel build src/*.html --public-url https://anastasiiapavlovska.github.io/tasty-treats-group-11/"
     },
     "repository": {
         "type": "git",
