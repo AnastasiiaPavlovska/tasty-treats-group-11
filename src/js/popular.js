@@ -91,6 +91,8 @@ function createModalRecepieById({
     description,
     area,
     category,
+    thumb,
+    instructions,
     preview,
     rating,
     time,
@@ -109,24 +111,22 @@ function createModalRecepieById({
             </div>
             <div class="modal-content">
                 <h2 class="modal-recepi-title">${title}</h2>
-                <div class="recepi-video-wrap">
-                    <img src="${preview}" alt="${title}">
+                <div class="recipe-video-content">
+                    <div class="recepi-video-wrap">
+                       <img src="${preview}" alt="${title}" class="video-img"> 
+                    </div>
+                    <div class="youtube-btn">
+                        <a href="${youtube}" class="youtube-link" target="_blank" rel="noopener noreferrer nofollow">
+                            <svg class="youtube-icon" width="32" height="32">
+                                <use href="./img/sprite.svg#iicon-youtube"></use>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="recepi-tags-wrap">
-                    <ul class="recepi-tags-list list">
-                        <li class="recepi-tags-item">
-                            <button type="button" class="recepi-tags-btn">#Breakfast</button>
-                        </li>
-                        <li class="recepi-tags-item">
-                            <button type="button" class="recepi-tags-btn">#Desert</button>
-                        </li>
-                        <li class="recepi-tags-item">
-                            <button type="button" class="recepi-tags-btn">#Sweet</button>
-                        </li>
-                    </ul>
+                <div class="recepi-tags-wrap"> 
                     <div class="recepi-rating-wrap">
-                        <p class="recepi-rating-value">4.5</p>
                         <div class="rating-stars-wrap">
+                          <label for="" class="recepi-rating-value">${rating}</label>
                             <input type="radio" class="rating-start-item" value="1">
                             <input type="radio" class="rating-start-item" value="2">
                             <input type="radio" class="rating-start-item" value="3">
@@ -158,7 +158,18 @@ function createModalRecepieById({
                         <p class="ingredient-mesure">Pinch</p>
                     </li>
                 </div>
-                <p class="modal-recepi-description">${description}</p>
+                <ul class="recepi-tags-list list">
+                        <li class="recepi-tags-item">
+                            <button type="button" class="recepi-tags-btn">#Breakfast</button>
+                        </li>
+                        <li class="recepi-tags-item">
+                            <button type="button" class="recepi-tags-btn">#Desert</button>
+                        </li>
+                        <li class="recepi-tags-item">
+                            <button type="button" class="recepi-tags-btn">#Sweet</button>
+                        </li>
+                    </ul>
+                <p class="modal-recepi-description">${instructions}</p>
                 <div class="modal-recepi-buttons">
                     <button type="button" class="add-favorit">Add to favorite</button>
                     <button type="button" class="give-rating">Give rating</button>

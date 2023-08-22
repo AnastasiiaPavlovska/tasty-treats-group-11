@@ -3,8 +3,9 @@
 
 /* Placing of main */
 .main-div {
+    
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 #side-bar {
@@ -100,8 +101,11 @@
 
 /* Фільтри */
 .filters {
+    width: 335px;
     display: flex;
     flex-wrap: wrap;
+    gap: 14px;
+    
 }
 
 .filter-area {
@@ -114,7 +118,7 @@
 }
 
 .time {
-    width: 159px;
+    width: 160px;
 }
 
 .area {
@@ -137,7 +141,35 @@
     line-height: 1.17;
 }
 
+.reset-filters{
+   
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: var(--primary-input-title-color);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.33;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+.reset-filters::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-image: url(../img/recet-x.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .cards {
+    width: 335px;
     margin-bottom: 40px;
 }
 
@@ -275,11 +307,18 @@
     #content {
         width: 496px;
     }
-
-    #categories {
-        margin-right: 32px;
+    .filters {
+        width: 419px;
     }
-
+    .main-div {
+        display: flex;
+        gap: 32px;
+        flex-direction: row;
+    }
+    .cards{
+        width: 496px;
+        margin-bottom: 64px;
+    }
     .all-category-btn {
         margin-bottom: 30px;
     }
@@ -321,20 +360,21 @@
     .area {
         width: 141px;
     }
+    .filters {
+        gap: 16px;
+    }
+    
+    .label {
+        font-size: 14px;
+        line-height: 1.29;
+    }
+    
+    .cards {
+        margin-bottom: 64px;
+    }
 }
 
-.filters {
-    gap: 16px;
-}
 
-.label {
-    font-size: 14px;
-    line-height: 1.29;
-}
-
-.cards {
-    margin-bottom: 64px;
-}
 
 /* Пагінація******************************************************** */
 
@@ -342,10 +382,23 @@
 @media screen and (min-width: 1280px) {
 
     /* Категорії */
-    #content {
+   
+    #content { 
         width: 782px;
     }
-
+    .filters {
+        width: 782px;
+        display: flex;
+        gap: 16px;
+    }
+    .main-div {
+        gap: 64px;
+    
+    }
+    .cards {
+        width: 782px;
+        margin-bottom: 40px;
+    }
     .all-category-btn {
         margin-bottom: 42px;
     }
@@ -359,4 +412,5 @@
         row-gap: 32px;
         width: 782px;
     }
+  
 }
