@@ -107,6 +107,39 @@ function perPage() {
 //ОТРИМУЄМО СПИСОК РЕЦЕПТІВ ПРИ ЗАВАНТАЖЕНІ СТОРІНКИ
 renewRecipes();
 
+const recipeRating = `
+<div class="rating-recipe" id="rating-container">
+    <span class="rating-number-recipe">4.5</span>
+    <ul class="stars">
+        <li>
+            <svg class="star" data-rating="1" width="16" height="16">
+                <use href="/src/img/sprite.svg#icon-Star-1"></use>
+            </svg>
+        </li>
+        <li>
+            <svg class="star" data-rating="2" width="16" height="16">
+                <use href="/src/img/sprite.svg#icon-Star-1"></use>
+            </svg>
+        </li>
+        <li>
+            <svg class="star" data-rating="3" width="16" height="16">
+                <use href="/src/img/sprite.svg#icon-Star-1"></use>
+            </svg>
+        </li>
+        <li>
+            <svg class="star" data-rating="4" width="16" height="16">
+                <use href="/src/img/sprite.svg#icon-Star-1"></use>
+            </svg>
+        </li>
+        <li>
+            <svg class="star" data-rating="5" width="16" height="16">
+                <use href="/src/img/sprite.svg#icon-Star-1"></use>
+            </svg>
+        </li>
+    </ul>
+</div>
+`;
+
 // functions
 function renewRecipes() {
     perPage();
@@ -120,6 +153,7 @@ function renewRecipes() {
                 <div class="shadow-on-img" data-recipe-id="${recipe._id}">
                     <img class="card-img" src="${recipe.preview}" />
                 </div>
+                ${recipeRating}
                 <button class="add-fav-btn ${favClass}">
                     <svg class="heard-icon">
                         <use href="../img/sprite.svg#icon-heart1"></use>

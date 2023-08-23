@@ -78,6 +78,8 @@
 .item-cards {
     margin-bottom: 18px;
     position: relative;
+    width: 335px;
+    height: 335px;
 }
 
 .card-img {
@@ -316,9 +318,11 @@
     color: #f8f8f8;
 }
 
-.shadow-on-img {
+/* .shadow-on-img {
     position: relative;
-}
+    width: 335px;
+    height: 335px;
+} */
 
 .shadow-on-img::before {
     content: '';
@@ -329,13 +333,11 @@
     background-image: linear-gradient(to top, #050505, transparent);
     filter: blur(0px);
     opacity: 60%;
-    width: 250px;
-    height: 288px;
     border-radius: 8px;
 }
 .item-cards .card-img {
-    width: 250px;
-    height: 287px;
+    width: 335px;
+    height: 335px;
     border-radius: 8px;
 }
 
@@ -345,6 +347,16 @@
     line-height: 16px;
     color: rgba(5, 5, 5, 0.5);
     margin-bottom: 20px;
+}
+
+.rating-recipe {
+    display: flex;
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+}
+.rating-number-recipe{
+    color: rgba(248, 248, 248, 1);
 }
 
 /* MIN 375**************************************************************** */
@@ -364,6 +376,25 @@
     .main-see-recipe {
         left: 132px;
     }
+.item-cards .card-img {
+    width: 335px;
+    height: 335x;
+}
+.shadow-on-img::before {
+    width: 335px;
+    height: 335px;
+}
+
+.item-cards .card-img {
+    width: 335px;
+    height: 335px;
+}
+.main-see-recipe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 230px;
+}
 }
 
 /* MIN 768******************************************************* */
@@ -405,8 +436,10 @@
         column-gap: 16px;
     }
 
-    .item-cards:not(:last-child) {
+    .item-cards {
         margin-bottom: 0px;
+        width: 240px;
+            height: 264px;
     }
 
     .card-img {
@@ -437,15 +470,29 @@
     .cards {
         margin-bottom: 64px;
     }
-}
+    
+    .card-img .item-cards{
+        width: 240px;
+        height: 264px;
+    }
+
 
 .shadow-on-img::before {
     width: 240px;
-    height: 264px;
-}
-.item-cards .card-img {
+    height: 265px;
+} 
+
+.shadow-on-img {
     width: 240px;
     height: 264px;
+}
+ .item-cards .card-img {
+    width: 240px;
+    height: 264px;
+}
+
+.main-see-recipe {
+    left: 135px;
 }
 
 .reset-filters {
@@ -476,13 +523,17 @@
         width: 782px;
         margin-bottom: 40px;
     }
+    .item-cards {
+        width: 250px;
+            height: 288px;
+    }
     .all-category-btn {
         margin-bottom: 42px;
     }
 
     /* Фото рецептів */
     .card-img {
-        max-width: 250px;
+        width: 250px;
     }
 
     .list-item {
@@ -497,4 +548,13 @@
     .reset-filters {
         margin-right: 30px;
     }
-}
+    .shadow-on-img::before {
+        width: 250px;
+        height: 289px;
+     /* left: 1px; */
+    }
+    .item-cards .card-img {
+        min-width: 250px;
+        height: 288px;
+    }
+}}
