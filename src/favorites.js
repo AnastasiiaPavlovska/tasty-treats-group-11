@@ -6,7 +6,6 @@ const favoriteCards = document.querySelector('.favorites-list');
 const favorPagin = document.querySelector('#pagination');
 const favCaptive = document.querySelector('.favorites-text');
 
-
 let AllCategories = [];
 
 let favCount = 0;
@@ -16,7 +15,9 @@ let currentCategory = '';
 
 console.log(favObj);
 
-window.onresize = throttle(function () { renewRecipes() }, 500);
+window.onresize = throttle(function () {
+    renewRecipes();
+}, 500);
 
 // functions
 function renewRecipes(page) {
@@ -28,7 +29,7 @@ function renewRecipes(page) {
     favCount = 0;
     perPageLimit = window.innerWidth < 768 ? 2 : 3;
     let counter = 0;
-    Object.keys(favObj).forEach((id) => {
+    Object.keys(favObj).forEach(id => {
         let recipe = favObj[id];
         //console.log(id, recipe);
         favCount++;
@@ -36,41 +37,62 @@ function renewRecipes(page) {
             AllCategories.push(recipe.category);
         }
     });
-    currentCategory = AllCategories.includes(currentCategory) ? currentCategory : '';
-    Object.keys(favObj).forEach((id) => {
+    currentCategory = AllCategories.includes(currentCategory)
+        ? currentCategory
+        : '';
+    Object.keys(favObj).forEach(id => {
         let recipe = favObj[id];
         //console.log(recipe);
         let totalCards = 0;
-        let start = page === 1 ? 0 : ((page - 1) * perPageLimit);
-        let end = page === 1 ? perPageLimit : (page * perPageLimit)
-        if ((currentCategory && recipe.category === currentCategory) || !currentCategory) {
+        let start = page === 1 ? 0 : (page - 1) * perPageLimit;
+        let end = page === 1 ? perPageLimit : page * perPageLimit;
+        if (
+            (currentCategory && recipe.category === currentCategory) ||
+            !currentCategory
+        ) {
             counter++;
-            if (cardsArray.length < perPageLimit && counter > start && counter <= end) {
+            if (
+                cardsArray.length < perPageLimit &&
+                counter > start &&
+                counter <= end
+            ) {
                 totalCards++;
-                cardsArray.push(`<li class="item-cards"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/><button class="add-fav-btn" data-recipe-id="${recipe._id}">love</button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`);
+                cardsArray.push(
+                    `<li class="item-cards"><img class="card-img" data-recipe-id="${
+                        recipe._id
+                    }"src="${
+                        recipe.preview
+                    }"/><button class="add-fav-btn" data-recipe-id="${
+                        recipe._id
+                    }">love</button><span class="span-title">${recipe.title.toUpperCase()}</span><span class="span-descr">${
+                        recipe.description
+                    }</span><button class="main-see-recipe">See recipe</button></li>`
+                );
             }
         }
     });
-    const markup = AllCategories.sort().map(category => {
-        return `<li class="favourites-list-btn"><button class="category-btn" data-recipe-category="${category}">${category}</button></li>`;
-    }).join('');
+    const markup = AllCategories.sort()
+        .map(category => {
+            return `<li class="favourites-list-btn"><button class="category-btn" data-recipe-category="${category}">${category}</button></li>`;
+        })
+        .join('');
     categoryListFavorite.innerHTML = markup;
 
     categoryListFavorite.querySelectorAll('.category-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', e => {
             currentCategory = e.target.dataset.recipeCategory;
-        console.log(e.target.dataset.recipeCategory);
+            console.log(e.target.dataset.recipeCategory);
             // renew favors
-        renewRecipes();
-        })
+            renewRecipes();
+        });
     });
-    
+
     document.querySelector('.all-tags').addEventListener('click', () => {
         currentCategory = '';
         console.log('categories reset', currentCategory);
         // renew favors
         renewRecipes();
-    })
+    });
     if (cardsArray.length) {
         favoriteCards.innerHTML = cardsArray.join('');
         favoriteCards.querySelectorAll('.add-fav-btn').forEach(button => {
@@ -83,7 +105,12 @@ function renewRecipes(page) {
             });
         });
         if (counter > perPageLimit) {
-            pagination(page, Math.ceil(counter / perPageLimit), favorPagin, renewRecipes);
+            pagination(
+                page,
+                Math.ceil(counter / perPageLimit),
+                favorPagin,
+                renewRecipes
+            );
         } else {
             favorPagin.innerHTML = '';
         }
@@ -91,7 +118,6 @@ function renewRecipes(page) {
     } else {
         favCaptive.style.display = 'flex';
     }
-
 }
 
 renewRecipes();
@@ -107,16 +133,6 @@ renewRecipes();
 //         content.querySelectorAll('.main-see-recipe').forEach(button => {
 //             button.addEventListener('click', openModal);
 //         });
-
-
-
-
-
-
-
-
-
-
 
 // pagination
 function pagination(page, total, container, callback) {
@@ -134,7 +150,9 @@ function pagination(page, total, container, callback) {
         } else {
             // active prev b
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="1"><<</button>`;
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page - 1}"><</button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
+                page - 1
+            }"><</button>`;
         }
         for (let i = page - btns; i <= page + btns; i++) {
             if (i > 0 && i <= total) {
@@ -156,16 +174,19 @@ function pagination(page, total, container, callback) {
             container.innerHTML += `<button class="main-pag-btn" disabled>>></button>`;
         } else {
             // active forward b
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page + 1}">></button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
+                page + 1
+            }">></button>`;
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${total}">>></button>`;
         }
-        container.querySelectorAll("[data-topage]").forEach(btn => {
-          /* console.log(btn.dataset.topage) */;
-            btn.addEventListener("click", function (e) {
-                e.preventDefault();
-                callback(Number(e.target.dataset.topage));
-    });
+        container.querySelectorAll('[data-topage]').forEach(btn => {
+            /* console.log(btn.dataset.topage) */ btn.addEventListener(
+                'click',
+                function (e) {
+                    e.preventDefault();
+                    callback(Number(e.target.dataset.topage));
+                }
+            );
         });
     }
 }
-

@@ -4,10 +4,12 @@ import TestyApiService from './testyApiService';
 const testyApiService = new TestyApiService();
 const cardsContainer = document.querySelector('.cards');
 
-cardsContainer.addEventListener('click', async event => {
-    if (event.target.classList.contains('card-img')) {
-        // Retrieve the recipe ID from the "data-recipe-id" attribute
-        const recipeId = event.target.getAttribute('data-recipe-id');
+cardsContainer.addEventListener('click', processRecipeOpening);
+
+async function processRecipeOpening(event) {
+    // Retrieve the recipe ID from the "data-recipe-id" attribute
+    const recipeId = event.target.getAttribute('data-recipe-id');
+    if (recipeId !== null) {
         try {
             const recipe = await testyApiService.getRecipeById(recipeId);
             // console.log('Recipe Info:', recipe);
@@ -17,8 +19,11 @@ cardsContainer.addEventListener('click', async event => {
         } catch (error) {
             console.error('Error fetching recipe:', error);
         }
+    } else {
+        console.error("Can't get 'data-recipe-id' from: " + event.target);
     }
-});
+}
+
 const modalBackdrop = document.querySelector('[data-modal-recipe]');
 const modalRecipe = document.querySelector('.modal-recipe');
 let player;
