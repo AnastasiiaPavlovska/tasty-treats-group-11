@@ -46,17 +46,17 @@ function createMarkup(events) {
             const markup = `
 <div class="swiper-container swiper-slide">
   <div class="image cook">
-   <img  src="${cook.imgUrl}" alt="${cook.name}"loading="lazy">
+   <img  src="${cook.imgUrl}" loading="lazy">
    </div>
   <div class="image dish">
-   <img src="${previewUrl}" alt="${name}"loading="lazy">
+   <img src="${previewUrl}" loading="lazy">
    <div class="dish-descr">
    <h3 class="dish-name">${name}</h3>
    <p class="dish-area">${area}</p> 
    </div>
     </div>
    <div class="image dish-zoom">
-   <img  src="${previewWebpUrl}" alt="${name}" loading="lazy">
+   <img  src="${previewWebpUrl}" loading="lazy">
     </div>
 </div>
   `;

@@ -189,11 +189,9 @@
     -webkit-transition: 0.4s;
     transition: 0.4s;
 }
-.header-input:checked + .header-slider {
-    background-color: var(--primary-brend);
-}
+.header-input:checked + .header-slider,
 .header-input-mob:checked + .header-slider {
-    background-color: var(--rating-stars-active);
+    background-color: var(--primary-brend);
 }
 .header-input:checked + .header-slider:before {
     -webkit-transform: translateX(26px);

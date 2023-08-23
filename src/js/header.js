@@ -32,6 +32,7 @@ window.addEventListener('click', e => {
 function getTheme() {
     return localStorage.getItem('theme') || 'light';
 }
+
 function saveTheme(theme) {
     localStorage.setItem('theme', theme);
 }
@@ -47,21 +48,20 @@ function rotateTheme(theme) {
     return 'light';
 }
 
-const themeDisplay = document.getElementById('theme');
-const themeToggler = document.getElementById('theme-toggle');
+const themeTogglers = document.querySelectorAll('.theme-toggle');
 
 let theme = getTheme();
 applyTheme(theme);
-themeDisplay.innerText = theme;
 
-themeToggler.onclick = () => {
-    const newTheme = rotateTheme(theme);
-    applyTheme(newTheme);
-    themeDisplay.innerText = newTheme;
-    saveTheme(newTheme);
+themeTogglers.forEach(themeToggler => {
+    themeToggler.addEventListener('change', () => {
+        const newTheme = rotateTheme(theme);
+        applyTheme(newTheme);
 
-    theme = newTheme;
-};
+        saveTheme(newTheme);
+        theme = newTheme;
+    });
+});
 // document.addEventListener('DOMContentLoaded', function () {
 //     const mobileMenu = document.querySelector('.mobile-menu');
 //     const hamburger = document.getElementById('hamburger');
