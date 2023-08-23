@@ -48,10 +48,10 @@ button {
     cursor: pointer;
     list-style: none;
 }
-.popular-recepies-item:nth-child(3){
+.popular-recepies-item:nth-child(3) {
     display: none;
 }
-.popular-recepies-item:nth-child(4){
+.popular-recepies-item:nth-child(4) {
     display: none;
 }
 .popular-recepies-item:not(:last-child) {
@@ -101,7 +101,7 @@ button {
 
 /* ------------TALET w768---------------- */
 @media screen and (min-width: 768px) {
-    .populars{
+    .populars {
         width: 176px;
         margin-bottom: 0;
     }
@@ -111,11 +111,11 @@ button {
     }
     .popular-recepies-item:not(:last-child) {
         margin-bottom: 16px;
-    } 
-    .popular-recepies-item:nth-child(3){
+    }
+    .popular-recepies-item:nth-child(3) {
         display: block;
     }
-    .popular-recepies-item:nth-child(4){
+    .popular-recepies-item:nth-child(4) {
         display: block;
     }
     .thomb-popular-img {
@@ -143,7 +143,7 @@ button {
 
 /* ------------DESCTOP w1280---------------- */
 @media screen and (min-width: 1280px) {
-    .populars{
+    .populars {
         width: 235px;
     }
     .popular-recepies-title {
@@ -163,7 +163,6 @@ button {
         overflow: hidden;
     }
 }
-
 
 /* ----------STYLES FOR MODAL-BACDROPE POPULAR REEPIES */
 body.no-scroll {
@@ -227,8 +226,8 @@ body.no-scroll {
     text-transform: uppercase;
     margin-bottom: 16px;
 }
-.recipe-video-content{
-   position: relative;
+.recipe-video-content {
+    position: relative;
 }
 .recepi-video-wrap {
     width: 295px;
@@ -237,7 +236,7 @@ body.no-scroll {
     overflow: hidden;
     margin-bottom: 16px;
 }
-.youtube-btn{
+.youtube-btn {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -251,7 +250,7 @@ body.no-scroll {
     width: 32px;
     height: 23px;
 }
-.youtube-icon{
+.youtube-icon {
     fill: var(--dark-title-color);
 }
 .recepi-tags-wrap {
@@ -262,7 +261,6 @@ body.no-scroll {
 .recepi-tags-list {
     display: flex;
     gap: 8px;
-   
 }
 .recepi-tags-item {
 }
@@ -287,15 +285,16 @@ body.no-scroll {
     display: flex;
     gap: 16px;
 }
-.recepi-rating-value, .recepi-time-cook {
+.recepi-rating-value,
+.recepi-time-cook {
     color: var(--primary-input-title-color);
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 1.28; 
+    line-height: 1.28;
 }
-.recepi-rating-value{
+.recepi-rating-value {
     margin-right: 6px;
 }
 .rating-stars-wrap {

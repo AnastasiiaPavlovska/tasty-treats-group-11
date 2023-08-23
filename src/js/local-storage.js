@@ -1,4 +1,4 @@
-const save = (value) => {
+const save = value => {
     try {
         const serializedState = JSON.stringify(value);
         localStorage.setItem('favorites', serializedState);
@@ -10,7 +10,9 @@ const save = (value) => {
 const load = () => {
     try {
         const serializedState = localStorage.getItem('favorites');
-        return serializedState === null ? undefined : JSON.parse(serializedState);
+        return serializedState === null
+            ? undefined
+            : JSON.parse(serializedState);
     } catch (error) {
         console.error('Get state error: ', error.message);
     }

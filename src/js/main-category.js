@@ -110,7 +110,15 @@ function renewRecipes() {
     testyApiService.getRecipes().then(data => {
         let tmpContent = '';
         data.results.forEach(recipe => {
-            tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/><button class="add-fav-btn" data-recipe-id="${recipe._id}">love</button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
+            tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${
+                recipe._id
+            }"src="${
+                recipe.preview
+            }"/><button class="add-fav-btn" data-recipe-id="${
+                recipe._id
+            }">love</button><span class="span-title">${recipe.title.toUpperCase()}</span><span class="span-descr">${
+                recipe.description
+            }</span><button class="main-see-recipe">See recipe</button></li>`;
         });
         content.innerHTML = tmpContent;
         content.querySelectorAll('.add-fav-btn').forEach(button => {
@@ -187,10 +195,9 @@ function pagination(page, total, container, callback) {
 // const buttonPag = document.querySelectorAll('.main-pag-btn');
 // buttonPag.addEventListener('click',)
 
-
-// 22 /08 / 
+// 22 /08 /
 
 function addToLocalStor(e) {
     console.log(e.target.dataset.recipeId);
     // localStorage.setItem(JSON.stringify(a))
-};
+}
