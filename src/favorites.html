@@ -1,62 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="/" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles/index.css" />
+        <link rel="stylesheet" href="styles/favor-body.css" />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/" />
-    <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="styles/favor-body.css" />
-    <title>Document</title>
-</head>
-
-<body>
-    <section id="header-section">
-        <include src="./html/header.html"></include>
-    </section>
-    <section id="hero-section">
-        <!-- <include src="./html/hero.html"></include> -->
-    </section>
-    <section class="favorites-zero">
-        <div class="container">
-            <svg class="favorites-icon">
-                <use href="./img/sprite.svg#fav-icon"></use>
-            </svg>
-        </div>
-    </section>
-    <section class="tags">
-        <div class="container tags-container">
-            <ul class="favor-tags-list">
-                <li class="tags-item">
-                    <button class="favorites-tags all-tags active" type="button">
-                        All categories
-                    </button>
-                </li>
-            </ul>
-            <div class="categories-box-favorites">
-                <ul class="category-list-favorites"></ul>
+    <body>
+        <section id="header-section">
+            <include src="./html/header.html"></include>
+        </section>
+        <!--<section id="hero-section">
+<include src="./html/hero.html"></include> 
+    </section> -->
+        <section class="favorites-zero">
+            <div class="container fav-container">
+                <svg class="favorites-icon">
+                    <use href="./img/sprite.svg#fav-icon"></use>
+                </svg>
             </div>
-        </div>
-    </section>
-    <section class="favorites-gallery">
-        <div class="container favorites-gallery-container">
-            <ul class="favorites-list"></ul>
-        </div>
-
-        <div class="container">
-            <div class="pagination-wrapper favor-pagination">
-                <div class="tui-pagination" id="pagination"></div>
+        </section>
+        <section class="tags">
+            <div class="container fav-container tags-container">
+                <ul class="favor-tags-list">
+                    <li class="tags-item">
+                        <button
+                            class="favorites-tags all-tags active"
+                            type="button"
+                        >
+                            All categories
+                        </button>
+                    </li>
+                </ul>
+                <div class="categories-box-favorites">
+                    <ul class="category-list-favorites"></ul>
+                </div>
             </div>
-        </div>
-        <p class="favorites-text">
-            It appears that you haven't added any recipes to your favorites
-            yet. To get started, you can add recipes that you like to your
-            favorites for easier access in the future.
-        </p>
-    </section>
-    <script type="module" src="./js/header.js" defer></script>
-    <script type="module" src="./favorites.js"></script>
-</body>
+        </section>
+        <section class="favorites-gallery">
+            <div class="container fav-container favorites-gallery-container">
+                <ul class="favorites-list"></ul>
+            </div>
 
+            <div class="container fav-container">
+                <div class="pagination-wrapper favor-pagination">
+                    <div class="tui-pagination" id="pagination"></div>
+                </div>
+            </div>
+            <p class="container fav-container favorites-text">
+                It appears that you haven't added any recipes to your favorites
+                yet. To get started, you can add recipes that you like to your
+                favorites for easier access in the future.
+            </p>
+        </section>
+        <script type="module" src="./js/header.js" defer></script>
+        <script type="module" src="./favorites.js"></script>
+    </body>
 </html>
