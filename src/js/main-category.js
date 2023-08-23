@@ -14,7 +14,11 @@ const timeFilter = document.querySelector('.time');
 const allCategoryBtn = document.querySelector('.all-category-btn');
 const resetFilter = document.querySelector('.reset-filters');
 
-resetFilter.addEventListener('click', testyApiService.setResetFilters);
+resetFilter.addEventListener('click', (e) => {
+    document.querySelector('.form-filters').reset();
+    testyApiService.setResetFilters();
+    renewRecipes();
+});
 
 for (let i = 5; i <= 120; i += 5) {
     const opt = document.createElement('option');
@@ -91,7 +95,6 @@ testyApiService.getIngredients().then(data => {
 });
 
 window.onresize = throttle(function () {
-    perPage();
     renewRecipes();
 }, 500);
 
@@ -100,23 +103,24 @@ function perPage() {
     else if (window.innerWidth < 1280) testyApiService.setPerPage(8);
     else testyApiService.setPerPage(9);
 }
-perPage();
 
 //ОТРИМУЄМО СПИСОК РЕЦЕПТІВ ПРИ ЗАВАНТАЖЕНІ СТОРІНКИ
 renewRecipes();
 
 // functions
 function renewRecipes() {
+    perPage();
     let favObj = favApi.getLs();
     testyApiService.getRecipes().then(data => {
         let tmpContent = '';
         data.results.forEach(recipe => {
-            tmpContent += `<li class="item-cards"><div class="shadow-on-img"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/></div><button class="add-fav-btn" data-recipe-id="${recipe._id}"><svg class="heard-icon"><use href="../img/sprite.svg#icon-heart1"></use></svg></button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
+        	let favClass = (recipe._id in favObj) ? 'favorite' : 'unfavorite';
+            tmpContent += `<li class="item-cards"><div class="shadow-on-img"><img class="card-img" data-recipe-id="${recipe._id}" src="${recipe.preview}"/></div><button class="add-fav-btn ${favClass}" data-recipe-id="${recipe._id}"><svg class="heard-icon"><use href="../img/sprite.svg#icon-heart1"></use></svg></button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
         });
         content.innerHTML = tmpContent;
         content.querySelectorAll('.add-fav-btn').forEach(button => {
             button.addEventListener('click', function (e) {
-                let res = favApi.togleFav(e.target.dataset.recipeId);
+                let res = favApi.togleFav(e.target.closest('button').dataset.recipeId);
                 console.log(res);
                 // if (res) togle class  'favorite' : 'unfavorite'
             });
