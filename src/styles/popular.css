@@ -27,14 +27,14 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
-.points-desc{
+.points-desc {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
-.points-title{
+.points-title {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -146,9 +146,9 @@ button {
         font-size: 10px;
         font-style: normal;
         font-weight: 400;
-        line-height: 1.4; 
+        line-height: 1.4;
     }
-    .points-desc{
+    .points-desc {
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -231,11 +231,11 @@ body.no-scroll {
     cursor: pointer;
 }
 
-.oder-modal-title{
+.oder-modal-title {
     display: flex;
     flex-direction: column;
 }
-.recipe-video-content{
+.recipe-video-content {
     order: 2;
 }
 .modal-recepi-title {
@@ -336,7 +336,6 @@ body.no-scroll {
 
 .recepi-ingredients-item:not(:last-child) {
     margin-bottom: 10px;
-   
 }
 .ingredient-name {
     color: var(--primary-title-color);
@@ -420,31 +419,30 @@ body.no-scroll {
         overflow: hidden;
         margin-bottom: 16px;
     }
-    .modal-recepi-description{
+    .modal-recepi-description {
         margin-bottom: 32px;
         margin-top: 32px;
     }
-    .order{
+    .order {
         display: flex;
-       flex-wrap: wrap;
-       align-items: center;
-      
+        flex-wrap: wrap;
+        align-items: center;
     }
-    .recepi-rating-wrap{
+    .recepi-rating-wrap {
         order: 2;
     }
-    .recepi-ingredients-list{
+    .recepi-ingredients-list {
         order: 3;
     }
-    .recepi-tags-list{
+    .recepi-tags-list {
         order: 1;
     }
-    .recepi-ingredients-list{
+    .recepi-ingredients-list {
         width: 467px;
     }
-   .modal-recepi-description{
-    margin-top: 0;
-   }
+    .modal-recepi-description {
+        margin-top: 0;
+    }
 }
 /* ------------DESCTOP w1280---------------- */
 @media screen and (min-width: 1280px) {

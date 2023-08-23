@@ -23,7 +23,6 @@ function togleFav(id) {
             favoritesObj[id] = data;
             ls.save(favoritesObj);
             console.log('Add to favorites');
-
         });
     }
     console.log(favoritesObj);

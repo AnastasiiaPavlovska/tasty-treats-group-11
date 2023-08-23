@@ -14,7 +14,7 @@ const timeFilter = document.querySelector('.time');
 const allCategoryBtn = document.querySelector('.all-category-btn');
 const resetFilter = document.querySelector('.reset-filters');
 
-resetFilter.addEventListener('click', (e) => {
+resetFilter.addEventListener('click', e => {
     document.querySelector('.form-filters').reset();
     testyApiService.setResetFilters();
     renewRecipes();
@@ -114,13 +114,35 @@ function renewRecipes() {
     testyApiService.getRecipes().then(data => {
         let tmpContent = '';
         data.results.forEach(recipe => {
-        	let favClass = (recipe._id in favObj) ? 'favorite' : 'unfavorite';
-            tmpContent += `<li class="item-cards"><div class="shadow-on-img"><img class="card-img" data-recipe-id="${recipe._id}" src="${recipe.preview}"/></div><button class="add-fav-btn ${favClass}" data-recipe-id="${recipe._id}"><svg class="heard-icon"><use href="../img/sprite.svg#icon-heart1"></use></svg></button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
+            let favClass = recipe._id in favObj ? 'favorite' : 'unfavorite';
+            tmpContent += `    
+            <li class="item-cards">
+                <div class="shadow-on-img" data-recipe-id="${recipe._id}">
+                    <img class="card-img" src="${recipe.preview}" />
+                </div>
+                <button class="add-fav-btn ${favClass}">
+                    <svg class="heard-icon">
+                        <use href="../img/sprite.svg#icon-heart1"></use>
+                    </svg>
+                </button>
+                <span class="span-title" data-recipe-id="${recipe._id}">
+                    ${recipe.title.toUpperCase()}
+                </span>
+                <span class="span-descr" data-recipe-id="${recipe._id}">
+                    ${recipe.description}
+                </span>
+                <button class="main-see-recipe" data-recipe-id="${recipe._id}">
+                    See recipe
+                </button>
+            </li>
+            `;
         });
         content.innerHTML = tmpContent;
         content.querySelectorAll('.add-fav-btn').forEach(button => {
             button.addEventListener('click', function (e) {
-                let res = favApi.togleFav(e.target.closest('button').dataset.recipeId);
+                let res = favApi.togleFav(
+                    e.target.closest('button').dataset.recipeId
+                );
                 console.log(res);
                 // if (res) togle class  'favorite' : 'unfavorite'
             });
@@ -150,7 +172,9 @@ function pagination(page, total, container, callback) {
         } else {
             // active prev b
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="1"><<</button>`;
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page - 1}"><</button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
+                page - 1
+            }"><</button>`;
         }
         for (let i = page - btns; i <= page + btns; i++) {
             if (i > 0 && i <= total) {
@@ -172,7 +196,9 @@ function pagination(page, total, container, callback) {
             container.innerHTML += `<button class="main-pag-btn" disabled>>></button>`;
         } else {
             // active forward b
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page + 1}">></button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
+                page + 1
+            }">></button>`;
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${total}">>></button>`;
         }
         container.querySelectorAll('[data-topage]').forEach(btn => {
@@ -193,4 +219,4 @@ function pagination(page, total, container, callback) {
 function addToLocalStor(e) {
     console.log(e.target.dataset.recipeId);
     // localStorage.setItem(JSON.stringify(a))
-};
+}
