@@ -53,10 +53,9 @@ li {
     line-height: 18px;
 }
 
-.category-list-favourites {
+.category-list-favorites {
     display: flex;
     gap: 18px;
-    display: none;
 }
 
 .tags-container {
@@ -82,7 +81,6 @@ li {
         color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        display: none;
 }
 
 .category-btn {
@@ -184,7 +182,7 @@ li {
     font-size: 18px;
     line-height: 20px;
     letter-spacing: -4%;
-}
+   }
 
 /* ================320px============== */
 

@@ -1,9 +1,10 @@
 import favApi from './js/favorites-api';
 const throttle = require('lodash.throttle');
 
-const categoryListFavourite = document.querySelector('.category-list-favourites');
+const categoryListFavorite = document.querySelector('.category-list-favorites');
 const favoriteCards = document.querySelector('.favorites-list');
 const favorPagin = document.querySelector('#pagination');
+const favCaptive = document.querySelector('.favorites-text');
 
 
 let AllCategories = [];
@@ -34,6 +35,10 @@ function renewRecipes(page) {
         if (!AllCategories.includes(recipe.category)) {
             AllCategories.push(recipe.category);
         }
+    });
+    currentCategory = AllCategories.includes(currentCategory) ? currentCategory : '';
+    Object.keys(favObj).forEach((id) => {
+        let recipe = favObj[id];
         //console.log(recipe);
         let totalCards = 0;
         let start = page === 1 ? 0 : ((page - 1) * perPageLimit);
@@ -46,13 +51,33 @@ function renewRecipes(page) {
             }
         }
     });
+    const markup = AllCategories.sort().map(category => {
+        return `<li class="favourites-list-btn"><button class="category-btn" data-recipe-category="${category}">${category}</button></li>`;
+    }).join('');
+    categoryListFavorite.innerHTML = markup;
+
+    categoryListFavorite.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            currentCategory = e.target.dataset.recipeCategory;
+        console.log(e.target.dataset.recipeCategory);
+            // renew favors
+        renewRecipes();
+        })
+    });
+    
+    document.querySelector('.all-tags').addEventListener('click', () => {
+        currentCategory = '';
+        console.log('categories reset', currentCategory);
+        // renew favors
+        renewRecipes();
+    })
     if (cardsArray.length) {
         favoriteCards.innerHTML = cardsArray.join('');
         favoriteCards.querySelectorAll('.add-fav-btn').forEach(button => {
             button.addEventListener('click', function (e) {
                 e.preventDefault();
                 let res = favApi.togleFav(e.target.dataset.recipeId);
-                console.log(res);
+                // console.log(res);
                 renewRecipes(page);
                 // if (res) togle class  'favorite' : 'unfavorite'
             });
@@ -62,9 +87,9 @@ function renewRecipes(page) {
         } else {
             favorPagin.innerHTML = '';
         }
-
+        favCaptive.style.display = 'none';
     } else {
-        favoriteCards.innerHTML = 'Somesing went wrong - haven`t favorites :(';
+        favCaptive.style.display = 'flex';
     }
 
 }
@@ -87,29 +112,13 @@ renewRecipes();
 
 
 
-const markup = AllCategories.sort().map(category => {
-    return `<li class="favourites-list-btn"><button class="category-btn" data-recipe-category="${category}">${category}</button></li>`;
-}).join('');
-
-categoryListFavourite.innerHTML = markup;
-categoryListFavourite.querySelectorAll('.category-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        currentCategory = e.target.dataset.recipeCategory;
-    console.log(e.target.dataset.recipeCategory);
-        // renew favors
-    renewRecipes();
-    })
-});
-
-document.querySelector('.all-tags').addEventListener('click', (e) => {
-    currentCategory = '';
-    console.log('categories reset', currentCategory);
-    // renew favors
-    renewRecipes();
-})
 
 
-// ?????????
+
+
+
+
+// pagination
 function pagination(page, total, container, callback) {
     page = Number(page);
     total = Number(total);
@@ -131,7 +140,7 @@ function pagination(page, total, container, callback) {
             if (i > 0 && i <= total) {
                 if (i === page) {
                     //current page b
-                    container.innerHTML += `<button class="main-pag-btn main-pag-btn-green active"  data-topage="${i}">_${i}_</button>`;
+                    container.innerHTML += `<button class="main-pag-btn main-pag-btn-green active"  data-topage="${i}">${i}</button>`;
                 } else if (i === page + btns || i === page - btns) {
                     //other pages b
                     container.innerHTML += `<button class="main-pag-btn" data-topage="${i}">...</button>`;
