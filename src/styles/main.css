@@ -262,7 +262,7 @@
         padding: 0;
         z-index: 2;
 }
-.icon-heart1 {
+.heard-icon {
 width: 22px;
 height: 22px;
 z-index: 2;
@@ -284,7 +284,7 @@ z-index: 2;
     position: absolute;
     bottom: 63px;
     left: 16px;
-    color: #F8F8F8;
+    color: rgba(248, 248, 248, 1);
     width: 218px;
     max-height: 32px;
     overflow: hidden;
@@ -345,7 +345,9 @@ width: 250px;
    font-size: 12px;
    line-height: 16px; 
    color: rgba(5, 5, 5, 0.5);
+margin-bottom: 20px;
 }
+
 /* MIN 375**************************************************************** */
 @media screen and (min-width: 375px) {
     #content {
@@ -363,6 +365,7 @@ width: 250px;
     .main-see-recipe  {
         left: 132px;
     }
+
 }
 
 /* MIN 768******************************************************* */
@@ -452,6 +455,7 @@ width: 250px;
         justify-content: flex-end;
         margin-right: 145px;
         position: inherit;
+        margin-bottom: 14px;
 }
 /* Пагінація******************************************************** */
 
