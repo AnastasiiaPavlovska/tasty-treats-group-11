@@ -107,23 +107,19 @@ renewRecipes();
 
 // functions
 function renewRecipes() {
+    let favObj = favApi.getLs();
     testyApiService.getRecipes().then(data => {
         let tmpContent = '';
         data.results.forEach(recipe => {
-            tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${
-                recipe._id
-            }"src="${
-                recipe.preview
-            }"/><button class="add-fav-btn" data-recipe-id="${
-                recipe._id
-            }">love</button><span class="span-title">${recipe.title.toUpperCase()}</span><span class="span-descr">${
-                recipe.description
-            }</span><button class="main-see-recipe">See recipe</button></li>`;
+        	let favClass = (recipe._id in favObj) ? 'favorite' : 'unfavorite';
+            tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/><button class="add-fav-btn ${favClass}" data-recipe-id="${recipe._id}">love</button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
         });
         content.innerHTML = tmpContent;
         content.querySelectorAll('.add-fav-btn').forEach(button => {
             button.addEventListener('click', function (e) {
-                favApi.togleFav(e.target.dataset.recipeId);
+                let res = favApi.togleFav(e.target.dataset.recipeId);
+                console.log(res);
+                // if (res) togle class  'favorite' : 'unfavorite'
             });
         });
         content.querySelectorAll('.main-see-recipe').forEach(button => {
@@ -135,7 +131,7 @@ function renewRecipes() {
         console.log(data);
     });
 }
-
+// Пагінація*************************************************************************************
 function pagination(page, total, container, callback) {
     page = Number(page);
     total = Number(total);
@@ -151,9 +147,7 @@ function pagination(page, total, container, callback) {
         } else {
             // active prev b
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="1"><<</button>`;
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
-                page - 1
-            }"><</button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page - 1}"><</button>`;
         }
         for (let i = page - btns; i <= page + btns; i++) {
             if (i > 0 && i <= total) {
@@ -175,20 +169,16 @@ function pagination(page, total, container, callback) {
             container.innerHTML += `<button class="main-pag-btn" disabled>>></button>`;
         } else {
             // active forward b
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
-                page + 1
-            }">></button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page + 1}">></button>`;
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${total}">>></button>`;
         }
         container.querySelectorAll('[data-topage]').forEach(btn => {
-            /* console.log(btn.dataset.topage) */ btn.addEventListener(
-                'click',
-                function (e) {
-                    e.preventDefault();
-                    testyApiService.setPage(Number(e.target.dataset.topage));
-                    callback();
-                }
-            );
+            /* console.log(btn.dataset.topage); */
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                testyApiService.setPage(Number(e.target.dataset.topage));
+                callback();
+            });
         });
     }
 }
@@ -200,4 +190,4 @@ function pagination(page, total, container, callback) {
 function addToLocalStor(e) {
     console.log(e.target.dataset.recipeId);
     // localStorage.setItem(JSON.stringify(a))
-}
+};
