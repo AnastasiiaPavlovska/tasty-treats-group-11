@@ -54,7 +54,12 @@
     z-index: 1;
 }
 
+.tag-item {
+    margin: 2px;
+}
+
 .recipe-image {
+    object-fit: cover;
     width: 295px;
     height: 295px;
     border-radius: 8px;

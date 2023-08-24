@@ -246,9 +246,14 @@
 }
 /* ======================== min-1200px ====================== */
 @media screen and (min-width: 1200px) {
+    #hero-section {
+        display: flex;
+        justify-content: center;
+    }
+
     .hero-container {
+        max-width: 1400px;
         padding-left: 100px;
-        max-width: none;
         padding-bottom: 100px;
         justify-content: space-between;
         flex-direction: row;

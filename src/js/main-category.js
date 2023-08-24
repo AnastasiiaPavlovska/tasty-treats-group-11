@@ -50,6 +50,11 @@ areaFilter.addEventListener('change', function (e) {
 });
 
 categoryList.addEventListener('click', function (e) {
+    categoryList.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('active-button');
+    });
+
+    e.target.classList.add('active-button');
     console.log(e.target.dataset.recipeCategory);
     testyApiService.setCategory(e.target.dataset.recipeCategory);
     renewRecipes();
@@ -177,14 +182,14 @@ function renewRecipes() {
                 let res = favApi.togleFav(
                     e.target.closest('button').dataset.recipeId
                 );
-                
+
                 console.log(res);
                 // if (res) togle class  'favorite' : 'unfavorite'
             });
         });
         content.querySelectorAll('.main-see-recipe').forEach(button => {
             let modal = require('./modal-recipe.js');
-            button.addEventListener('click', (e) => {
+            button.addEventListener('click', e => {
                 modal.default.open(e.target.dataset.recipeId);
             });
         });
