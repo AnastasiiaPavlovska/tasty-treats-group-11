@@ -117,8 +117,10 @@ function renewRecipes(page) {
             favorPagin.innerHTML = '';
         }
         favCaptive.style.display = 'none';
+        document.querySelector('.favorites-tags').style.display='flex';
     } else {
         favCaptive.style.display = 'flex';
+        document.querySelector('.favorites-tags').style.display='none';
     }
 }
 
