@@ -1,31 +1,30 @@
-import axios from 'axios';
+import favApi from './favorites-api';
 import TestyApiService from './testyApiService';
 
 const testyApiService = new TestyApiService();
-const cardsContainer = document.querySelector('.cards');
+const modalBackdrop = document.querySelector('[data-modal-recipe]');
+const modalRecipe = document.querySelector('.modal-recipe');
 
-cardsContainer.addEventListener('click', processRecipeOpening);
+export default { open };
 
-async function processRecipeOpening(event) {
-    // Retrieve the recipe ID from the "data-recipe-id" attribute
-    const recipeId = event.target.getAttribute('data-recipe-id');
+function open(recipeId) {
     if (recipeId !== null) {
         try {
-            const recipe = await testyApiService.getRecipeById(recipeId);
+            let recipe;
+            testyApiService.getRecipeById(recipeId).then(data => {
+                recipe = data;
             console.log('Recipe Info:', recipe);
             populateModalWithRecipe(recipe);
             // Display the modal
             showModalRecipe();
+            });
         } catch (error) {
             console.error('Error fetching recipe:', error);
         }
     } else {
-        console.error("Can't get 'data-recipe-id' from: " + event.target);
+        console.error("Can't get 'data-recipe-id' from: " + e.target);
     }
 }
-
-const modalBackdrop = document.querySelector('[data-modal-recipe]');
-const modalRecipe = document.querySelector('.modal-recipe');
 
 function populateModalWithRecipe(recipe) {
     const recipeImage = modalRecipe.querySelector('.recipe-image');
@@ -35,6 +34,7 @@ function populateModalWithRecipe(recipe) {
     const cookingTime = modalRecipe.querySelector('.cooking-time');
     const ingredientsList = modalRecipe.querySelector('.ingredients');
     const recipeWrap = modalRecipe.querySelector('.instruction-wrap');
+    const btnAddToFavorite = modalRecipe.querySelector('.btn-favorite');
     // const recipeInstruction = modalRecipe.querySelector('.recipe-instruction');
     //--------------------
     recipeImage.src = recipe.preview;
@@ -104,6 +104,15 @@ ${ingredient.name}<span class="ingredient-amount">${ingredient.measure}</span>
             }
         }
     }
+    btnAddToFavorite.dataset.recipeId = recipe._id;
+
+    btnAddToFavorite.addEventListener('click', function (e) {
+        e.preventDefault();
+        favApi.togleFav(e.target.dataset.recipeId);
+        if (favApi.checkFav(e.target.dataset.recipeId)) {
+            e.target.value('Remove from Favorites');
+        }
+    });
 }
 
 function showModalRecipe() {

@@ -183,7 +183,10 @@ function renewRecipes() {
             });
         });
         content.querySelectorAll('.main-see-recipe').forEach(button => {
-            button.addEventListener('click', addToLocalStor);
+            let modal = require('./modal-recipe.js');
+            button.addEventListener('click', (e) => {
+                modal.default.open(e.target.dataset.recipeId);
+            });
         });
 
         const container = document.querySelector('.pagination');
@@ -215,7 +218,7 @@ function pagination(page, total, container, callback) {
             if (i > 0 && i <= total) {
                 if (i === page) {
                     //current page b
-                    container.innerHTML += `<button class="main-pag-btn main-pag-btn-green active"  data-topage="${i}">_${i}_</button>`;
+                    container.innerHTML += `<button class="main-pag-btn main-pag-btn-green active"  data-topage="${i}">${i}</button>`;
                 } else if (i === page + btns || i === page - btns) {
                     //other pages b
                     container.innerHTML += `<button class="main-pag-btn" data-topage="${i}">...</button>`;
