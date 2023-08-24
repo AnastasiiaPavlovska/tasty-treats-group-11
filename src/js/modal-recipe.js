@@ -12,7 +12,7 @@ async function processRecipeOpening(event) {
     if (recipeId !== null) {
         try {
             const recipe = await testyApiService.getRecipeById(recipeId);
-            // console.log('Recipe Info:', recipe);
+            console.log('Recipe Info:', recipe);
             populateModalWithRecipe(recipe);
             // Display the modal
             showModalRecipe();
@@ -26,7 +26,6 @@ async function processRecipeOpening(event) {
 
 const modalBackdrop = document.querySelector('[data-modal-recipe]');
 const modalRecipe = document.querySelector('.modal-recipe');
-let player;
 
 function populateModalWithRecipe(recipe) {
     const recipeImage = modalRecipe.querySelector('.recipe-image');
@@ -35,42 +34,27 @@ function populateModalWithRecipe(recipe) {
     const ratingNumber = modalRecipe.querySelector('.rating-number-recipe');
     const cookingTime = modalRecipe.querySelector('.cooking-time');
     const ingredientsList = modalRecipe.querySelector('.ingredients');
-    const recipeInstruction = modalRecipe.querySelector('.recipe-instruction');
+    const recipeWrap = modalRecipe.querySelector('.instruction-wrap');
+    // const recipeInstruction = modalRecipe.querySelector('.recipe-instruction');
     //--------------------
     recipeImage.src = recipe.preview;
     recipeName.textContent = recipe.title;
     //-----------------------------------
-    recipeName.textContent = recipe.title;
+    const youtubeLink = modalRecipe.querySelector('.youtube-link');
+    youtubeLink.href = recipe.youtube;
     // Populate tags (assuming recipe has tags property)
     // Select the appropriate tags element based on screen width
     const tags1 = document.querySelector('.tags-1');
     const tags2 = document.querySelector('.tags-2');
-    const screenWidth = window.innerWidth;
-
     if (recipe.tags && recipe.tags.length > 0 && recipe.tags[0] !== '') {
-        tags1.innerHTML = recipe.tags
+        const mrkp = recipe.tags
             .map(
                 tag =>
                     `<li class="tag-item"><button class="btn-tag" type="button">#${tag}</button></li>`
             )
             .join('');
-        tags2.innerHTML = recipe.tags
-            .map(
-                tag =>
-                    `<li class="tag-item"><button class="btn-tag" type="button">#${tag}</button></li>`
-            )
-            .join('');
-
-        if (screenWidth < 768) {
-            tags2.style.display = 'flex';
-            tags1.style.display = 'none';
-        } else {
-            tags2.style.display = 'none';
-            tags1.style.display = 'flex';
-        }
-    } else {
-        tags1.style.display = 'none';
-        tags2.style.display = 'none';
+        tags1.insertAdjacentHTML('beforeend', mrkp);
+        tags2.insertAdjacentHTML('beforeend', mrkp);
     }
 
     //------------------------------------------------------------
@@ -93,8 +77,15 @@ ${ingredient.name}<span class="ingredient-amount">${ingredient.measure}</span>
             .join('');
     }
 
+    recipeWrap.innerHTML = '';
     if (recipe.instructions) {
-        recipeInstruction.textContent = recipe.instructions;
+        let steps = recipe.instructions.split('\n');
+        steps.forEach(step => {
+            let stepParagraph = document.createElement('p');
+            stepParagraph.innerText = step;
+            stepParagraph.classList.add('recipe-instruction');
+            recipeWrap.appendChild(stepParagraph);
+        });
     }
 
     if (recipe.rating) {
