@@ -14,7 +14,7 @@ async function getRecipes() {
         return response.data;
     } catch (error) {
         Notiflix.Notify.failure(
-            'Sorry, something went wrong. Plise try again later.'
+            'Sorry, something went wrong. Please try again later.'
         );
         console.log(error);
         throw error;
@@ -86,7 +86,7 @@ function openModal(id) {
         })
         .catch(error => {
             Notiflix.Notify.failure(
-                'Sorry, there is no information about this recipe. Plise try another one.'
+                'Sorry, there is no information about this recipe. Please try another one.'
             );
             console.log(error);
         });
