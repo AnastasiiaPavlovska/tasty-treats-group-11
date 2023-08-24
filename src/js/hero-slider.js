@@ -42,21 +42,21 @@ function onError() {
 
 function createMarkup(events) {
     return events
-        .map(({ cook, topic: { name, area, previewUrl, previewWebpUrl } }) => {
+        .map(({ cook, topic: { name, area, previewWebpUrl } }) => {
             const markup = `
 <div class="swiper-container swiper-slide">
   <div class="image cook">
-   <img  src="${cook.imgUrl}" loading="lazy">
+   <img  src="${cook.imgWebpUrl}">
    </div>
   <div class="image dish">
-   <img src="${previewUrl}" loading="lazy">
+   <img src="${previewWebpUrl}">
    <div class="dish-descr">
    <h3 class="dish-name">${name}</h3>
    <p class="dish-area">${area}</p> 
    </div>
     </div>
    <div class="image dish-zoom">
-   <img  src="${previewWebpUrl}" loading="lazy">
+   <img  src="${previewWebpUrl}">
     </div>
 </div>
   `;
@@ -116,9 +116,9 @@ function createMarkup(events) {
 //                     name,
 //                     area,
 //                     imgUrl,
+//                     imgWebPUrl,
 //                     previewWebpUrl,
 //                     previewUrl,
-//                     imgWebpUrl,
 //                 },
 //             }) => {
 //                 const markup = `

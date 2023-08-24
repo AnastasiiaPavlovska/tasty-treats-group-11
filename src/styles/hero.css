@@ -98,7 +98,7 @@
     border-radius: 10px 0 0 10px;
 }
 .dish-zoom > img {
-    object-position: -125px -80px;
+    object-position: -165px -80px;
     object-fit: cover;
     width: 60px;
     height: 442px;
