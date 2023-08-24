@@ -1,19 +1,42 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const currentPage = window.location.pathname;
-    const navLinks = document.querySelectorAll('.header-nav-link');
+const currentPage = window.location.pathname;
+const navigationLinks = document.querySelectorAll('.header-nav-link');
+const navigationLinksArray = Array.from(navigationLinks);
+const isActiveLink = navigationLinksArray.some(
+    link => link.getAttribute('href') === currentPage
+);
 
-    if (currentPage === '/') {
-        navLinks[0].classList.add('is-active-link');
-    } else {
-        navLinks.forEach(link => {
-            const linkHref = link.getAttribute('href');
+if (!isActiveLink) {
+    navigationLinksArray.forEach(link => {
+        if (link.textContent === 'Home') {
+            link.classList.add('is-active-link');
+        }
+    });
+} else {
+    navigationLinksArray.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('is-active-link');
+        } else {
+            link.classList.remove('is-active-link');
+        }
+    });
+}
 
-            if (linkHref === currentPage) {
-                link.classList.add('is-active-link');
-            }
-        });
-    }
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     const currentPage = window.location.pathname;
+//     const navLinks = document.querySelectorAll('.header-nav-link');
+
+//     if (currentPage === '/') {
+//         navLinks[0].classList.add('is-active-link');
+//     } else {
+//         navLinks.forEach(link => {
+//             const linkHref = link.getAttribute('href');
+
+//             if (linkHref === currentPage) {
+//                 link.classList.add('is-active-link');
+//             }
+//         });
+//     }
+// });
 
 const headerOpenModalBtn = document.getElementById('headerOpenModalBtn');
 const headerCloseModalBtn = document.getElementById('headerCloseModalBtn');
