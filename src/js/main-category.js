@@ -177,6 +177,7 @@ function renewRecipes() {
                 let res = favApi.togleFav(
                     e.target.closest('button').dataset.recipeId
                 );
+                
                 console.log(res);
                 // if (res) togle class  'favorite' : 'unfavorite'
             });

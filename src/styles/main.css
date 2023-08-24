@@ -355,7 +355,7 @@
     bottom: 16px;
     left: 16px;
 }
-.rating-number-recipe{
+.rating-number-recipe {
     color: rgba(248, 248, 248, 1);
 }
 
@@ -376,25 +376,25 @@
     .main-see-recipe {
         left: 132px;
     }
-.item-cards .card-img {
-    width: 335px;
-    height: 335x;
-}
-.shadow-on-img::before {
-    width: 335px;
-    height: 335px;
-}
+    .item-cards .card-img {
+        width: 335px;
+        height: 335x;
+    }
+    .shadow-on-img::before {
+        width: 335px;
+        height: 335px;
+    }
 
-.item-cards .card-img {
-    width: 335px;
-    height: 335px;
-}
-.main-see-recipe {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 230px;
-}
+    .item-cards .card-img {
+        width: 335px;
+        height: 335px;
+    }
+    .main-see-recipe {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 230px;
+    }
 }
 
 /* MIN 768******************************************************* */
@@ -439,7 +439,7 @@
     .item-cards {
         margin-bottom: 0px;
         width: 240px;
-            height: 264px;
+        height: 264px;
     }
 
     .card-img {
@@ -470,30 +470,29 @@
     .cards {
         margin-bottom: 64px;
     }
-    
-    .card-img .item-cards{
+
+    .card-img .item-cards {
         width: 240px;
         height: 264px;
     }
 
+    .shadow-on-img::before {
+        width: 240px;
+        height: 265px;
+    }
 
-.shadow-on-img::before {
-    width: 240px;
-    height: 265px;
-} 
+    .shadow-on-img {
+        width: 240px;
+        height: 264px;
+    }
+    .item-cards .card-img {
+        width: 240px;
+        height: 264px;
+    }
 
-.shadow-on-img {
-    width: 240px;
-    height: 264px;
-}
- .item-cards .card-img {
-    width: 240px;
-    height: 264px;
-}
-
-.main-see-recipe {
-    left: 135px;
-}
+    .main-see-recipe {
+        left: 135px;
+    }
 
 .reset-filters {
     display: flex;
@@ -504,46 +503,46 @@
 }
 /* Пагінація******************************************************** */
 
-/* MIN 1280******************************************************/
-@media screen and (min-width: 1280px) {
-    /* Категорії */
+    /* MIN 1280******************************************************/
+    @media screen and (min-width: 1280px) {
+        /* Категорії */
 
-    #content {
-        width: 782px;
-    }
-    .filters {
-        width: 782px;
-        display: flex;
-        gap: 16px;
-    }
-    .main-div {
-        gap: 64px;
-    }
-    .cards {
-        width: 782px;
-        margin-bottom: 40px;
-    }
-    .item-cards {
-        width: 250px;
+        #content {
+            width: 782px;
+        }
+        .filters {
+            width: 782px;
+            display: flex;
+            gap: 16px;
+        }
+        .main-div {
+            gap: 64px;
+        }
+        .cards {
+            width: 782px;
+            margin-bottom: 40px;
+        }
+        .item-cards {
+            width: 250px;
             height: 288px;
-    }
-    .all-category-btn {
-        margin-bottom: 42px;
-    }
+        }
+        .all-category-btn {
+            margin-bottom: 42px;
+        }
 
-    /* Фото рецептів */
-    .card-img {
-        width: 250px;
-    }
+        /* Фото рецептів */
+        .card-img {
+            width: 250px;
+        }
 
-    .list-item {
-        row-gap: 32px;
-        width: 782px;
-    }
+        .list-item {
+            row-gap: 32px;
+            width: 782px;
+        }
 
-    .main-see-recipe {
-        right: 16px;
-    }
+        .main-see-recipe {
+            right: 16px;
+        }
 
     .reset-filters {
         margin-right: 30px;
