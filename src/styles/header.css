@@ -79,6 +79,7 @@
     justify-content: center;
     align-items: center;
     padding: 0;
+    fill: var(--primary-title-color);
 }
 
 .header-cart {
@@ -674,6 +675,7 @@
     }
 }
 
+/*:
 :root[data-theme='light'] {
     color-scheme: light;
     --text: black;
@@ -685,7 +687,7 @@
     --background: black;
 }
 
-/*:root[data-theme='dark'] .treats {
+root[data-theme='dark'] .treats {
     color: var(--dark-title-color);
 }
 
@@ -694,9 +696,10 @@
 }
 :root[data-theme='dark'] .header-burger-btn {
     fill: var(--dark-title-color);
-}*/
-
+}
 body {
     color: var(--text);
     background: var(--background);
-}
+}*/
+
+/*  
