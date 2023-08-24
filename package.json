@@ -19,20 +19,13 @@
     },
     "homepage": "https://github.com/AnastasiiaPavlovska/tasty-treats-group-11",
     "dependencies": {
-        "@glidejs/glide": "^3.6.0",
         "axios": "^1.3.4",
-        "glob": "^9.3.2",
-        "jquery": "^3.7.0",
         "lodash.debounce": "^4.0.8",
         "lodash.throttle": "^4.1.1",
-        "modern-normalize": "^1.1.0",
-        "notiflix": "^3.2.6",
-        "swiper": "^9.1.1",
-        "tui-pagination": "^3.4.1"
+        "notiflix": "^3.2.6"
     },
     "devDependencies": {
-        "@types/lodash.debounce": "^4.0.7",
-        "buffer": "^5.7.1",
+        "buffer": "^6.0.3",
         "parcel": "^2.9.3",
         "parcel-reporter-clean-dist": "^1.0.4",
         "posthtml-include": "^1.7.4"
