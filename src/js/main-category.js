@@ -20,9 +20,9 @@ resetFilter.addEventListener('click', e => {
     renewRecipes();
 });
 
-for (let i = 5; i <= 120; i += 5) {
+for (let i = 0; i <= 120; i += 5) {
     const opt = document.createElement('option');
-    opt.value = i;
+    opt.value = i ? i : '';
     opt.innerHTML = i + ' min';
     timeFilter.appendChild(opt);
 }
@@ -80,6 +80,11 @@ testyApiService.getCategories().then(data => {
 
 //ОТРИМУЄМО СПИСОК КРАЇН
 testyApiService.getAreas().then(data => {
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.innerHTML = 'Region';
+    opt.dataset.param = '';
+    areaFilter.appendChild(opt);
     data.forEach(area => {
         const opt = document.createElement('option');
         opt.value = area._id;
@@ -91,6 +96,10 @@ testyApiService.getAreas().then(data => {
 
 //ОТРИМУЄМО СПИСОК ІНГРІДІЄНТІВ
 testyApiService.getIngredients().then(data => {
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.innerHTML = 'Product';
+    ingredientsFilter.appendChild(opt);
     data.forEach(element => {
         const opt = document.createElement('option');
         opt.value = element._id;
@@ -252,6 +261,8 @@ function pagination(page, total, container, callback) {
                 callback();
             });
         });
+    } else{
+        container.innerHTML = '';
     }
 }
 // const buttonPag = document.querySelectorAll('.main-pag-btn');
