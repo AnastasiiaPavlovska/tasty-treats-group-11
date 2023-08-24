@@ -80,6 +80,7 @@
     align-items: center;
     padding: 0;
 }
+
 .header-cart {
     width: 24px;
     height: 24px;
@@ -683,13 +684,18 @@
     --text: white;
     --background: black;
 }
-:root[data-theme='dark'] .treats {
+
+/*:root[data-theme='dark'] .treats {
     color: var(--dark-title-color);
 }
 
 :root[data-theme='dark'] .header-cart {
     fill: var(--dark-title-color);
 }
+:root[data-theme='dark'] .header-burger-btn {
+    fill: var(--dark-title-color);
+}*/
+
 body {
     color: var(--text);
     background: var(--background);
