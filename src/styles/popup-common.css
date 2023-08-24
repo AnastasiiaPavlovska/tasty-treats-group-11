@@ -1,29 +1,7 @@
 @import './root.css';
-
-p,
-h2,
-h3 {
-    margin: 0;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-img {
-    display: block;
-    height: auto;
-    width: 100%;
-}
-
-li {
-    list-style: none;
-}
-
 .backdrop {
     overflow: auto;
-    z-index: 2;
+    z-index: 9999;
     width: 100%;
     height: 100%;
     position: fixed;
