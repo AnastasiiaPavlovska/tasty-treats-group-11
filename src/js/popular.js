@@ -66,9 +66,7 @@ function openModal(id) {
             // Отримуемо з бекенду рецепт за обраним ID
             const {
                 title,
-                description,
-                area,
-                category,
+                instructions,
                 preview,
                 rating,
                 time,
@@ -91,9 +89,6 @@ function openModal(id) {
 // Функція відмальовки модального вікна обриного рецепту
 function createModalRecepieById({
     title,
-    description,
-    area,
-    category,
     thumb,
     instructions,
     preview,
@@ -108,83 +103,89 @@ function createModalRecepieById({
     divModalBackdrop.classList.add('is-active');
     divModalBackdrop.innerHTML = `
       <div class="modal-bg">
-        <div class="modal-body">
-            <div class="modal-close">
-                <button type="button" class="modal-close-btn">x
-                    <svg class="modal-close-icon" width="32" height="32">
-                        <use href="./img/recet-x.svg"></use>
-                     </svg>
-                </button>
-            </div>
-            <div class="modal-content">
-                <div class="oder-modal-title">
-                    <h2 class="modal-recepi-title">${title}</h2>
-                    <div class="recipe-video-content">
-                        <div class="recepi-video-wrap">
-                        <img src="${preview}" alt="${title}" class="video-img"> 
-                        </div>
-                        <div class="youtube-btn">
-                            <a href="${youtube}" class="youtube-link" target="_blank" rel="noopener noreferrer nofollow">
-                                <svg class="youtube-icon" width="32" height="32">
-                                    <use href="./img/youtube.svg"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="order"> 
-                    <div class="recepi-rating-wrap">
-                        <div class="rating-stars-wrap">
-                            <label for="" class="recepi-rating-value">${rating}</label>
-                                <input type="radio" class="rating-start-item" value="1">
-                                <input type="radio" class="rating-start-item" value="2">
-                                <input type="radio" class="rating-start-item" value="3">
-                                <input type="radio" class="rating-start-item" value="4">
-                                <input type="radio" class="rating-start-item" value="5">
-                        </div>
-                        <p class="recepi-time-cook">${time} min</p>
-                    </div>
-                    <div class="recepi-ingredients-list list">
-                        <li class="recepi-ingredients-item">
-                            <p class="ingredient-name">Banana</p>
-                            <p class="ingredient-mesure">1 large</p>
-                        </li>
-                        <li class="recepi-ingredients-item">
-                            <p class="ingredient-name">Eggs</p>
-                            <p class="ingredient-mesure">2 medium</p>
-                        </li>
-                        <li class="recepi-ingredients-item">
-                            <p class="ingredient-name">Oil</p>
-                            <p class="ingredient-mesure">1 tsp</p>
-                        </li>
-                        <li class="recepi-ingredients-item">
-                            <p class="ingredient-name">Pecan nuts</p>
-                            <p class="ingredient-mesure">25 tsp</p>
-                        </li>
-                        <li class="recepi-ingredients-item">
-                            <p class="ingredient-name">Baking Powder</p>
-                            <p class="ingredient-mesure">Pinch</p>
-                        </li>
-                    </div>
-                    <ul class="recepi-tags-list list">
-                        <li class="recepi-tags-item">
-                            <button type="button" class="recepi-tags-btn">#Breakfast</button>
-                        </li>
-                        <li class="recepi-tags-item">
-                            <button type="button" class="recepi-tags-btn">#Desert</button>
-                        </li>
-                        <li class="recepi-tags-item">
-                            <button type="button" class="recepi-tags-btn">#Sweet</button>
-                        </li>
-                    </ul>
-                </div>
-                <p class="modal-recepi-description">${instructions}</p>
-                <div class="modal-recepi-buttons">
-                    <button type="button" class="add-favorit">Add to favorite</button>
-                    <button type="button" class="give-rating">Give rating</button>
-                </div>
-            </div>
-        </div>
+      <div class="modal-body">
+          <div class="modal-close">
+              <button type="button" class="modal-close-btn">x
+                  <svg class="modal-close-icon" width="16" height="16">
+                      <use href="/src/img/youtube.svg#icon-modal-close"></use>
+                  </svg>
+              </button>
+          </div>
+          <div class="modal-content">
+              <div class="video-oder">
+                  <h2 class="modal-recepi-title">${title}</h2>
+                  <div class="recipe-video-content">
+                      <a href="" class="youtube-link">
+                          <div class="recepi-video-wrap">
+                              <img src="${preview}" alt="${title}">
+                          </div>
+                          <div class="youtube-btn">
+                              <svg class="youtube-icon" width="32" height="32">
+                                  <use href="/src/img/youtube.svg#youtube-icon"></use>
+                              </svg>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+              <div class="recipe-info-order">
+                  <div class="recepi-rating">
+                      <p class="recepi-rating-value">${rating}</p>
+                      <div class="recepi-rating-body">
+                          <div class="rating-active">
+                              <div class="rating-items">
+                                  <input type="radio" class="rating-start-item" value="1" name="rating">
+                                  <input type="radio" class="rating-start-item" value="2" name="rating">
+                                  <input type="radio" class="rating-start-item" value="3" name="rating">
+                                  <input type="radio" class="rating-start-item" value="4" name="rating">
+                                  <input type="radio" class="rating-start-item" value="5" name="rating">
+                              </div>
+                          </div>
+                      </div>
+                      <p class="recepi-time-cook">${time} min</p>
+                  </div>
+                  <div class="recepi-ingredients-list list">
+                      <li class="recepi-ingredients-item">
+                          <p class="ingredient-name">Banana</p>
+                          <p class="ingredient-mesure">1 large</p>
+                      </li>
+                      <li class="recepi-ingredients-item">
+                          <p class="ingredient-name">Eggs</p>
+                          <p class="ingredient-mesure">2 medium</p>
+                      </li>
+                      <li class="recepi-ingredients-item">
+                          <p class="ingredient-name">Oil</p>
+                          <p class="ingredient-mesure">1 tsp</p>
+                      </li>
+                      <li class="recepi-ingredients-item">
+                          <p class="ingredient-name">Pecan nuts</p>
+                          <p class="ingredient-mesure">25 tsp</p>
+                      </li>
+                      <li class="recepi-ingredients-item">
+                          <p class="ingredient-name">Baking Powder</p>
+                          <p class="ingredient-mesure">Pinch</p>
+                      </li>
+                  </div>
+                  <div class="recepi-tags-wrap">
+                      <ul class="recepi-tags-list list">
+                          <li class="recepi-tags-item">
+                              <button type="button" class="recepi-tags-btn">#Breakfast</button>
+                          </li>
+                          <li class="recepi-tags-item">
+                              <button type="button" class="recepi-tags-btn">#Desert</button>
+                          </li>
+                          <li class="recepi-tags-item">
+                              <button type="button" class="recepi-tags-btn">#Sweet</button>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <p class="modal-recepi-description">${instructions}</p>
+              <div class="modal-recepi-buttons">
+                  <button type="button" class="add-favorit">Add to favorite</button>
+                  <button type="button" class="give-rating">Give rating</button>
+              </div>
+          </div>
+      </div>
     </div>
       `;
     document.body.appendChild(divModalBackdrop);
