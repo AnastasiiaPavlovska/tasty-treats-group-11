@@ -152,17 +152,17 @@ function renewRecipes() {
     testyApiService.getRecipes().then(data => {
         let tmpContent = '';
         data.results.forEach(recipe => {
-            let favClass = recipe._id in favObj ? 'favorite' : 'unfavorite';
+            let svgFill = recipe._id in favObj ? '#F8F8F8' : 'none';
             tmpContent += `    
             <li class="item-cards">
                 <div class="shadow-on-img" data-recipe-id="${recipe._id}">
                     <img class="card-img" src="${recipe.preview}" />
                 </div>
                 ${recipeRating}
-                <button class="add-fav-btn ${favClass}">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M10.9939 4.70783C9.16115 2.5652 6.10493 1.98884 3.80863 3.95085C1.51234 5.91285 1.18905 9.19323 2.99234 11.5137C4.49166 13.443 9.02912 17.5121 10.5163 18.8291C10.6826 18.9764 10.7658 19.0501 10.8629 19.0791C10.9475 19.1043 11.0402 19.1043 11.1249 19.0791C11.2219 19.0501 11.3051 18.9764 11.4715 18.8291C12.9586 17.5121 17.4961 13.443 18.9954 11.5137C20.7987 9.19323 20.5149 5.89221 18.1791 3.95085C15.8434 2.00948 12.8266 2.5652 10.9939 4.70783Z" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                <button class="add-fav-btn" data-recipe-id="${recipe._id}">
+                    <svg class="heart-svg" width="22" height="22" viewBox="0 0 22 22" fill="${svgFill}" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M10.9939 4.70783C9.16115 2.5652 6.10493 1.98884 3.80863 3.95085C1.51234 5.91285 1.18905 9.19323 2.99234 11.5137C4.49166 13.443 9.02912 17.5121 10.5163 18.8291C10.6826 18.9764 10.7658 19.0501 10.8629 19.0791C10.9475 19.1043 11.0402 19.1043 11.1249 19.0791C11.2219 19.0501 11.3051 18.9764 11.4715 18.8291C12.9586 17.5121 17.4961 13.443 18.9954 11.5137C20.7987 9.19323 20.5149 5.89221 18.1791 3.95085C15.8434 2.00948 12.8266 2.5652 10.9939 4.70783Z" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </button>
                 <span class="span-title" data-recipe-id="${recipe._id}">
                     ${recipe.title.toUpperCase()}
@@ -182,9 +182,8 @@ function renewRecipes() {
                 let res = favApi.togleFav(
                     e.target.closest('button').dataset.recipeId
                 );
-
-                console.log(res);
-                // if (res) togle class  'favorite' : 'unfavorite'
+                let svgFill = res ? '#F8F8F8' : 'none'
+                e.target.closest('svg').style.fill = svgFill;
             });
         });
         content.querySelectorAll('.main-see-recipe').forEach(button => {
@@ -215,9 +214,7 @@ function pagination(page, total, container, callback) {
         } else {
             // active prev b
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="1"><<</button>`;
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
-                page - 1
-            }"><</button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page - 1}"><</button>`;
         }
         for (let i = page - btns; i <= page + btns; i++) {
             if (i > 0 && i <= total) {
@@ -239,9 +236,7 @@ function pagination(page, total, container, callback) {
             container.innerHTML += `<button class="main-pag-btn" disabled>>></button>`;
         } else {
             // active forward b
-            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${
-                page + 1
-            }">></button>`;
+            container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${page + 1}">></button>`;
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${total}">>></button>`;
         }
         container.querySelectorAll('[data-topage]').forEach(btn => {
@@ -253,13 +248,4 @@ function pagination(page, total, container, callback) {
             });
         });
     }
-}
-// const buttonPag = document.querySelectorAll('.main-pag-btn');
-// buttonPag.addEventListener('click',)
-
-// 22 /08 /
-
-function addToLocalStor(e) {
-    console.log(e.target.dataset.recipeId);
-    // localStorage.setItem(JSON.stringify(a))
 }

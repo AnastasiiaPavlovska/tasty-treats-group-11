@@ -57,7 +57,11 @@ function renewRecipes(page) {
                 cardsArray.push(
                     `<li class="item-cards">
                       <img class="card-img" data-recipe-id="${recipe._id}" src="${recipe.preview}"/>
-                      <button class="add-fav-btn" data-recipe-id="${recipe._id}">love</button>
+                      <button class="add-fav-btn" data-recipe-id="${recipe._id}">
+                          <svg class="heart-svg" width="22" height="22" viewBox="0 0 22 22" fill="#F8F8F8" xmlns="http://www.w3.org/2000/svg">
+                              <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M10.9939 4.70783C9.16115 2.5652 6.10493 1.98884 3.80863 3.95085C1.51234 5.91285 1.18905 9.19323 2.99234 11.5137C4.49166 13.443 9.02912 17.5121 10.5163 18.8291C10.6826 18.9764 10.7658 19.0501 10.8629 19.0791C10.9475 19.1043 11.0402 19.1043 11.1249 19.0791C11.2219 19.0501 11.3051 18.9764 11.4715 18.8291C12.9586 17.5121 17.4961 13.443 18.9954 11.5137C20.7987 9.19323 20.5149 5.89221 18.1791 3.95085C15.8434 2.00948 12.8266 2.5652 10.9939 4.70783Z" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </button>
                       <span class="span-title">${recipe.title.toUpperCase()}</span>
                       <span class="span-descr">${recipe.description}</span>
                       <button class="main-see-recipe" data-recipe-id="${recipe._id}">See recipe</button>
@@ -93,17 +97,15 @@ function renewRecipes(page) {
         favoriteCards.querySelectorAll('.add-fav-btn').forEach(button => {
             button.addEventListener('click', function (e) {
                 e.preventDefault();
-                let res = favApi.togleFav(e.target.dataset.recipeId);
-                // console.log(res);
+                favApi.togleFav(e.target.closest('button').dataset.recipeId);
                 renewRecipes(page);
-                // if (res) togle class  'favorite' : 'unfavorite'
             });
         });
         favoriteCards.querySelectorAll('.main-see-recipe').forEach(button => {
             let modal = require('./js/modal-recipe');
             button.addEventListener('click', (e) => {
                 console.log(e.target.dataset);
-                modal.default.open(e.target.dataset.recipeId);
+                modal.default.open(e.target.closest('button').dataset.recipeId);
             });
         });
         if (counter > perPageLimit) {
@@ -119,6 +121,7 @@ function renewRecipes(page) {
         favCaptive.style.display = 'none';
         document.querySelector('.favorites-tags').style.display='flex';
     } else {
+        favoriteCards.innerHTML = '';
         favCaptive.style.display = 'flex';
         document.querySelector('.favorites-tags').style.display='none';
     }

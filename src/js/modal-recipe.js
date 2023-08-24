@@ -109,10 +109,10 @@ ${ingredient.name}<span class="ingredient-amount">${ingredient.measure}</span>
     btnAddToFavorite.addEventListener('click', function (e) {
         e.preventDefault();
         let favApi = require('./favorites-api').default;
+        //let btn = e.target.closest('.btn-favorite');
+        favApi.togleFav(e.target.dataset.recipeId)
+        //btn.innerText = favApi.togleFav(e.target.dataset.recipeId) ? 'In Favorites' : 'Add to Favorites';
         favApi.togleFav(e.target.dataset.recipeId);
-        if (favApi.checkFav(e.target.dataset.recipeId)) {
-            e.target.value('Remove from Favorites');
-        }
     });
 }
 
