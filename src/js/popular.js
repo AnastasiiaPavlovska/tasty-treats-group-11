@@ -113,7 +113,7 @@ function createModalRecepieById({
           <div class="modal-close">
               <button type="button" class="modal-close-btn">x
                   <svg class="modal-close-icon" width="16" height="16">
-                      <use href="/src/img/youtube.svg#icon-modal-close"></use>
+                      <use href="/src/img/sprite.svg#icon-modal-close"></use>
                   </svg>
               </button>
           </div>

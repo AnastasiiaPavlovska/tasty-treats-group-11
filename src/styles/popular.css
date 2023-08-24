@@ -238,10 +238,15 @@ body.no-scroll {
     font-weight: 600;
     line-height: 1.33; /* 133.333% */
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+    order: 2;
 }
 .recipe-video-content {
     position: relative;
+}
+.video-oder{
+    display: flex;
+    flex-direction: column;
 }
 .recepi-video-wrap {
     width: 295px;
@@ -303,6 +308,7 @@ body.no-scroll {
     align-items: flex-end;
     font-size: 18px;
     line-height: 1;
+    margin-bottom: 33px;
 }
 .recepi-rating-body {
     position: relative;
@@ -438,7 +444,14 @@ body.no-scroll {
         width: 531px;
         padding: 32px 32px;
     }
-    .recipe-info-order {
+    .modal-recepi-title{
+        order: 0;
+        margin-bottom: 16px;
+    }
+    .recepi-rating{
+        margin-bottom: 0;
+    }
+    .recipe-info-order{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
