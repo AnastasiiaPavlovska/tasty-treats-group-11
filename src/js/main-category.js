@@ -154,7 +154,7 @@ function renewRecipes() {
                     <img class="card-img" src="${recipe.preview}" />
                 </div>
                 ${recipeRating}
-                <button class="add-fav-btn ${favClass}">
+                <button class="add-fav-btn ${favClass}" data-recipe-id="${recipe._id}">
                     <svg class="heard-icon">
                         <use href="../img/sprite.svg#icon-heart1"></use>
                     </svg>

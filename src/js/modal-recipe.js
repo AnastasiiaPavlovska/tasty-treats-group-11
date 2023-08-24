@@ -1,4 +1,4 @@
-import favApi from './favorites-api';
+
 import TestyApiService from './testyApiService';
 
 const testyApiService = new TestyApiService();
@@ -108,6 +108,7 @@ ${ingredient.name}<span class="ingredient-amount">${ingredient.measure}</span>
 
     btnAddToFavorite.addEventListener('click', function (e) {
         e.preventDefault();
+        let favApi = require('./favorites-api').default;
         favApi.togleFav(e.target.dataset.recipeId);
         if (favApi.checkFav(e.target.dataset.recipeId)) {
             e.target.value('Remove from Favorites');

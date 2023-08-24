@@ -1,4 +1,3 @@
-import favApi from './js/favorites-api';
 const throttle = require('lodash.throttle');
 
 const categoryListFavorite = document.querySelector('.category-list-favorites');
@@ -10,10 +9,7 @@ let AllCategories = [];
 
 let favCount = 0;
 let perPageLimit = 3;
-let favObj = favApi.getLs();
 let currentCategory = '';
-
-console.log(favObj);
 
 window.onresize = throttle(function () {
     renewRecipes();
@@ -23,7 +19,8 @@ window.onresize = throttle(function () {
 function renewRecipes(page) {
     page ||= 1;
     page = Number(page);
-    favObj = favApi.getLs();
+    let favApi = require('./js/favorites-api').default;
+    let favObj = favApi.getLs();
     let cardsArray = [];
     AllCategories = [];
     favCount = 0;
@@ -58,15 +55,13 @@ function renewRecipes(page) {
             ) {
                 totalCards++;
                 cardsArray.push(
-                    `<li class="item-cards"><img class="card-img" data-recipe-id="${
-                        recipe._id
-                    }"src="${
-                        recipe.preview
-                    }"/><button class="add-fav-btn" data-recipe-id="${
-                        recipe._id
-                    }">love</button><span class="span-title">${recipe.title.toUpperCase()}</span><span class="span-descr">${
-                        recipe.description
-                    }</span><button class="main-see-recipe">See recipe</button></li>`
+                    `<li class="item-cards">
+                      <img class="card-img" data-recipe-id="${recipe._id}" src="${recipe.preview}"/>
+                      <button class="add-fav-btn" data-recipe-id="${recipe._id}">love</button>
+                      <span class="span-title">${recipe.title.toUpperCase()}</span>
+                      <span class="span-descr">${recipe.description}</span>
+                      <button class="main-see-recipe" data-recipe-id="${recipe._id}">See recipe</button>
+                    </li>`
                 );
             }
         }
@@ -104,6 +99,13 @@ function renewRecipes(page) {
                 // if (res) togle class  'favorite' : 'unfavorite'
             });
         });
+        favoriteCards.querySelectorAll('.main-see-recipe').forEach(button => {
+            let modal = require('./js/modal-recipe');
+            button.addEventListener('click', (e) => {
+                console.log(e.target.dataset);
+                modal.default.open(e.target.dataset.recipeId);
+            });
+        });
         if (counter > perPageLimit) {
             pagination(
                 page,
@@ -121,18 +123,6 @@ function renewRecipes(page) {
 }
 
 renewRecipes();
-
-//     let favObj = favApi.getLs();
-//     testyApiService.getRecipes().then(data => {
-//         let tmpContent = '';
-//         data.results.forEach(recipe => {
-//             let favClass = (recipe._id in favObj) ? 'favorite' : 'unfavorite';
-//             tmpContent += `<li class="item-cards"><img class="card-img" data-recipe-id="${recipe._id}"src="${recipe.preview}"/><button class="add-fav-btn ${favClass}" data-recipe-id="${recipe._id}">love</button><span class="span-title">${(recipe.title).toUpperCase()}</span><span class="span-descr">${recipe.description}</span><button class="main-see-recipe">See recipe</button></li>`;
-//         });
-
-//         content.querySelectorAll('.main-see-recipe').forEach(button => {
-//             button.addEventListener('click', openModal);
-//         });
 
 // pagination
 function pagination(page, total, container, callback) {
