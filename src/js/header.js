@@ -2,13 +2,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentPage = window.location.pathname;
     const navLinks = document.querySelectorAll('.header-nav-link');
 
-    navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
+    if (currentPage === '/') {
+        navLinks[0].classList.add('is-active-link');
+    } else {
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
 
-        if (linkHref === currentPage) {
-            link.classList.add('is-active-link');
-        }
-    });
+            if (linkHref === currentPage) {
+                link.classList.add('is-active-link');
+            }
+        });
+    }
 });
 
 const headerOpenModalBtn = document.getElementById('headerOpenModalBtn');
