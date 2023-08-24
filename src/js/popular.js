@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
@@ -12,6 +13,7 @@ async function getRecipes() {
         // console.log(response);
         return response.data;
     } catch (error) {
+        Notiflix.Notify.failure('Sorry, something went wrong. Plise try again later.');
         console.log(error);
         throw error;
     }
@@ -19,7 +21,7 @@ async function getRecipes() {
 getRecipes()
     .then(data => {
         popularRecepies.innerHTML = createMarkupPopularRecepies(data);
-        console.log(data);
+        // console.log(data);
     })
     .catch(err => {
         console.log(err);
@@ -74,13 +76,14 @@ function openModal(id) {
                 ingredients: { desc, id, measure, name },
                 tags,
             } = recipe;
-            console.log(recipe);
-            console.log(description);
+            // console.log(recipe);
+            // console.log(description);
 
             createModalRecepieById(recipe);
             body.classList.add('no-scroll');
         })
         .catch(error => {
+            Notiflix.Notify.failure('Sorry, there is no information about this recipe. Plise try another one.');
             console.log(error);
         });
 }
