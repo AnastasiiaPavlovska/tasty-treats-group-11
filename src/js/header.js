@@ -58,6 +58,17 @@ let theme = getTheme();
 applyTheme(theme);
 
 themeTogglers.forEach(themeToggler => {
+    themeToggler.classList.add('no-animation');
+    themeToggler.checked = theme === 'dark';
+});
+
+setTimeout(() => {
+    themeTogglers.forEach(themeToggler => {
+        themeToggler.classList.remove('no-animation');
+    });
+}, 1000);
+
+themeTogglers.forEach(themeToggler => {
     themeToggler.addEventListener('change', () => {
         const newTheme = rotateTheme(theme);
         applyTheme(newTheme);

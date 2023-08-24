@@ -151,7 +151,7 @@
 }
 
 .swiper-pagination-bullet-active {
-    background-color: var(--accent-color);
+    background-color: var(--primary-brend);
     font-family: Poppins;
     font-size: 25px;
     font-style: normal;
