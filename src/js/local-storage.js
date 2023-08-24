@@ -1,15 +1,15 @@
-const save = value => {
+const save = (key, value) => {
     try {
         const serializedState = JSON.stringify(value);
-        localStorage.setItem('favorites', serializedState);
+        localStorage.setItem(key, serializedState);
     } catch (error) {
         console.error('Set state error: ', error.message);
     }
 };
 
-const load = () => {
+const load = (key) => {
     try {
-        const serializedState = localStorage.getItem('favorites');
+        const serializedState = localStorage.getItem(key);
         return serializedState === null
             ? undefined
             : JSON.parse(serializedState);
@@ -18,9 +18,9 @@ const load = () => {
     }
 };
 
-const remove = () => {
+const remove = (key) => {
     try {
-        localStorage.removeItem('favorites');
+        localStorage.removeItem(key);
     } catch (error) {
         console.error('Remove item error: ', error.message);
     }
