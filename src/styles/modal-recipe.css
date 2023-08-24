@@ -12,7 +12,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    /* transition: 300ms linear; */
     padding: 30px 10px;
     overflow-y: auto;
     border-radius: 15px;
@@ -167,7 +166,6 @@
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    /* line-height: 1.28; */
     letter-spacing: 0;
     color: var(--primary-title-color);
     white-space: normal;
@@ -175,7 +173,7 @@
 }
 .button-wrap {
     display: flex;
-    gap: 10px;
+    justify-content: center;
 }
 .btn-favorite {
     font-family: 'Inter', sans-serif;
@@ -192,21 +190,8 @@
     border-radius: 15px;
     border: 0px;
 }
-.btn-rating-recipe {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.5;
-    letter-spacing: 0;
+.btn-favorite:hover {
     color: var(--primary-title-color);
-    cursor: pointer;
-    background-color: var(--primary-bg-color);
-    text-align: center;
-    width: 133px;
-    height: 41px;
-    border-radius: 15px;
-    border: 1px solid;
-    border-color: var(--primary-brend);
 }
 
 .ingredient-item::after {
@@ -273,12 +258,9 @@ ul.ingredients li:last-child {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 5px;
-        /* align-items: start; */
-        /* justify-content: space-between; */
     }
     .rating-wrap-recipe {
         gap: 8px;
-        /* align-items: center; */
     }
     .ingredients-wrap {
         margin: 32px 0;
@@ -287,15 +269,6 @@ ul.ingredients li:last-child {
     ul.ingredients li {
         margin-bottom: 16px;
     }
-
-    .recipe-instruction {
-        /* height: 162px; */
-        /* margin-bottom: 32px; */
-    }
-    .button-wrap {
-        display: flex;
-        gap: 16px;
-    }
     .recipe-image {
         height: 250px;
     }
@@ -303,16 +276,11 @@ ul.ingredients li:last-child {
         width: 467px;
         max-height: 162px;
         resize: none;
-        /* margin-top: 24px; */
         overflow-y: auto;
         margin-bottom: 32px;
     }
     .btn-favorite {
         width: 156px;
-        height: 45px;
-    }
-    .btn-rating-recipe {
-        width: 141px;
         height: 45px;
     }
 }
