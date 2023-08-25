@@ -226,7 +226,6 @@
 @media screen and (min-width: 1200px) {
     .header {
         padding-top: 40px;
-        padding-bottom: 93px;
     }
     .header-buttons {
         gap: 24px;

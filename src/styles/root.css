@@ -2,6 +2,7 @@
     --primary-brend: #9bb537;
     --primary-bg-color: #f8f8f8;
     --primary-bg: #f8f8f8;
+    --primary-btn-color: #f8f8f8;
     --primary-bg-mob: #9bb537;
     --primary-cards-overlay: linear-gradient(
         1deg,
@@ -49,6 +50,7 @@
     --primary-bg-color: #f8f8f8;
     --primary-bg: #161616;
     --primary-bg-mob: #050505;
+    --primary-btn-color: #050505;
     --primary-cards-overlay: linear-gradient(
         1deg,
         rgba(5, 5, 5, 0.6) 0%,
