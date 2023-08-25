@@ -32,6 +32,8 @@
     margin-bottom: 24px;
 }
 .hero-btn {
+    width: 111px;
+    height: 37px;
     color: var(--primary-title-color);
     font-family: Inter;
     font-size: 14px;
@@ -41,7 +43,7 @@
     border-radius: 12px;
     border: 1px solid #9bb537;
     display: inline-flex;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -192,8 +194,10 @@
         line-height: 24px;
     }
     .hero-btn {
+        width: 127px;
+        height: 45px;
         margin-bottom: 64px;
-        padding: 14px 28px;
+        /* padding: 14px 28px; */
     }
     .swiper {
         width: 736px;
