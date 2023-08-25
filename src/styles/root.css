@@ -22,7 +22,6 @@
     --unactive-btn-arrow: rgba(248, 248, 248, 0.5);
     --primary-switch-btn: #cecdcd;
     --rating-color: #f8f8f8;
-
     --dark-bg-color: #161616;
     --dark-modal-bg: #050505;
     --dark-cards-overlay: linear-gradient(
@@ -43,6 +42,7 @@
         #9bb537 0%,
         rgba(155, 181, 55, 0.69) 100%
     );
+    --modal-bg-color: #ffffff;
 }
 
 :root[data-theme='dark'] {
@@ -90,6 +90,7 @@
         #9bb537 0%,
         rgba(155, 181, 55, 0.69) 100%
     );
+    --modal-bg-color: #050505;
 }
 /*:root {
     --primary-brend: #9bb537;

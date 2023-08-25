@@ -3,7 +3,7 @@
 
 .modal-order {
     width: 290px;
-    background-color: var(--dark-title-color);
+    background-color: var(--modal-bg-color);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -44,6 +44,8 @@
     box-sizing: border-box;
     display: block;
     margin: 8px 0 16px;
+    background-color: transparent;
+    color: var(--primary-title-color);
 }
 input {
     margin: 0;
@@ -58,6 +60,8 @@ input {
     margin: 8px 0 20px 0;
     box-sizing: border-box;
     display: block;
+    background-color: transparent;
+    color: var(--primary-title-color);
 }
 .modal-button {
     width: 100%;
