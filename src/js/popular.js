@@ -59,7 +59,9 @@ function openModalOnClick(evt) {
     evt.preventDefault();
 
     const resepieID = evt.target.closest('.popular-recepies-item').dataset.id;
-    openModal(resepieID);
+    let modal = require('./modal-recipe.js');
+    modal.default.open(resepieID);
+        // openModal(resepieID);
 }
 function openModal(id) {
     fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${id}`)
