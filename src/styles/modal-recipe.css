@@ -124,7 +124,7 @@
 
 .ingredients-wrap {
     margin: 33px 0 40px 0;
-    width: 295px;
+    /* width: 295px; */
 }
 .ingredient-item {
     position: relative;
@@ -277,7 +277,7 @@ ul.ingredients li:last-child {
     }
     .ingredients-wrap {
         margin: 32px 0;
-        width: 467px;
+        /* width: 467px; */
     }
     ul.ingredients li {
         margin-bottom: 16px;
