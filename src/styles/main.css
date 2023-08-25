@@ -411,6 +411,13 @@ main {
     border-radius: 15px;
 }
 
+.form-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
 .reset-filters {
     font-weight: 500;
     font-size: 12px;
@@ -604,10 +611,6 @@ main {
         width: 782px;
         display: flex;
         gap: 16px;
-    }
-
-    .form-filters {
-        display: contents;
     }
 
     .main-div {
