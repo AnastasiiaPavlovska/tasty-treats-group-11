@@ -7,7 +7,7 @@
 .modal-recipe {
     max-height: 100%;
     width: 320px;
-    background-color: var(--dark-title-color);
+    background-color: var(--modal-bg);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -25,6 +25,9 @@
     top: 7px;
     right: 7px;
     padding: 0;
+}
+.icon-close-recipe {
+    stroke: var(--primary-title-color);
 }
 .block1-wrap {
     display: flex;
@@ -161,7 +164,7 @@
     letter-spacing: 0;
     color: var(--primary-title-color);
     cursor: pointer;
-    background-color: var(--primary-bg-color);
+    background-color: transparent;
     padding: 8px 16px;
     border-radius: 35px;
     border: 1px solid transparent; /* Transparent border */

@@ -22,7 +22,7 @@
     --unactive-btn-arrow: rgba(248, 248, 248, 0.5);
     --primary-switch-btn: #cecdcd;
     --rating-color: #f8f8f8;
-
+    --modal-bg: #fff;
     --dark-bg-color: #161616;
     --dark-modal-bg: #050505;
     --dark-cards-overlay: linear-gradient(
@@ -69,7 +69,7 @@
     --unactive-btn-arrow: rgba(248, 248, 248, 0.5);
     --primary-switch-btn: #cecdcd;
     --rating-color: #ffffff80;
-
+    --modal-bg: #050505;
     --dark-bg-color: #161616;
     --dark-modal-bg: #050505;
     --dark-cards-overlay: linear-gradient(

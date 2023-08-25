@@ -49,6 +49,7 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 48px;
+    background-color: transparent;
 }
 .hero-btn:hover,
 .hero-btn:focus {
