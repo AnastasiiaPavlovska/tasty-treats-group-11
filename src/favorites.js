@@ -184,6 +184,21 @@ function renewRecipes(page) {
         // Ви можете додати необхідний код тут, якщо потрібно
     });
     if (favoriteCards.querySelectorAll(".item-cards").length) {
+
+        if (contentWidth <= containerWidth) {
+            // Якщо контент поміщається в контейнер, приховуємо скрол
+            categoriesBoxFavorites.style.overflowX = 'hidden';
+        } else {
+            // Інакше показуємо скрол
+            categoriesBoxFavorites.style.overflowX = 'scroll';
+        }
+
+        // Опрацьовуємо подію при прокручуванні
+        // Ви можете додати необхідний код тут, якщо потрібно
+    });
+
+    if (cardsArray.length) {
+        favoriteCards.innerHTML = cardsArray.join('');
         favoriteCards.querySelectorAll('.add-fav-btn').forEach(button => {
             button.addEventListener('click', function (e) {
                 e.preventDefault();
