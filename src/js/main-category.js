@@ -189,17 +189,15 @@ function renewRecipes() {
     testyApiService.getRecipes().then(data => {
         content.innerHTML = '';
         data.results.forEach(recipe => {
-            let favClass = recipe._id in favObj ? 'favorite' : 'unfavorite';
-
+            let svgHeart = recipe._id in favObj ? activeHeartSvg : inactiveHeartSvg;
             const li = document.createElement('li');
             li.className = 'item-cards';
             li.innerHTML = `    
                 <div class="shadow-on-img" data-recipe-id="${recipe._id}">
                     <img class="card-img" src="${recipe.preview}" />
                 </div>
-                <button class="add-fav-btn ${favClass}"
-                        data-recipe-id="${recipe._id}">
-                    ${inactiveHeartSvg}
+                <button class="add-fav-btn" data-recipe-id="${recipe._id}">
+                    ${svgHeart}
                 </button>
                 <span class="span-title" data-recipe-id="${recipe._id}">
                     ${recipe.title.toUpperCase()}
@@ -342,13 +340,4 @@ function pagination(page, total, container, callback) {
     } else {
         container.innerHTML = '';
     }
-}
-// const buttonPag = document.querySelectorAll('.main-pag-btn');
-// buttonPag.addEventListener('click',)
-
-// 22 /08 /
-
-function addToLocalStor(e) {
-    console.log(e.target.dataset.recipeId);
-    // localStorage.setItem(JSON.stringify(a))
 }
