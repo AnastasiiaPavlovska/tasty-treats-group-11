@@ -46,7 +46,6 @@ main {
     border: 1px solid var(--primary-input-border);
     width: 176px;
     height: 50px;
-    padding: 14px 29px;
     border-radius: 15px;
     background-color: inherit;
     margin-bottom: 24px;
@@ -112,7 +111,6 @@ main {
 .filter-item:hover {
     border: 1px solid var(--primary-brend);
 }
-
 /* Фото рецептів */
 .list-item {
     margin: 0 auto !important;
@@ -163,7 +161,7 @@ main {
 }
 
 .filter-input {
-    color: rgba(5, 5, 5, 0.5);
+    color: var(--primary-input-title-color);
 }
 
 .filter-input-wrap {
@@ -256,8 +254,7 @@ main {
     margin-right: 8px;
     font-family: inter;
     border-color: #0505054d;
-    transition:
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -282,8 +279,7 @@ main {
     width: 44px;
     height: 44px;
     margin-right: 8px;
-    transition:
-        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -296,8 +292,7 @@ main {
     width: 44px;
     height: 44px;
     margin-right: 8px;
-    transition:
-        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -310,8 +305,7 @@ main {
     width: 44px;
     height: 44px;
     margin-right: 8px;
-    transition:
-        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -415,7 +409,6 @@ main {
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    color: rgba(5, 5, 5, 0.5);
     margin-bottom: 20px;
 }
 
