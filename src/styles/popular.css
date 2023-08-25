@@ -186,7 +186,7 @@ body.no-scroll {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 100;
     visibility: hidden;
     opacity: 0;
     transition: all 0.2s;
@@ -204,7 +204,7 @@ body.no-scroll {
     display: flex;
     padding: 10px;
     background-color: var(--primary-input-title-color);
-    z-index: 1000;
+    z-index: 100;
 }
 .modal-body {
     position: relative;
@@ -215,6 +215,13 @@ body.no-scroll {
     padding: 40px 20px;
     position: relative;
     z-index: 100;
+}
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    cursor: pointer;
+    z-index: 1000;
 }
 .modal-close-btn {
     border: none;
@@ -238,15 +245,15 @@ body.no-scroll {
     font-weight: 600;
     line-height: 1.33; /* 133.333% */
     text-transform: uppercase;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     order: 2;
-}
-.recipe-video-content {
-    position: relative;
 }
 .video-oder{
     display: flex;
     flex-direction: column;
+}
+.recipe-video-content {
+    position: relative;
 }
 .recepi-video-wrap {
     width: 295px;
@@ -262,6 +269,7 @@ body.no-scroll {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 2px solid var(--dark-title-color);
     border-radius: 3px;
     background-color: transparent;
     display: flex;
@@ -272,7 +280,7 @@ body.no-scroll {
     cursor: pointer;
 }
 .youtube-icon {
-    fill: var(--dark-title-color);
+    /* fill: var(--dark-title-color); */
 }
 .ingredients-order {
     display: grid;
@@ -280,13 +288,13 @@ body.no-scroll {
 .recepi-tags-wrap {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
 }
 .recepi-tags-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
-    margin-right: 32px;
 }
+
 .recepi-tags-btn {
     display: block;
     border: none;
@@ -316,6 +324,7 @@ body.no-scroll {
 .recepi-rating-body::before {
     content: '★★★★★';
     display: block;
+    color: var(--rating-stars-unactive-modal);
 }
 .rating-items {
     display: flex;
@@ -325,7 +334,7 @@ body.no-scroll {
     top: 0;
     left: 0;
 }
-.rating-start-item {
+.rating-stars-item{
     flex: 0 0 20%;
     height: 100%;
     opacity: 0;
@@ -359,7 +368,7 @@ body.no-scroll {
 .recepi-rating-value {
     margin-right: 6px;
 }
-.recepi-ingredients-list {
+.recepi-ingredients-wrap{
     margin-bottom: 40px;
 }
 .recepi-ingredients-item {
@@ -371,6 +380,7 @@ body.no-scroll {
 
 .recepi-ingredients-item:not(:last-child) {
     margin-bottom: 10px;
+   
 }
 .ingredient-name {
     color: var(--primary-title-color);
@@ -446,36 +456,28 @@ body.no-scroll {
     }
     .modal-recepi-title{
         order: 0;
-        margin-bottom: 16px;
     }
     .recepi-rating{
         margin-bottom: 0;
     }
     .recipe-info-order{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        width: 467px;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        gap: 32px;
         align-items: center;
     }
-
-    .recepi-rating-wrap {
-        grid-column-start: 2;
-        grid-column-end: 3;
-        grid-row-start: 1;
-        grid-row-end: 2;
+    .recepi-rating-wrap{
+        order: 1;
         margin-bottom: 0;
         width: 177px;
+     
     }
-    .recepi-tags-wrap {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: 2;
+    .recepi-tags-wrap{
+        width: 258px;
     }
-    .recepi-ingredients-list {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        order: 2;
-        margin-top: 32px;
+    .recepi-ingredients-wrap{
+        order: 0;
         margin-bottom: 32px;
     }
     .modal-recepi-title {
