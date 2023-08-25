@@ -76,7 +76,7 @@
     min-width: 91px;
     height: 46px;
     border-radius: 15px;
-    border-color: var(--primary-input-border);
+    border: 1px solid var(--primary-input-border);
     display: flex;
     align-items: center;
     justify-content: center;
