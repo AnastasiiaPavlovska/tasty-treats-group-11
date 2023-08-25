@@ -1,14 +1,16 @@
+// Оновлений JavaScript зі скролом
 const throttle = require('lodash.throttle');
 
 const categoryListFavorite = document.querySelector('.category-list-favorites');
 const favoriteCards = document.querySelector('.favorites-list');
 const favorPagin = document.querySelector('#pagination');
-const favCaptive = document.querySelector('.favorites-text');
+const favCaptive = document.querySelector('.favorites-wrap');
+const categoriesBoxFavorites = document.querySelector(
+    '.categories-box-favorites'
+);
 
 let AllCategories = [];
-
 let favCount = 0;
-let perPageLimit = 3;
 let currentCategory = '';
 
 window.onresize = throttle(function () {
@@ -72,11 +74,13 @@ function renewRecipes(page) {
     let cardsArray = [];
     AllCategories = [];
     favCount = 0;
-    perPageLimit = window.innerWidth < 768 ? 2 : 3;
+
+    // Додати виклик функції perPage для встановлення кількості карточок на сторінці
+    perPage();
+
     let counter = 0;
     Object.keys(favObj).forEach(id => {
         let recipe = favObj[id];
-        //console.log(id, recipe);
         favCount++;
         if (!AllCategories.includes(recipe.category)) {
             AllCategories.push(recipe.category);
@@ -87,7 +91,6 @@ function renewRecipes(page) {
         : '';
     Object.keys(favObj).forEach(id => {
         let recipe = favObj[id];
-        //console.log(recipe);
         let totalCards = 0;
         let start = page === 1 ? 0 : (page - 1) * perPageLimit;
         let end = page === 1 ? perPageLimit : page * perPageLimit;
@@ -131,35 +134,60 @@ function renewRecipes(page) {
             }
         }
     });
-    
-    const markup = AllCategories.sort()
-        .map(category => {
-            return `<li class="favourites-list-btn"><button class="category-btn" data-recipe-category="${category}">${category}</button></li>`;
-        })
-        .join('');
-    categoryListFavorite.innerHTML = markup;
 
-    categoryListFavorite.querySelectorAll('.category-btn').forEach(btn => {
-        btn.addEventListener('click', e => {
-            currentCategory = e.target.dataset.recipeCategory;
-            console.log(e.target.dataset.recipeCategory);
-            // renew favors
+    function createCategoryButtons() {
+        const markup = AllCategories.sort()
+            .map(category => {
+                return `<li class="favourites-list-btn"><button class="category-btn all-tags" data-recipe-category="${category}">${category}</button></li>`;
+            })
+            .join('');
+        categoryListFavorite.innerHTML = markup;
+
+        categoryListFavorite.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                currentCategory = e.target.dataset.recipeCategory;
+                console.log(e.target.dataset.recipeCategory);
+                // Оновлюємо вподобані рецепти
+                renewRecipes();
+            });
+        });
+
+        document.querySelector('.all-tags').addEventListener('click', () => {
+            currentCategory = '';
+            console.log('categories reset', currentCategory);
+            // Оновлюємо вподобані рецепти
             renewRecipes();
         });
-    });
+    }
 
-    document.querySelector('.all-tags').addEventListener('click', () => {
-        currentCategory = '';
-        console.log('categories reset', currentCategory);
-        // renew favors
-        renewRecipes();
+    // Викликаємо функцію для створення кнопок
+    createCategoryButtons();
+
+    // Додаємо обробник подій для скролу (змінений для підтримки мобільних пристроїв)
+    categoriesBoxFavorites.addEventListener('scroll', event => {
+        // Отримуємо поточну позицію прокрутки
+        const scrollLeft = categoriesBoxFavorites.scrollLeft;
+
+        // Отримуємо ширину контейнера і вираховуємо, чи потрібно показувати горизонтальний скрол
+        const containerWidth = categoriesBoxFavorites.clientWidth;
+        const contentWidth = categoriesBoxFavorites.scrollWidth;
+
+        if (contentWidth <= containerWidth) {
+            // Якщо контент поміщається в контейнер, приховуємо скрол
+            categoriesBoxFavorites.style.overflowX = 'hidden';
+        } else {
+            // Інакше показуємо скрол
+            categoriesBoxFavorites.style.overflowX = 'scroll';
+        }
+
+        // Опрацьовуємо подію при прокручуванні
+        // Ви можете додати необхідний код тут, якщо потрібно
     });
     if (favoriteCards.querySelectorAll(".item-cards").length) {
         favoriteCards.querySelectorAll('.add-fav-btn').forEach(button => {
             button.addEventListener('click', function (e) {
                 e.preventDefault();
                 let res = favApi.togleFav(e.target.dataset.recipeId);
-                // console.log(res);
                 renewRecipes(page);
                 // if (res) togle class  'favorite' : 'unfavorite'
             });
@@ -187,6 +215,17 @@ function renewRecipes(page) {
         favCaptive.style.display = 'flex';
         document.querySelector('.favorites-tags').style.display = 'none';
     }
+}
+
+// Означення функції perPage для встановлення кількості карточок на сторінці
+function perPage() {
+    let cardsPerPage = 12; // Задайте бажану кількість карточок на сторінку
+
+    if (window.innerWidth < 768) {
+        cardsPerPage = 9; // Змініть це значення для мобільних пристроїв з меншою шириною
+    }
+
+    perPageLimit = cardsPerPage;
 }
 
 renewRecipes();
@@ -237,13 +276,10 @@ function pagination(page, total, container, callback) {
             container.innerHTML += `<button class="main-pag-btn main-pag-btn-green" data-topage="${total}">>></button>`;
         }
         container.querySelectorAll('[data-topage]').forEach(btn => {
-            /* console.log(btn.dataset.topage) */ btn.addEventListener(
-                'click',
-                function (e) {
-                    e.preventDefault();
-                    callback(Number(e.target.dataset.topage));
-                }
-            );
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                callback(Number(e.target.dataset.topage));
+            });
         });
     }
 }

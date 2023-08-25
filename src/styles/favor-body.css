@@ -1,53 +1,19 @@
-/* body {
-    font-family: 'Inter', sans-serif;
-    background: var(--primary-bg-color);
-    transition: 250ms;
-    overflow-x: hidden;
-    transition: 250ms;
-}
-
-p,
-h2 {
-    margin: 0;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-}
-li {
-    list-style: none;
-} */
-
-.favorites-zero {
-    display: none;
-}
-
-.favorites-zero.active {
-    width: 375px;
+.favorites-wrap {
     display: flex;
-    margin: 0 auto;
-    padding: 256px 20px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 30px);
 }
 
-.fav-container {
-    width: 335px;
-    background: var(--primary-bg-color);
-    transition: 250ms;
-}
-
-.favorites-icon {
-    display: flex;
+.fav-icon {
     width: 68px;
     height: 58px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .favorites-text {
     display: flex;
     text-align: center;
-    width: 335px;
     margin-top: 24px;
     font-size: 14px;
     line-height: 18px;
@@ -61,51 +27,47 @@ li {
 .tags-container {
     display: flex;
     gap: 18px;
-    padding-bottom: 24px;
+    margin-bottom: 24px;
+    overflow: hidden;
 }
 
-.favorites-tags {
-    font-weight: 500;
-    font-size: 14px;
-    width: 132px;
-    height: 46px;
-    border-radius: 15px;
-    border-color: rgba(5, 5, 5, 0.2);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(5, 5, 5, 0.2);
-    background-color: #ffffff;
-    transition:
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    display: none;
+.scrolling-container {
+    max-width: 100%;
+    overflow-x: auto; /* Змінено на overflow-x: auto для автоматичного включення горизонтального скролу */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Додано для покращеного прокручування на мобільних пристроях з підтримкою touch */
 }
-
-.category-btn {
+.categories-box-favorites {
+    overflow-x: scroll;
+}
+.all-tags {
+    margin-top: 40px;
     font-weight: 500;
     font-size: 14px;
     min-width: 91px;
     height: 46px;
     border-radius: 15px;
-    border-color: rgba(5, 5, 5, 0.2);
+    border-color: var(--primary-input-border);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: rgba(5, 5, 5, 0.2);
-    background-color: #ffffff;
-    transition:
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--primary-input-title-color);
+    background-color: transparent;
+    display: inline-block;
 }
 
-.favourites-list-btn .category-btn:hover {
+ul.favourites-list-btn {
+    overflow-x: auto;
+    white-space: nowrap; /* Забезпечте горизонтальний режим без перенесення тексту */
+    /* Інші ваші стилі тут */
+}
+.all-tags:hover,
+.all-tags:focus {
+    background-color: var(--primary-brend);
+    color: var(--primary-bg-color);
+}
+/* .favourites-list-btn .category-btn:hover {
     border: none;
     color: #f8f8f8;
     background-color: #9bb537;
@@ -124,9 +86,7 @@ li {
     border: none;
     color: #f8f8f8;
     background-color: #9bb537;
-}
-.page-change-favourite {
-}
+} */
 .btn-page-change:hover {
     background-color: #9bb537;
 }
@@ -138,8 +98,7 @@ li {
     height: 40px;
     border-radius: 50%;
     border-color: rgba(5, 5, 5, 0.3);
-    transition:
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -147,11 +106,9 @@ li {
 .page-change-favourite-list {
     display: flex;
     justify-content: center;
-    /* justify-content: center; */
     gap: 4px;
     position: fixed;
     bottom: 5%;
-    /* left: 447px; */
 }
 .btn-num-favourites {
     display: flex;
@@ -177,15 +134,11 @@ li {
 .hero-block {
     display: none;
 }
-
-.favorites-text {
-    font: Inter;
-    width: 600px;
-    font-size: 18px;
-    line-height: 20px;
-    letter-spacing: -4%;
+.category-list-favorites {
+    display: flex;
+    flex-wrap: nowrap; /* Забороняє переносити рядки */
+    overflow-x: auto; /* Включає горизонтальний скрол */
 }
-
 .favorites-gallery-container {
     margin-bottom: 40px;
 }
@@ -197,32 +150,17 @@ li {
 /* ================320px============== */
 
 @media screen and (min-width: 320px) {
-    .fav-container {
-        width: 320px;
-    }
     .page-change-favourite-list {
         min-width: 335px;
         min-height: 40px;
         justify-content: flex-start;
-        /* padding-left: 20px; */
         bottom: 3%;
-    }
-}
-
-/* ================428px============== */
-
-@media screen and (min-width: 428px) {
-    .fav-container {
-        width: 428px;
     }
 }
 
 /* ================450px============== */
 
 @media screen and (min-width: 450px) {
-    .fav-container {
-        width: 450px;
-    }
     .page-change-favourite-list {
         justify-content: center;
     }
@@ -231,35 +169,26 @@ li {
 /* ================768px============== */
 
 @media screen and (min-width: 768px) {
-    .fav-container {
-        width: 768px;
-        margin-left: 32px;
-        margin-right: 32px;
-    }
     .page-change-favourite-list {
         justify-content: center;
         left: 35%;
+    }
+    .favorites-list {
+        flex-direction: row;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .favorites-gallery-container {
+        margin-bottom: 64px;
+    }
+    .tags-container {
+        margin-bottom: 32px;
     }
 }
 
 /* ================1158px============== */
 @media screen and (min-width: 1158px) {
-    .fav-container {
-        width: 1158px;
-        margin-left: 100px;
-        margin-right: 100px;
-    }
     .page-change-favourite-list {
         left: 50%;
-    }
-
-    .mobile-menu {
-        display: none;
-    }
-    .logo-first-color {
-        display: none;
-    }
-    .nav {
-        display: none;
     }
 }

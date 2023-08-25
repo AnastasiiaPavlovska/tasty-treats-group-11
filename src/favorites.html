@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -19,46 +19,59 @@
         <section id="header-section">
             <include src="./html/header.html"></include>
         </section>
-        <section class="favorites-zero">
-            <div class="container">
-                <svg class="favorites-icon">
-                    <use href="./img/sprite.svg#fav-icon"></use>
-                </svg>
-            </div>
-        </section>
-        <section class="tags">
-            <div class="container fav-container tags-container">
-                <ul class="favor-tags-list">
-                    <li class="tags-item">
-                        <button
-                            class="favorites-tags all-tags active"
-                            type="button"
-                        >
-                            All categories
-                        </button>
-                    </li>
-                </ul>
-                <div class="categories-box-favorites">
-                    <ul class="category-list-favorites"></ul>
+        <main>
+            <section class="tags">
+                <div class="fav-pic">
+                    <!-- <picture>
+                        <source
+                            srcset="./img/favorites/card-tab.jpg"
+                            media="(min-width: 768px)"
+                        />
+                        <source
+                            srcset="./img/favorites/card-desk-2x.jpg 2x"
+                            media="(min-width: 1280px)"
+                        />
+                        <img src="./img/favorites/card-desk.jpg" alt="" />
+                    </picture> -->
                 </div>
-            </div>
-        </section>
-        <section class="favorites-gallery">
-            <div class="container fav-container favorites-gallery-container">
-                <ul class="favorites-list"></ul>
-            </div>
+                <div class="favorites-wrap container">
+                    <svg class="fav-icon">
+                        <use href="./img/sprite.svg#icon-tt"></use>
+                    </svg>
+                    <p class="favorites-text">
+                        It appears that you haven't added any recipes to your
+                        favorites yet. To get started, you can add recipes that
+                        you like to your favorites for easier access in the
+                        future.
+                    </p>
+                </div>
+                <div class="tags-container container">
+                    <div class="">
+                        <ul class="favor-tags-list">
+                            <li class="tags-item">
+                                <button class="all-tags active" type="button">
+                                    All categories
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="categories-box-favorites scrolling-container">
+                        <ul class="category-list-favorites"></ul>
+                    </div>
+                </div>
+            </section>
+            <section class="favorites-gallery">
+                <div class="container favorites-gallery-container">
+                    <ul class="favorites-list"></ul>
+                </div>
 
-            <div class="container fav-container">
-                <div class="pagination-wrapper favor-pagination">
-                    <div class="tui-pagination" id="pagination"></div>
+                <div class="container">
+                    <div class="pagination-wrapper favor-pagination">
+                        <div class="tui-pagination" id="pagination"></div>
+                    </div>
                 </div>
-            </div>
-            <p class="container fav-container favorites-text">
-                It appears that you haven't added any recipes to your favorites
-                yet. To get started, you can add recipes that you like to your
-                favorites for easier access in the future.
-            </p>
-        </section>
+            </section>
+        </main>
         <include src="./html/modal-order-now.html"></include>
         <include src="./html/modal-recipe.html"></include>
         <include src="./html/modal-give-rating.html"></include>
